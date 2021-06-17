@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
     public float projSpeed = 10;
     [SerializeField]
     private float fireTime = 0.5f;
-    private float canFire = -1f; 
+    private float canFire = -1f;
+    [SerializeField] private int lives = 3; 
 
     private float horizontalInput = -0.1f;
     private float verticalInput = 0.1f;
@@ -100,6 +101,15 @@ public class PlayerController : MonoBehaviour
         else if(playerT.position.x < -10)
         {
             playerT.position = new Vector3(10, playerT.position.y, 0); 
+        }
+    }
+
+    public void TakeDamage()
+    {
+        lives--; 
+        if(lives < 1)
+        {
+            Destroy(gameObject); 
         }
     }
 }
