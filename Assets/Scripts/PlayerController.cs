@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float fireTime = 0.5f;
     private float canFire = -1f;
-    [SerializeField] private int lives = 3; 
+    [SerializeField] private int lives = 3;
+    [SerializeField]
+    private SpawnManager spawnManager;
 
     private float horizontalInput = -0.1f;
     private float verticalInput = 0.1f;
@@ -33,7 +35,14 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>(); 
         OnStartPlayerLocation(); 
+
+        if(spawnManager == null)
+        {
+            Debug.LogError("The SpawnManager doesn't exist and is null");
+            return; 
+        }
     }
     void OnStartPlayerLocation()
     {
@@ -109,6 +118,7 @@ public class PlayerController : MonoBehaviour
         lives--; 
         if(lives < 1)
         {
+            spawnManager.PlayerDead(); 
             Destroy(gameObject); 
         }
     }
