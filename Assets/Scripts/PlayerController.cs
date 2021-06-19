@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
     // SerializeField data type, serialized the data so we can read it within the inspector
     // additionally SerializeField is handy for simplifying reference when having to use GetComponent 
     [SerializeField] 
-    public float speed = 3; 
+    public float speed = 3;
+    [SerializeField]
+    public float speedBoost = 2; 
     [SerializeField] Transform playerT;
     [SerializeField]
     public float projSpeed = 10;
@@ -25,6 +27,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int lives = 3;
     [SerializeField]
     private SpawnManager spawnManager;
+    [SerializeField] // toggle behavior active in inspector 
+    public bool isTrippleShot;
+    [SerializeField]
+    public bool isSpeedBoost;
+    [SerializeField]
+    public bool isShield; 
 
     private float horizontalInput = -0.1f;
     private float verticalInput = 0.1f;
@@ -33,18 +41,32 @@ public class PlayerController : MonoBehaviour
     public Transform projT;
     public Vector3 projOffset = new Vector3(0, 0.5f, 0);
 
-    [SerializeField] // toggle behavior active in inspector 
-    public bool isTrippleShot;
-    public GameObject trippleShotObject; 
+    [SerializeField]
+    private UI_Manager uI_Manager; 
+
+    public GameObject trippleShotObject;
+
+    // reference shield visuals 
+    public GameObject shieldVis;
+
+    [SerializeField]
+    private int score; 
 
     private void Start()
     {
+        uI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>(); 
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>(); 
         OnStartPlayerLocation(); 
 
         if(spawnManager == null)
         {
             Debug.LogError("The SpawnManager doesn't exist and is null");
+            return; 
+        }
+
+        if(uI_Manager == null)
+        {
+            Debug.LogError("UI Manager is null");
             return; 
         }
     }
@@ -77,22 +99,22 @@ public class PlayerController : MonoBehaviour
         // Clamp transform from -3 and 0 
         // playerT.position = new Vector3(playerT.position.x, Mathf.Clamp(playerT.position.y, -3, 0), 0); 
 
-       // Vector3 direction = new Vector3(horizontalInput, verticalInput, 0); // another way to handle axis input 
-       // playerT.Translate(direction * speed * Time.deltaTime); 
+        // Vector3 direction = new Vector3(horizontalInput, verticalInput, 0); // another way to handle axis input 
+        // playerT.Translate(direction * speed * Time.deltaTime); 
 
         if (horizontalInput < 0)
         {   // new Vector3(1,0,0) * variable speed * real timestep 
-            playerT.Translate(Vector3.left * speed * Time.deltaTime); 
+            playerT.Translate(Vector3.left * speed * Time.deltaTime);
         }
 
         if (horizontalInput > 0)
-        {   
+        {
             playerT.Translate(Vector3.right * speed * Time.deltaTime);
         }
 
         if (verticalInput > 0)
         {
-            playerT.Translate(Vector3.up * speed * Time.deltaTime); 
+            playerT.Translate(Vector3.up * speed * Time.deltaTime);
         }
 
         if (verticalInput < 0)
@@ -102,7 +124,7 @@ public class PlayerController : MonoBehaviour
 
         // if player is greater than 0, y position = 0 
         // else if position on y is less than -3.0f, y position = -3.0f
-        if(playerT.position.y >= 0)
+        if (playerT.position.y >= 0)
         {
             playerT.position = new Vector3(playerT.position.x, 0, 0); 
         }
@@ -125,6 +147,13 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
+        if(isShield.Equals(true))
+        {
+            isShield = false;
+            shieldVis.SetActive(false); 
+            return; 
+        }
+
         lives--; 
         if(lives < 1)
         {
@@ -144,5 +173,39 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(5);
         TrippleShotActive();
         isTrippleShot = false; 
+    }
+
+    public void SpeedBoostActive()
+    {
+        isSpeedBoost = true;
+        speed *= speedBoost; 
+        StartCoroutine(SpeedBoostPowerDown()); 
+    }
+
+    IEnumerator SpeedBoostPowerDown()
+    {
+        yield return new WaitForSeconds(5);
+        isSpeedBoost = false;
+        speed /= speedBoost; 
+    }
+
+    public void ShieldActive()
+    {
+        isShield = true;
+        shieldVis.SetActive(true);
+        StartCoroutine(ShieldPowerDown()); 
+    }
+
+    IEnumerator ShieldPowerDown()
+    {
+        yield return new WaitForSeconds(3);
+        isShield = false; 
+    }
+
+    // method to add score 
+    public void AddScore(int points)
+    {
+        uI_Manager.UpdateScore(score);
+        score += points;
     }
 }

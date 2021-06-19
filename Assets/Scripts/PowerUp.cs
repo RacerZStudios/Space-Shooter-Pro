@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    [SerializeField] 
-    PlayerController playerController;
-    public float powerUpSpeed = 15;
+    private PlayerController playerController;
+    public float powerUpSpeed = 5;
+    [SerializeField]
+    public int powerUpID; 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -14,7 +16,21 @@ public class PowerUp : MonoBehaviour
             playerController = collision.transform.GetComponent<PlayerController>(); 
             if(playerController != null)
             {
-                playerController.TrippleShotActive(); 
+                switch(powerUpID)
+                {
+                    case 0:
+                        playerController.TrippleShotActive();
+                        break;
+                    case 1:
+                        playerController.SpeedBoostActive(); 
+                        break; 
+                    case 2:
+                        playerController.ShieldActive(); 
+                        break; 
+                    default:
+                        Debug.Log("Default value"); 
+                        break; 
+                }
             }
             Destroy(gameObject); 
             return; 

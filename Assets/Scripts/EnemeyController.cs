@@ -8,20 +8,30 @@ public class EnemeyController : MonoBehaviour
     public float moveSpeed = 1.5f;
     public bool isDestroyed;
     public Transform []spawnPos;
+    [SerializeField]
+    private PlayerController playerController;
+
+    private void Awake()
+    {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "PlayerProjectile")
         {
+            playerController.AddScore(10); // pass 10 points 
+
             isDestroyed = true;
             Destroy(gameObject);
+            return; 
         }
 
         if (collision.gameObject.tag == "Player")
         {
-            PlayerController player = collision.transform.GetComponent<PlayerController>();
-            if (player != null)
+            if (playerController != null)
             {
-                player.TakeDamage();
+                playerController.TakeDamage();
             }
         }
     }
