@@ -33,6 +33,10 @@ public class PlayerController : MonoBehaviour
     public Transform projT;
     public Vector3 projOffset = new Vector3(0, 0.5f, 0);
 
+    [SerializeField] // toggle behavior active in inspector 
+    public bool isTrippleShot;
+    public GameObject trippleShotObject; 
+
     private void Start()
     {
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>(); 
@@ -60,7 +64,13 @@ public class PlayerController : MonoBehaviour
         {
             canFire = Time.time + fireTime; 
             Instantiate(playerProjectile, projT.position + new Vector3(0, projOffset.y,0), Quaternion.identity);
-            playerProjectile.GetComponent<Rigidbody>().AddForce(projT.transform.position * projSpeed * Time.deltaTime); 
+            playerProjectile.GetComponent<Rigidbody2D>().AddForce(projT.transform.position * projSpeed * Time.deltaTime); 
+
+            if(isTrippleShot == true)
+            {
+                Instantiate(trippleShotObject, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
+                return; 
+            }
         }
 
         // in line code cleanup 
@@ -121,5 +131,18 @@ public class PlayerController : MonoBehaviour
             spawnManager.PlayerDead(); 
             Destroy(gameObject); 
         }
+    }
+
+    public void TrippleShotActive()
+    {
+        isTrippleShot = true;
+        StartCoroutine(DoTrippleShot()); 
+    }
+
+    public IEnumerator DoTrippleShot()
+    {
+        yield return new WaitForSeconds(5);
+        TrippleShotActive();
+        isTrippleShot = false; 
     }
 }

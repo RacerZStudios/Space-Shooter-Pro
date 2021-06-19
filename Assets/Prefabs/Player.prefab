@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4551525603097820804}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,6 +113,8 @@ MonoBehaviour:
   playerT: {fileID: 4551525603097820805}
   projSpeed: 100
   fireTime: 0.5
+  lives: 3
+  spawnManager: {fileID: 0}
   playerProjectile: {fileID: 3110005347284216258, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
   projT: {fileID: 4551525603578507612}
   projOffset: {x: 0, y: 0.5, z: 0}

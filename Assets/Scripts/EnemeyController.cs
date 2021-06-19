@@ -8,7 +8,7 @@ public class EnemeyController : MonoBehaviour
     public float moveSpeed = 1.5f;
     public bool isDestroyed;
     public Transform []spawnPos;
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "PlayerProjectile")
         {
