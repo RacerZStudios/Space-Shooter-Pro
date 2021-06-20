@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviour
     public GameObject shieldVis;
 
     [SerializeField]
+    public GameObject[] engineFire; 
+
+    [SerializeField]
     private int score; 
 
     private void Start()
@@ -158,6 +161,15 @@ public class PlayerController : MonoBehaviour
         {
             uI_Manager.UpdateLives(lives);
             lives--;
+
+            if(lives == 2)
+            {
+                engineFire[0].gameObject.SetActive(true); 
+            }
+            else if (lives == 1)
+            {
+                engineFire[1].gameObject.SetActive(true); 
+            }
             return; 
         }
 

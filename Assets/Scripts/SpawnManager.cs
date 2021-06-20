@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
 
     public bool stopSpawn; 
 
-    private void Start()
+    private void StartSpawning()
     {
         StartCoroutine(SpawnRoutine()); 
         StartCoroutine(SpawnPowerUpRoutine());
@@ -29,6 +29,7 @@ public class SpawnManager : MonoBehaviour
 
     public IEnumerator SpawnRoutine()
     {
+        yield return new WaitForSeconds(3); 
         // While Loop (Infinite Loop)
         while(player != null || stopSpawn == false) 
         {
@@ -43,6 +44,7 @@ public class SpawnManager : MonoBehaviour
 
     public IEnumerator SpawnPowerUpRoutine()
     {
+        yield return new WaitForSeconds(3);
         while (player != null && stopSpawn == false)
         {
             yield return new WaitForSeconds(Random.Range(3, 7));
