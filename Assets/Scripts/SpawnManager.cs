@@ -36,7 +36,8 @@ public class SpawnManager : MonoBehaviour
             Vector3 spawnPos = new Vector3(Random.Range(-3, 3), 6, 0); 
             GameObject enemyInstance = Instantiate(enemy, enemeyController.spawnPos[0].position, Quaternion.identity);
             enemyInstance.transform.parent = enemyContainer.transform;
-            yield return new WaitForSeconds(3); 
+            yield return new WaitForSeconds(3);
+            break; 
         }
     }
 
@@ -69,15 +70,8 @@ public class SpawnManager : MonoBehaviour
             return; 
         }
 
-        if(enemeyController == null)
+        if(enemy == null || enemeyController == null)
         {
-            Destroy(gameObject);
-            return; 
-        }
-
-        if(enemy == null)
-        {
-            Destroy(gameObject);
             return; 
         }
     }

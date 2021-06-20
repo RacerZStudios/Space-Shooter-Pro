@@ -154,8 +154,14 @@ public class PlayerController : MonoBehaviour
             return; 
         }
 
-        lives--; 
-        if(lives < 1)
+        if(gameObject != null)
+        {
+            uI_Manager.UpdateLives(lives);
+            lives--;
+            return; 
+        }
+
+        if(lives <= 0)
         {
             spawnManager.PlayerDead(); 
             Destroy(gameObject); 
@@ -199,7 +205,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator ShieldPowerDown()
     {
         yield return new WaitForSeconds(3);
-        isShield = false; 
+        isShield = false;
+        shieldVis.SetActive(false);
     }
 
     // method to add score 

@@ -7,14 +7,6 @@ public class PlayerProjectile : MonoBehaviour
     [SerializeField] 
     public float projSpeed = 10;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Enemy")
-        {
-           // SendMessage("UpdateScore", SendMessageOptions.DontRequireReceiver); 
-            return; 
-        }
-    }
     private void Update()
     {
         transform.Translate(Vector3.up * projSpeed * Time.deltaTime); 
