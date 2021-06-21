@@ -20,7 +20,9 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private GameManager gameManager;
     [SerializeField]
-    private GameObject player; 
+    private GameObject player;
+    [SerializeField]
+    private Text ammoCount; 
 
     private void Start()
     {
@@ -31,6 +33,16 @@ public class UI_Manager : MonoBehaviour
         if(gameManager == null)
         {
             Debug.LogError("Game Manager is null"); 
+        }
+    }
+
+    public void AmmoStorage(int ammoAmount)
+    {
+        ammoAmount--;
+        ammoCount.text = "Ammo " + ammoAmount.ToString();
+        if (ammoAmount <= 0)
+        {
+            ammoCount.text = "Ammo: " + ammoAmount.ToString() + " " + "Out of Ammo ";
         }
     }
 

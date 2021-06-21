@@ -65,9 +65,11 @@ public class PlayerController : MonoBehaviour
     private GameManager gM;
     [SerializeField]
     private Shield_Manager shield_Manager;
+    private int ammoAmount; 
 
     private void Start()
     {
+        ammoAmount = 15; 
         uI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>(); 
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         audioSource = GetComponent<AudioSource>();
@@ -107,14 +109,16 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
 
         // Player Projectile Input 
-        if(Input.GetKeyDown(KeyCode.Space) && Time.time > canFire)
+        if(Input.GetKeyDown(KeyCode.Space) && Time.time > canFire && ammoAmount <= 15 && ammoAmount != 0)
         {
             canFire = Time.time + fireTime;
             audioSource.Play(); 
             Instantiate(playerProjectile, projT.position + new Vector3(0, projOffset.y,0), Quaternion.identity);
-            playerProjectile.GetComponent<Rigidbody2D>().AddForce(projT.transform.position * projSpeed * Time.deltaTime); 
+            playerProjectile.GetComponent<Rigidbody2D>().AddForce(projT.transform.position * projSpeed * Time.deltaTime);
+            uI_Manager.AmmoStorage(ammoAmount);
+            ammoAmount--; 
 
-            if(isTrippleShot == true)
+            if (isTrippleShot == true)
             {
                 Instantiate(trippleShotObject, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
                 return; 
