@@ -18,7 +18,9 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private Text restartText;
     [SerializeField]
-    private GameManager gameManager; 
+    private GameManager gameManager;
+    [SerializeField]
+    private GameObject player; 
 
     private void Start()
     {
@@ -42,14 +44,27 @@ public class UI_Manager : MonoBehaviour
         // display image sprite 
         // give it a new one based on currentLives index
 
-        livesImage.sprite = liveSprites[currentLives];
+        if (liveSprites.Length <= 0 && livesImage == null)
+        {
+            return;
+        }
+        else if(liveSprites.Length > 0 && livesImage != null)
+        {
+            livesImage.sprite = liveSprites[currentLives];
+            if(liveSprites.Length < 0)
+            {
+                player.GetComponent<BoxCollider2D>().enabled = false; 
+                return;
+            }
+        }
 
-        if(currentLives <= 0)
+        if(currentLives <= 0 || currentLives <= 2 || currentLives < 2)
         {
             GameOverText.gameObject.SetActive(true);
             restartText.gameObject.SetActive(true);
             gameManager.GameOver(); 
-            StartCoroutine(GameOverFlickerRoutine()); 
+            StartCoroutine(GameOverFlickerRoutine());
+            Destroy(livesImage); 
             return; 
         }
     }

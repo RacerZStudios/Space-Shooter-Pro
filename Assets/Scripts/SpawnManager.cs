@@ -17,13 +17,15 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject []powerUp;
     [SerializeField]
-    public Transform []powerUpSpawn;  
+    public Transform []powerUpSpawn;
+    [SerializeField]
+    public Transform[] spwanPoints; 
 
-    public bool stopSpawn; 
+    public bool stopSpawn;
 
-    private void StartSpawning()
+    public void StartSpawning()
     {
-        StartCoroutine(SpawnRoutine()); 
+        StartCoroutine(SpawnRoutine());
         StartCoroutine(SpawnPowerUpRoutine());
     }
 
@@ -33,12 +35,11 @@ public class SpawnManager : MonoBehaviour
         // While Loop (Infinite Loop)
         while(player != null || stopSpawn == false) 
         {
-            yield return null; // wait 1 frame 
+            yield return new WaitForSeconds(Random.Range(3, 7));
             Vector3 spawnPos = new Vector3(Random.Range(-3, 3), 6, 0); 
-            GameObject enemyInstance = Instantiate(enemy, enemeyController.spawnPos[0].position, Quaternion.identity);
+            GameObject enemyInstance = Instantiate(enemy, spwanPoints[0].transform.position, Quaternion.identity);
             enemyInstance.transform.parent = enemyContainer.transform;
-            yield return new WaitForSeconds(3);
-            break; 
+            yield return new WaitForSeconds(Random.Range(3, 7));
         }
     }
 
@@ -53,7 +54,7 @@ public class SpawnManager : MonoBehaviour
             GameObject powerUp1 = Instantiate(powerUp[1], powerUpSpawn[1].transform.position, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(3, 7));
             GameObject powerUp2 = Instantiate(powerUp[2], powerUpSpawn[2].transform.position, Quaternion.identity);
-            break;
+            yield return new WaitForSeconds(3);
         }
     }
 
@@ -63,17 +64,17 @@ public class SpawnManager : MonoBehaviour
         {
             StopCoroutine(SpawnRoutine());
             StopCoroutine(SpawnPowerUpRoutine());
-            return; 
         }
 
         if(player == null)
         {
+            stopSpawn = true; 
             Destroy(gameObject); 
-            return; 
         }
 
         if(enemy == null || enemeyController == null)
         {
+            Debug.LogError(enemy.gameObject + enemeyController.ToString() + "are null"); 
             return; 
         }
     }

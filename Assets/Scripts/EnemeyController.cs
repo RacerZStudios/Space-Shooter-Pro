@@ -7,79 +7,97 @@ public class EnemeyController : MonoBehaviour
     [SerializeField] 
     public float moveSpeed = 1.5f;
     public bool isDestroyed;
-    public Transform []spawnPos;
-    [SerializeField]
+   // public Transform []spawnPos;
     private PlayerController playerController;
     [SerializeField]
-    private SpawnManager spawnManager;
+    private Animator anim;
     [SerializeField]
-    private Animator anim; 
+    private AudioSource audioSource;
+    [SerializeField]
+    private GameObject enemyProjectile;
+    [SerializeField]
+    private Transform eProjSpawn; 
+    private float fireRate = 3;
+    private float canFire = -1; 
 
     private void Start()
     {
         if(playerController != null)
         {
             playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            return; 
         }
 
-        anim = GetComponent<Animator>(); 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "PlayerProjectile")
-        { 
-            isDestroyed = true;
-            playerController.AddScore(10);
-            StartCoroutine(PlayEnemyDeadAnim()); 
-            return; 
+        if (playerController == null)
+        {
+            return;
         }
+
+        anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>(); 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "PlayerProjectile")
         {
-            playerController.TakeDamage();
-            return; 
+            audioSource.Play();
+            isDestroyed = true;
+            if (playerController == null)
+            {
+                playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
+            }
+
+            if (playerController != null)
+            {
+                playerController.GetComponent<PlayerController>().AddScore(10);
+            }
+            StartCoroutine(PlayEnemyDeadAnim());
+        }
+
+        if (collision.gameObject.name == "PlayerController")
+        {
+            audioSource.Play();
+            if(playerController == null)
+            {
+                playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>(); 
+            }
+
+            if (playerController != null)
+            {
+                playerController.GetComponent<PlayerController>().TakeDamage();
+            }
         }
     }
 
     IEnumerator PlayEnemyDeadAnim()
     {
+        audioSource.Play();
         anim.SetTrigger("OnEnemyDeath");
         yield return new WaitForSeconds(anim.speed); 
         Destroy(gameObject, 2.0f);
+        Destroy(GetComponent<Collider2D>()); 
         yield return null; 
     }
 
     private void Update()
     {
-        if(playerController.gameObject == null)
+        if(Time.time > canFire)
         {
-            Destroy(gameObject);
-            Destroy(playerController);
-            Destroy(spawnManager); 
+            fireRate = Random.Range(3, 6);
+            canFire = Time.time * fireRate;
+            GameObject enemyProj = Instantiate(enemyProjectile, eProjSpawn.position, Quaternion.identity);
+            PlayerProjectile[] proj = enemyProj.GetComponentsInChildren<PlayerProjectile>();
+
+            for(int i = 0; i < proj.Length; i++)
+            {
+                proj[i].AssignEnemyProjectile(); 
+            }
         }
 
-        if (transform.position.y < -3 && gameObject != null)
-        {
-            float randomX = Random.Range(-3, 3); 
-            transform.position = new Vector3(randomX, spawnPos[0].position.y, 0);
-            transform.position = new Vector3(randomX, spawnPos[1].position.y, 0);
-            transform.position = new Vector3(randomX, spawnPos[2].position.y, 0); 
-        }
-        else if(!isDestroyed && transform.position.y > -3 && gameObject != null)
+        if (!isDestroyed && transform.position.y > -3 && gameObject != null)
         {
             transform.position += -Vector3.up * moveSpeed * Time.deltaTime;
-        }
-
-        if(spawnPos[0] == null || spawnPos[1] == null || spawnPos[2] == null)
-        {
-            Destroy(spawnPos[0]);
-            Destroy(spawnPos[1]);
-            Destroy(spawnPos[2]);
+            return; 
         }
     }
 }

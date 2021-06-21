@@ -6,18 +6,64 @@ public class PlayerProjectile : MonoBehaviour
 {
     [SerializeField] 
     public float projSpeed = 10;
+    [SerializeField]
+    private bool isEnemyProjectile; 
 
     private void Update()
     {
-        transform.Translate(Vector3.up * projSpeed * Time.deltaTime); 
-
-        if(transform.position.y > 10)
+        if (isEnemyProjectile == false)
         {
-            if(transform.parent != null)
+            MoveUp();
+        }
+        else
+        {
+            MoveDown(); 
+        }
+    }
+
+    void MoveUp()
+    {
+        transform.Translate(Vector3.up * projSpeed * Time.deltaTime);
+
+        if (transform.position.y > 5)
+        {
+            if (transform.parent != null)
             {
                 Destroy(transform.parent.gameObject);
             }
-            Destroy(gameObject); 
+            Destroy(gameObject);
+        }
+    }
+
+    void MoveDown()
+    {
+        transform.Translate(Vector3.down * projSpeed * Time.deltaTime);
+
+        if (transform.position.y < -3)
+        {
+            if (transform.parent != null)
+            {
+                Destroy(transform.parent.gameObject);
+            }
+            Destroy(gameObject);
+        }
+    }
+
+    public void AssignEnemyProjectile()
+    {
+        isEnemyProjectile = true; 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player" && isEnemyProjectile == true)
+        {
+            PlayerController player = collision.transform.GetComponent<PlayerController>(); 
+
+            if(player != null)
+            {
+                player.TakeDamage(); 
+            }
         }
     }
 }

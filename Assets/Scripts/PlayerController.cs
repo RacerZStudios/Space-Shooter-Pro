@@ -32,7 +32,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public bool isSpeedBoost;
     [SerializeField]
-    public bool isShield; 
+    public bool isShield;
+    [SerializeField]
+    private float thrustSoeed; 
 
     private float horizontalInput = -0.1f;
     private float verticalInput = 0.1f;
@@ -53,12 +55,21 @@ public class PlayerController : MonoBehaviour
     public GameObject[] engineFire; 
 
     [SerializeField]
-    private int score; 
+    private int score;
+
+    [SerializeField]
+    private AudioClip projSound;
+    private AudioSource audioSource;
+    private GameObject player;
+    [SerializeField]
+    private GameManager gM; 
 
     private void Start()
     {
         uI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>(); 
-        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>(); 
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        audioSource = GetComponent<AudioSource>();
+        player = GetComponent<GameObject>(); 
         OnStartPlayerLocation(); 
 
         if(spawnManager == null)
@@ -71,6 +82,15 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("UI Manager is null");
             return; 
+        }
+
+        if(audioSource == null)
+        {
+            Debug.LogError("No audio source is assigned or is null"); 
+        }
+        else
+        {
+            audioSource.clip = projSound; 
         }
     }
     void OnStartPlayerLocation()
@@ -87,7 +107,8 @@ public class PlayerController : MonoBehaviour
         // Player Projectile Input 
         if(Input.GetKeyDown(KeyCode.Space) && Time.time > canFire)
         {
-            canFire = Time.time + fireTime; 
+            canFire = Time.time + fireTime;
+            audioSource.Play(); 
             Instantiate(playerProjectile, projT.position + new Vector3(0, projOffset.y,0), Quaternion.identity);
             playerProjectile.GetComponent<Rigidbody2D>().AddForce(projT.transform.position * projSpeed * Time.deltaTime); 
 
@@ -123,6 +144,12 @@ public class PlayerController : MonoBehaviour
         if (verticalInput < 0)
         {
             playerT.Translate(Vector3.down * speed * Time.deltaTime);
+        }
+
+        // Thrust Speed Feature 
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+
         }
 
         // if player is greater than 0, y position = 0 
@@ -170,12 +197,13 @@ public class PlayerController : MonoBehaviour
             {
                 engineFire[1].gameObject.SetActive(true); 
             }
-            return; 
         }
 
-        if(lives <= 0)
+        if(lives <= 0 || lives <= 1)
         {
-            spawnManager.PlayerDead(); 
+            gM.isGameOver = true; 
+            spawnManager.PlayerDead();
+            Destroy(player); 
             Destroy(gameObject); 
         }
     }
@@ -221,7 +249,6 @@ public class PlayerController : MonoBehaviour
         shieldVis.SetActive(false);
     }
 
-    // method to add score 
     public void AddScore(int points)
     {
         uI_Manager.UpdateScore(score);

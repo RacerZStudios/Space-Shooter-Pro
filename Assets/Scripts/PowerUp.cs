@@ -7,13 +7,17 @@ public class PowerUp : MonoBehaviour
     private PlayerController playerController;
     public float powerUpSpeed = 5;
     [SerializeField]
-    public int powerUpID; 
+    public int powerUpID;
+    [SerializeField]
+    private AudioClip clip; 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            playerController = collision.transform.GetComponent<PlayerController>(); 
+            playerController = collision.transform.GetComponent<PlayerController>();
+            AudioSource.PlayClipAtPoint(clip, transform.position); 
+
             if(playerController != null)
             {
                 switch(powerUpID)

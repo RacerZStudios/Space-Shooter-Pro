@@ -6,13 +6,18 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private bool isGameOver;
+    public bool isGameOver;
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.R) && isGameOver == true)
         {
             SceneManager.LoadScene(1); 
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit(); 
         }
     }
 
