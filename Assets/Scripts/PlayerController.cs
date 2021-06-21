@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public bool isShield;
     [SerializeField]
-    private float thrustSoeed; 
+    private float thrustSpeed = 5; 
 
     private float horizontalInput = -0.1f;
     private float verticalInput = 0.1f;
@@ -62,7 +62,9 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioSource;
     private GameObject player;
     [SerializeField]
-    private GameManager gM; 
+    private GameManager gM;
+    [SerializeField]
+    private Shield_Manager shield_Manager;
 
     private void Start()
     {
@@ -149,7 +151,27 @@ public class PlayerController : MonoBehaviour
         // Thrust Speed Feature 
         if(Input.GetKey(KeyCode.LeftShift))
         {
+            if (horizontalInput < 0)
+            { 
+                playerT.TransformDirection(Vector3.left * thrustSpeed * Time.deltaTime);
+            }
 
+            if (horizontalInput > 0)
+            {
+                playerT.Translate(Vector3.right * thrustSpeed * Time.deltaTime);
+            }
+
+            if (verticalInput > -0.1f)
+            {
+                playerT.Translate(Vector3.up * thrustSpeed * Time.deltaTime);
+            }
+
+            if (verticalInput < -1)
+            {
+                playerT.TransformDirection(Vector3.down * thrustSpeed * Time.deltaTime);
+            }
+
+            Vector3 dir = new Vector3(horizontalInput, verticalInput, 0); 
         }
 
         // if player is greater than 0, y position = 0 
@@ -239,7 +261,10 @@ public class PlayerController : MonoBehaviour
     {
         isShield = true;
         shieldVis.SetActive(true);
-        StartCoroutine(ShieldPowerDown()); 
+        if(shieldVis.activeInHierarchy)
+        {
+            StartCoroutine(ShieldPowerDown());
+        }
     }
 
     IEnumerator ShieldPowerDown()

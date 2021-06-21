@@ -675,6 +675,7 @@ MonoBehaviour:
   isTrippleShot: 0
   isSpeedBoost: 0
   isShield: 0
+  thrustSpeed: 50
   playerProjectile: {fileID: 3110005347284216258, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
   projT: {fileID: 945768077}
   projOffset: {x: 0, y: 0.5, z: 0}
@@ -687,6 +688,7 @@ MonoBehaviour:
   score: 0
   projSound: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
   gM: {fileID: 57660565}
+  shield_Manager: {fileID: 0}
 --- !u!212 &483228942
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1788,6 +1790,7 @@ GameObject:
   - component: {fileID: 1228506179}
   - component: {fileID: 1228506181}
   - component: {fileID: 1228506180}
+  - component: {fileID: 1228506182}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -1916,6 +1919,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.56
+--- !u!114 &1228506182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228506176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612243c42ace8034090427e1f3dc3117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldLife: 0
 --- !u!1 &1510661329
 GameObject:
   m_ObjectHideFlags: 0
