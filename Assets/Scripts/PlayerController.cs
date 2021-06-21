@@ -263,19 +263,43 @@ public class PlayerController : MonoBehaviour
 
     public void ShieldActive()
     {
-        isShield = true;
-        shieldVis.SetActive(true);
-        if(shieldVis.activeInHierarchy)
+        if(shield_Manager != null || shieldVis != null)
         {
-            StartCoroutine(ShieldPowerDown());
+            isShield = true;
+            shieldVis.SetActive(true);
+            if (shieldVis.activeInHierarchy)
+            {
+                ShieldPowerDown();
+            }
+        }
+        else
+        {
+            Debug.LogError("No Shield referenced"); 
         }
     }
 
-    IEnumerator ShieldPowerDown()
+    public void ShieldPowerDown()
     {
-        yield return new WaitForSeconds(3);
-        isShield = false;
-        shieldVis.SetActive(false);
+        if(shield_Manager != null || shieldVis != null)
+        {
+            shield_Manager.shieldLife = 1;
+
+            if (shield_Manager.shieldLife < 0)
+            {
+                isShield = false;
+                shieldVis.SetActive(false);
+            }
+        }
+        else
+        {
+            Debug.LogError("No Shield referenced");
+        }
+    }
+
+    public void AddAmmo(int ammo)
+    {
+        uI_Manager.AmmoStorage(ammoAmount);
+        ammoAmount = ammo; 
     }
 
     public void AddScore(int points)

@@ -279,7 +279,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!61 &136733823
 BoxCollider2D:
@@ -688,7 +688,7 @@ MonoBehaviour:
   score: 0
   projSound: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
   gM: {fileID: 57660565}
-  shield_Manager: {fileID: 0}
+  shield_Manager: {fileID: 1228506182}
 --- !u!212 &483228942
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1667,6 +1667,36 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &993800889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 993800890}
+  m_Layer: 0
+  m_Name: PowerUp_Container (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &993800890
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993800889}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.43, y: 1.98, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1677954815}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1063261349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,10 +2133,12 @@ MonoBehaviour:
   - {fileID: 2794760965517194425, guid: 821e37f30c4ee3a47b6683b91835c77f, type: 3}
   - {fileID: 3687413866292126815, guid: 0464e0589de130f4b8b1a4fc9fe6e5d3, type: 3}
   - {fileID: 4998753090115360643, guid: cbbc20058543bd544be5e607b8802b9b, type: 3}
+  - {fileID: 7369993231101859610, guid: a3191db8d835a3f46a109eb53b92b835, type: 3}
   powerUpSpawn:
   - {fileID: 513172659}
   - {fileID: 1063261350}
   - {fileID: 2095755590}
+  - {fileID: 993800890}
   spwanPoints:
   - {fileID: 1845315605}
   - {fileID: 38989413}
@@ -2130,6 +2162,7 @@ Transform:
   - {fileID: 513172659}
   - {fileID: 1063261350}
   - {fileID: 2095755590}
+  - {fileID: 993800890}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
