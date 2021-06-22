@@ -36,7 +36,10 @@ public class PowerUp : MonoBehaviour
                         break;
                     case 4:
                         playerController.AddHealth(1);
-                        break; 
+                        break;
+                    case 5:
+                        playerController.EMPPowerUpActive();
+                        break;
                     default:
                         Debug.Log("Default value"); 
                         break; 

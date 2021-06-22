@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float fireTime = 0.5f;
     private float canFire = -1f;
+    private float standardFire = 5; 
     [SerializeField] private int lives = 3;
     [SerializeField]
     private SpawnManager spawnManager;
@@ -36,12 +37,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float thrustSpeed = 5;
     [SerializeField]
-    private bool isThruster; 
+    private bool isThruster;
+    [SerializeField]
+    private bool isEMPProjectile; 
 
     private float horizontalInput = -0.1f;
     private float verticalInput = 0.1f;
 
     public GameObject playerProjectile;
+    public GameObject empProjectile; 
     public Transform projT;
     public Vector3 projOffset = new Vector3(0, 0.5f, 0);
 
@@ -113,19 +117,28 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
 
         // Player Projectile Input 
-        if(Input.GetKeyDown(KeyCode.Space) && Time.time > canFire && ammoAmount <= 15 && ammoAmount != 0)
+        if(Input.GetKeyDown(KeyCode.Space) && Time.time > canFire && isEMPProjectile == false && ammoAmount <= 15 && ammoAmount != 0)
         {
             canFire = Time.time + fireTime;
             audioSource.Play(); 
             Instantiate(playerProjectile, projT.position + new Vector3(0, projOffset.y,0), Quaternion.identity);
             playerProjectile.GetComponent<Rigidbody2D>().AddForce(projT.transform.position * projSpeed * Time.deltaTime);
             uI_Manager.AmmoStorage(ammoAmount);
-            ammoAmount--; 
+            ammoAmount--;
 
             if (isTrippleShot == true)
             {
                 Instantiate(trippleShotObject, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
-                return; 
+                return;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && ammoAmount <= 15 && ammoAmount != 0)
+        {
+            standardFire = Time.time + fireTime;
+            if (isEMPProjectile == true)
+            {
+                Instantiate(empProjectile, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
+                return;
             }
         }
 
@@ -252,13 +265,26 @@ public class PlayerController : MonoBehaviour
     {
         isTrippleShot = true;
         StartCoroutine(DoTrippleShot()); 
-    }
+    }  
 
     public IEnumerator DoTrippleShot()
     {
         yield return new WaitForSeconds(5);
         TrippleShotActive();
         isTrippleShot = false; 
+    }
+
+    public void EMPPowerUpActive()
+    {
+        isEMPProjectile = true;
+        StartCoroutine(DoTrippleShot());
+    }
+
+    public IEnumerator DoEMPShot()
+    {
+        yield return new WaitForSeconds(5);
+        EMPPowerUpActive();
+        isEMPProjectile = false;
     }
 
     public void SpeedBoostActive()

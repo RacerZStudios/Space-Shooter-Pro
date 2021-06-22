@@ -737,6 +737,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267187249}
   m_CullTransparentMesh: 1
+--- !u!1 &368135757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368135758}
+  m_Layer: 0
+  m_Name: PowerUp_Container (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &368135758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368135757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.21, y: 1.98, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1677954815}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &399426398
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +902,9 @@ MonoBehaviour:
   isShield: 0
   thrustSpeed: 50
   isThruster: 0
+  isEMPProjectile: 0
   playerProjectile: {fileID: 3110005347284216258, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
+  empProjectile: {fileID: 3345187054109330014, guid: f0075ffe8c7bb7b4a8ab996b089d0373, type: 3}
   projT: {fileID: 945768077}
   projOffset: {x: 0, y: 0.5, z: 0}
   uI_Manager: {fileID: 954152448}
@@ -1014,7 +1046,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1188,7 +1220,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5b17a0088dcdf924fa92da5af1e1be07, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2525,11 +2557,13 @@ MonoBehaviour:
   - {fileID: 4998753090115360643, guid: cbbc20058543bd544be5e607b8802b9b, type: 3}
   - {fileID: 7369993231101859610, guid: a3191db8d835a3f46a109eb53b92b835, type: 3}
   - {fileID: 2194743391871329429, guid: 7f62f4542cc1e504aa207afda907a6df, type: 3}
+  - {fileID: 2441434696067070306, guid: 4f219589639297f4c8768b157d002380, type: 3}
   powerUpSpawn:
   - {fileID: 513172659}
   - {fileID: 1063261350}
   - {fileID: 2095755590}
   - {fileID: 993800890}
+  - {fileID: 180815494}
   - {fileID: 180815494}
   spwanPoints:
   - {fileID: 1845315605}
@@ -2556,6 +2590,7 @@ Transform:
   - {fileID: 2095755590}
   - {fileID: 993800890}
   - {fileID: 180815494}
+  - {fileID: 368135758}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

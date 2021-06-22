@@ -32,7 +32,6 @@ public class SpawnManager : MonoBehaviour
     public IEnumerator SpawnRoutine()
     {
         yield return new WaitForSeconds(3); 
-        // While Loop (Infinite Loop)
         while(player != null || stopSpawn == false) 
         {
             yield return new WaitForSeconds(Random.Range(3, 7));
@@ -58,6 +57,8 @@ public class SpawnManager : MonoBehaviour
             GameObject powerUp3 = Instantiate(powerUp[3], powerUpSpawn[3].transform.position, Quaternion.identity);
             yield return new WaitForSeconds(3);
             GameObject powerUp4 = Instantiate(powerUp[4], powerUpSpawn[4].transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(3);
+            GameObject powerUp5 = Instantiate(powerUp[5], powerUpSpawn[4].transform.position, Quaternion.identity);
             yield return new WaitForSeconds(3);
         }
     }

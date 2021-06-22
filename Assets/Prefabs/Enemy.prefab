@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   isDestroyed: 0
+  playerController: {fileID: 0}
   anim: {fileID: 6278301708160342858}
   audioSource: {fileID: 1311916190}
   enemyProjectile: {fileID: 541079184550153418, guid: d15fee0b1867e534990f26afd49c4c4d, type: 3}
@@ -214,7 +215,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a885c043fab7e46438bba03ba9dab6bc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
