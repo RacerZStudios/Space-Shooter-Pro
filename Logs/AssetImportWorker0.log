@@ -1,1654 +1,364 @@
 Using pre-set license
 Built from '2020.2/release' branch; Version is '2020.2.1f1 (270dd8c3da1c) revision 2559448'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10  (10.0.0) 64bit' Language: 'en' Physical Memory: 16300 MB
+OS: 'Windows 10  (10.0.0) 64bit' Language: 'en' Physical Memory: 16267 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-D:\Unity_2020\2020.2.1f1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\2020.2.1f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-D:/GameDev_Unity/Unity Projects 2021/Space Shooter Pro/Space Shooter Pro
+C:/Users/zbogn/OneDrive/Documents/Space Shooter Pro/Space-Shooter-Pro
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-63507
-Successfully changed project path to: D:/GameDev_Unity/Unity Projects 2021/Space Shooter Pro/Space Shooter Pro
-D:/GameDev_Unity/Unity Projects 2021/Space Shooter Pro/Space Shooter Pro
+50729
+Successfully changed project path to: C:/Users/zbogn/OneDrive/Documents/Space Shooter Pro/Space-Shooter-Pro
+C:/Users/zbogn/OneDrive/Documents/Space Shooter Pro/Space-Shooter-Pro
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 29.51 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 37.27 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.1f1 (270dd8c3da1c)
-[Subsystems] Discovering subsystems at path D:/Unity_2020/2020.2.1f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path D:/GameDev_Unity/Unity Projects 2021/Space Shooter Pro/Space Shooter Pro/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/zbogn/OneDrive/Documents/Space Shooter Pro/Space-Shooter-Pro/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
-    Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1660 (ID=0x2184)
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 870M (ID=0x1199)
     Vendor:   
-    VRAM:     5991 MB
-    Driver:   27.21.14.6627
+    VRAM:     3029 MB
+    Driver:   25.21.14.2531
 Initialize mono
-Mono path[0] = 'D:/Unity_2020/2020.2.1f1/Editor/Data/Managed'
-Mono path[1] = 'D:/Unity_2020/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'D:/Unity_2020/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56148
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56632
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: D:/Unity_2020/2020.2.1f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
-Register platform support module: D:/Unity_2020/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001512 seconds.
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.1f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.003064 seconds.
+Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 43.29 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 34.45 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.292 seconds
+- Completed reload, in  1.494 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001695 seconds.
+Registered in 0.002150 seconds.
 Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.776 seconds
+- Completed reload, in  1.014 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1241 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 68.2 MB.
-System memory in use after: 68.2 MB.
+System memory in use before: 67.5 MB.
+System memory in use after: 67.6 MB.
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1683.
-Total: 1.920600 ms (FindLiveObjects: 0.208900 ms CreateObjectMapping: 0.049600 ms MarkObjects: 1.592200 ms  DeleteObjects: 0.064700 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Materials
-  artifactKey: Guid(f317289438a13e84bb89c4883b2703a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Materials using Guid(f317289438a13e84bb89c4883b2703a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00044394f3a04a2585aa9691390be908') in 0.013279 seconds
-  Import took 0.015546 seconds .
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 1681.
+Total: 2.293200 ms (FindLiveObjects: 0.159000 ms CreateObjectMapping: 0.067300 ms MarkObjects: 1.982600 ms  DeleteObjects: 0.083300 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.672872 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0000.png
-  artifactKey: Guid(1d5981962683d455ba1857f592a65b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0000.png using Guid(1d5981962683d455ba1857f592a65b02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72c8ad3bdc84da699ccffedfcdadaef8') in 0.145864 seconds
-  Import took 0.148101 seconds .
+  path: Assets/Scenes
+  artifactKey: Guid(d64d3d76f71706a45b171237396cad63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(d64d3d76f71706a45b171237396cad63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d33be17fa53e1d7d1c548470974e083') in 0.009748 seconds
+  Import took 0.012582 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000272 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0008.png
-  artifactKey: Guid(c83085279e66140008ba22ca901f4c4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0008.png using Guid(c83085279e66140008ba22ca901f4c4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '404182c53a620d5da6d1883ad335222e') in 0.028656 seconds
-  Import took 0.030626 seconds .
+  Time since last request: 13.977128 seconds.
+  path: Assets/Scenes/SpaceShooterPro_Main.unity
+  artifactKey: Guid(286974d12aca532469502cc79f80168b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SpaceShooterPro_Main.unity using Guid(286974d12aca532469502cc79f80168b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37328fbc72eef3a1670ef5047ea914db') in 0.019623 seconds
+  Import took 0.022743 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000234 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0005.png
-  artifactKey: Guid(783c36011820c44b99ac90932d536fd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0005.png using Guid(783c36011820c44b99ac90932d536fd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e7c0796291077dbed2412ec30decdd5') in 0.023235 seconds
-  Import took 0.025299 seconds .
+  Time since last request: 168.817533 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(eda7df05723d99c45a47e3beae48132f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(eda7df05723d99c45a47e3beae48132f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '023fd043aa59a6960684f26895289390') in 0.007323 seconds
+  Import took 0.009973 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000265 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0002.png
-  artifactKey: Guid(c7a5b907897124d63a1b3d00415f44f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0002.png using Guid(c7a5b907897124d63a1b3d00415f44f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '120f2c0bac6bccca0dd9f13ce2867222') in 0.030067 seconds
-  Import took 0.032031 seconds .
+  Time since last request: 0.007128 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(eda7df05723d99c45a47e3beae48132f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(eda7df05723d99c45a47e3beae48132f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '023fd043aa59a6960684f26895289390') in 0.002495 seconds
+  Import took 0.005622 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000216 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0004.png
-  artifactKey: Guid(c17202ebaabb9488a968b16bdf23eeae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0004.png using Guid(c17202ebaabb9488a968b16bdf23eeae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '446e48fb912bdb5c3541d4ddb41c7d2f') in 0.040518 seconds
-  Import took 0.042479 seconds .
+  Time since last request: 3.522528 seconds.
+  path: Assets/Scripts/PowerUp.cs
+  artifactKey: Guid(99034831c8a62c4459323d7a57692b26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PowerUp.cs using Guid(99034831c8a62c4459323d7a57692b26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a6310c50a7e3f055491bc0368e9e1a0') in 0.042332 seconds
+  Import took 0.045087 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000179 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0003.png
-  artifactKey: Guid(642f2ccf679e74095a9a13fa5e839005) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0003.png using Guid(642f2ccf679e74095a9a13fa5e839005) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '712edbffae08e94f242f90060185a301') in 0.033007 seconds
-  Import took 0.034878 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000231 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0001.png
-  artifactKey: Guid(b3ab8b6c15fbb4bf5bdca33e151a4d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0001.png using Guid(b3ab8b6c15fbb4bf5bdca33e151a4d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c42e91f9470a6c01e8367db8c63b59f') in 0.026380 seconds
-  Import took 0.028321 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000210 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0006.png
-  artifactKey: Guid(859bb78ca669f4810a60697db925b402) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0006.png using Guid(859bb78ca669f4810a60697db925b402) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df6bceec900b451f470c64c757551ef6') in 0.028992 seconds
-  Import took 0.030908 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000237 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0007.png
-  artifactKey: Guid(a5dba836ea2bb43149e8e73f5dbc6978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Right/Player Turn Right0007.png using Guid(a5dba836ea2bb43149e8e73f5dbc6978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc731dc0b360c8bcc75701806b6873af') in 0.020184 seconds
-  Import took 0.022188 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.233942 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0000.png
-  artifactKey: Guid(1b4a8fdd39d3a45d0a9ee484ad6800ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0000.png using Guid(1b4a8fdd39d3a45d0a9ee484ad6800ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84bf2b43ac212ecc09d41dec4f7a2d40') in 0.015257 seconds
-  Import took 0.017710 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000275 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0003.png
-  artifactKey: Guid(07f1dc456c0c944c69246ec5b62e015a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0003.png using Guid(07f1dc456c0c944c69246ec5b62e015a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c7b5bd426f4524992c4dacbcd43e391') in 0.035494 seconds
-  Import took 0.037610 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000254 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0001.png
-  artifactKey: Guid(9284343f055144054b5d7f5a72d1dbb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0001.png using Guid(9284343f055144054b5d7f5a72d1dbb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54075bd852fbdbd5974ba692b65d4031') in 0.023595 seconds
-  Import took 0.036599 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000230 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0008.png
-  artifactKey: Guid(f3346fe3e2c9e4527a394f1e99d25f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0008.png using Guid(f3346fe3e2c9e4527a394f1e99d25f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '063b24006bbdf15d58bdbca79baf75e7') in 0.018949 seconds
-  Import took 0.020919 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000217 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0002.png
-  artifactKey: Guid(76f24fca3aede49a392f5b213ca9bc34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0002.png using Guid(76f24fca3aede49a392f5b213ca9bc34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce9c499e6eca813380a08995ff9e73e0') in 0.031148 seconds
-  Import took 0.033118 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000206 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0008.png
-  artifactKey: Guid(f3346fe3e2c9e4527a394f1e99d25f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0008.png using Guid(f3346fe3e2c9e4527a394f1e99d25f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '063b24006bbdf15d58bdbca79baf75e7') in 0.011565 seconds
-  Import took 0.013468 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000185 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0004.png
-  artifactKey: Guid(053a77bc50ed441899c0d5a4bf34cb74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0004.png using Guid(053a77bc50ed441899c0d5a4bf34cb74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbd2e8173c4e5560086516ce4e4b1d16') in 0.024103 seconds
-  Import took 0.026089 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000218 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0005.png
-  artifactKey: Guid(35a20c271ee5445c6b637c26ef35a015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0005.png using Guid(35a20c271ee5445c6b637c26ef35a015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf27c0b32ed6814e1ee7383dee34b170') in 0.018596 seconds
-  Import took 0.020702 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000222 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0006.png
-  artifactKey: Guid(bb173694be00148b4bc0ebfa1a1e58ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0006.png using Guid(bb173694be00148b4bc0ebfa1a1e58ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b8d8ae81f65716d10882e2ef7511077') in 0.024654 seconds
-  Import took 0.027007 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000189 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0007.png
-  artifactKey: Guid(be96d907589954304a9aaf149e51d40c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Player_Turn_Left/Player Turn Left0007.png using Guid(be96d907589954304a9aaf149e51d40c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0cc3fe54b8494f685f818c4d8a491d8') in 0.026025 seconds
-  Import took 0.027921 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.053756 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00000.png
-  artifactKey: Guid(ed6681d697652144a913093bf7ad1d43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00000.png using Guid(ed6681d697652144a913093bf7ad1d43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '017acc7e4258b7e320b407a53bb4c230') in 0.014717 seconds
-  Import took 0.017944 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000245 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00006.png
-  artifactKey: Guid(a58a8d41efafe8343b08c0b7f3b1b916) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00006.png using Guid(a58a8d41efafe8343b08c0b7f3b1b916) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f2538777db031aaa24c1d050ab6e3d9') in 0.012673 seconds
-  Import took 0.014655 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000140 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00004.png
-  artifactKey: Guid(08721a7e8122ae54cb60f5e90df70269) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00004.png using Guid(08721a7e8122ae54cb60f5e90df70269) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea6269928ffccef5c679f39f4b9773b0') in 0.011883 seconds
-  Import took 0.013892 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000231 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00009.png
-  artifactKey: Guid(27c59d36a1e7ec540864bea51d49bdaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00009.png using Guid(27c59d36a1e7ec540864bea51d49bdaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efe1af71c6b8039dd28a66fa6a851b0b') in 0.011936 seconds
-  Import took 0.014415 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000192 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00013.png
-  artifactKey: Guid(201c6bec23c7da9448c3e8bf7a26e89f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00013.png using Guid(201c6bec23c7da9448c3e8bf7a26e89f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1f144aa535457cec0b2a45ec53ef09e') in 0.012450 seconds
-  Import took 0.014522 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000190 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00007.png
-  artifactKey: Guid(f669da5eb59644649bd06f1af0e73349) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00007.png using Guid(f669da5eb59644649bd06f1af0e73349) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ee1e1f600a5db8b47a925d23d249a8b') in 0.011488 seconds
-  Import took 0.013520 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000192 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00003.png
-  artifactKey: Guid(3f1c2590613aad2458e88e95f67764a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00003.png using Guid(3f1c2590613aad2458e88e95f67764a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6076e6a81b4f2bd39a6db638b273c842') in 0.012887 seconds
-  Import took 0.023570 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000161 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00005.png
-  artifactKey: Guid(c08087d4d2986fe468456f3736b55019) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00005.png using Guid(c08087d4d2986fe468456f3736b55019) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd7277c96ffdd4c2680c9dc3977011f6') in 0.011370 seconds
-  Import took 0.013378 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000238 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00008.png
-  artifactKey: Guid(d371d99a043ff16448c9dc33862f94f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00008.png using Guid(d371d99a043ff16448c9dc33862f94f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '360e83ab6166e0a5bb07cbae16a191b5') in 0.011575 seconds
-  Import took 0.013710 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000221 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00010.png
-  artifactKey: Guid(95c617d16f9b8a9448ac5779db6e4c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00010.png using Guid(95c617d16f9b8a9448ac5779db6e4c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84aa7c0801896ab5ead41e732ab9f5d3') in 0.011713 seconds
-  Import took 0.013674 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00014.png
-  artifactKey: Guid(fadf90cfbc0b3524ab83eda8a359c35a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00014.png using Guid(fadf90cfbc0b3524ab83eda8a359c35a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1aeaa0ded3b2a1f335d9626f8fc174bf') in 0.012354 seconds
-  Import took 0.014617 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000204 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00002.png
-  artifactKey: Guid(042b929092df468479c9d6475c1883fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00002.png using Guid(042b929092df468479c9d6475c1883fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dc0b8407c5ad0a03a4af6dbbd126fb6') in 0.014305 seconds
-  Import took 0.016376 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000182 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00012.png
-  artifactKey: Guid(bb5ba4f63cfbfdb4eb8a9bc18fd5c46e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00012.png using Guid(bb5ba4f63cfbfdb4eb8a9bc18fd5c46e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3708649cb8679b85cb0f4551f36d87a') in 0.011932 seconds
-  Import took 0.014134 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000282 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00015.png
-  artifactKey: Guid(203a96b1228f08f4e8f7e2a4f756a0df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00015.png using Guid(203a96b1228f08f4e8f7e2a4f756a0df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e72c60abf9246488d406a8265fede0d4') in 0.011338 seconds
-  Import took 0.013336 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000220 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00011.png
-  artifactKey: Guid(b2cdea34ebf3d9a4ebc57de48bbd1a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00011.png using Guid(b2cdea34ebf3d9a4ebc57de48bbd1a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6b98c12dbd827cdd2af023a59829e53') in 0.011729 seconds
-  Import took 0.013788 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000191 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00001.png
-  artifactKey: Guid(94af496add7d99549a0a09e585214f18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00001.png using Guid(94af496add7d99549a0a09e585214f18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6fadc64607b0e22da33e0d4d28d6ba8') in 0.011360 seconds
-  Import took 0.013334 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001192 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00011.png
-  artifactKey: Guid(b2cdea34ebf3d9a4ebc57de48bbd1a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Triple_Shot/Powerup3_0008_00011.png using Guid(b2cdea34ebf3d9a4ebc57de48bbd1a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6b98c12dbd827cdd2af023a59829e53') in 0.010785 seconds
-  Import took 0.012908 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.012328 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00000.psd
-  artifactKey: Guid(5b8849e8703cd2a48856f693a7ce5940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00000.psd using Guid(5b8849e8703cd2a48856f693a7ce5940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7ce37d0f1187733f60ce97a81490cb0') in 0.061612 seconds
-  Import took 0.063801 seconds .
+  Time since last request: 4.168737 seconds.
+  path: Assets/Prefabs/Ammo_PowerUp.prefab
+  artifactKey: Guid(a3191db8d835a3f46a109eb53b92b835) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Ammo_PowerUp.prefab using Guid(a3191db8d835a3f46a109eb53b92b835) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3fdb62cf6ffb5ee7e29cda304e71ca3') in 0.104349 seconds
+  Import took 0.107327 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000249 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00001.psd
-  artifactKey: Guid(25813c6fe10cf6c43b92057c55fe21bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00001.psd using Guid(25813c6fe10cf6c43b92057c55fe21bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6430fe1f90835c00b1cc42164377e648') in 0.013142 seconds
-  Import took 0.015051 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000254 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00010.psd
-  artifactKey: Guid(8533facd69878cc44b2123eefba2d698) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00010.psd using Guid(8533facd69878cc44b2123eefba2d698) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a23c4fd2ffd3291cb2f37f0c5b2fb7c1') in 0.013457 seconds
-  Import took 0.015603 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000212 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00011.psd
-  artifactKey: Guid(90a8c9325bb9fd4478658c0f72c135ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00011.psd using Guid(90a8c9325bb9fd4478658c0f72c135ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27fa14d03cd4076813a9c780f30d5814') in 0.012410 seconds
-  Import took 0.014535 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000243 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00003.psd
-  artifactKey: Guid(73f17f0ea9044d5419812f58e8154a41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00003.psd using Guid(73f17f0ea9044d5419812f58e8154a41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4b16256e3158eb49d2a4eb21adb3f4c') in 0.011217 seconds
-  Import took 0.013416 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000147 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00013.psd
-  artifactKey: Guid(40af6f7298415f340867c8409d34d6b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00013.psd using Guid(40af6f7298415f340867c8409d34d6b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '041f9a17690f167bd2bcb1674c2f0dbc') in 0.011264 seconds
-  Import took 0.013410 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000230 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00014.psd
-  artifactKey: Guid(55bd0bf19a65f4c4c8c025b57c92d5a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00014.psd using Guid(55bd0bf19a65f4c4c8c025b57c92d5a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '483ad9a5679a08b4adbfe9a0afa6111b') in 0.011331 seconds
-  Import took 0.013388 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000208 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00015.psd
-  artifactKey: Guid(28f12876b78240a4aa78e0948517b936) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00015.psd using Guid(28f12876b78240a4aa78e0948517b936) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d0f5d383291ba98e4adca048ed55282') in 0.011706 seconds
-  Import took 0.013853 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000192 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00005.psd
-  artifactKey: Guid(d4de74aee97397b44b7df297ba53a688) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00005.psd using Guid(d4de74aee97397b44b7df297ba53a688) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4d7b2c2532486ba0b9aa92326cfc572') in 0.012781 seconds
-  Import took 0.014813 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000174 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00012.psd
-  artifactKey: Guid(06e00fa6af8638a4ba5e66629f30e8c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00012.psd using Guid(06e00fa6af8638a4ba5e66629f30e8c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d997fff65b6a470aa4277bd6609a0a2') in 0.012439 seconds
-  Import took 0.014575 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00004.psd
-  artifactKey: Guid(4ef041ab5e189614f92e3d34f3fb7b84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00004.psd using Guid(4ef041ab5e189614f92e3d34f3fb7b84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a93f8700bfe2beb213e419f6408de09') in 0.011457 seconds
-  Import took 0.013553 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000229 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00002.psd
-  artifactKey: Guid(c7c2dfe89c40d80408f4c2373da8dd84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00002.psd using Guid(c7c2dfe89c40d80408f4c2373da8dd84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f96ae100321db45de73f7cd6d0608e9f') in 0.012715 seconds
-  Import took 0.014723 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000149 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00006.psd
-  artifactKey: Guid(a3bd87442a1340045bdc9d4f68f020bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00006.psd using Guid(a3bd87442a1340045bdc9d4f68f020bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd77036d31afea04ad881111a3d23842c') in 0.011796 seconds
-  Import took 0.013820 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000183 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00008.psd
-  artifactKey: Guid(2486687f5b9cec34fbd039e818fcd398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00008.psd using Guid(2486687f5b9cec34fbd039e818fcd398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '246882a0e5abc894ca7061d100cb304f') in 0.011706 seconds
-  Import took 0.013858 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000159 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00006.psd
-  artifactKey: Guid(a3bd87442a1340045bdc9d4f68f020bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00006.psd using Guid(a3bd87442a1340045bdc9d4f68f020bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd77036d31afea04ad881111a3d23842c') in 0.012587 seconds
-  Import took 0.014581 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000142 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00009.psd
-  artifactKey: Guid(baa9c1371622a9b42a10d5b06f18b0c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00009.psd using Guid(baa9c1371622a9b42a10d5b06f18b0c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3b6cfd1c3880d39c545ccc3fbcbf059') in 0.011721 seconds
-  Import took 0.013935 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000281 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00007.psd
-  artifactKey: Guid(5a268b4f96c2b004ea1a38c78e2277a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Speed/Powerup1_0008_00007.psd using Guid(5a268b4f96c2b004ea1a38c78e2277a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ea942b8527626f18697ba5601c24336') in 0.012535 seconds
-  Import took 0.014544 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.207054 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00000.png
-  artifactKey: Guid(e2f5f1638e62545a09c5d6e6d3643101) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00000.png using Guid(e2f5f1638e62545a09c5d6e6d3643101) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fb537b8bb6953b43abe289c6f570a32') in 0.013361 seconds
-  Import took 0.015849 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000278 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00002.png
-  artifactKey: Guid(e24f9b063a413499c9dedf763aa655fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00002.png using Guid(e24f9b063a413499c9dedf763aa655fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '451edc053410c6dfd25fc16259b26077') in 0.014385 seconds
-  Import took 0.016529 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000246 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00013.png
-  artifactKey: Guid(e59a53ca6004fea41aca758d408c20b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00013.png using Guid(e59a53ca6004fea41aca758d408c20b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65138236bd3265645323ee6abb4f0dfa') in 0.011495 seconds
-  Import took 0.013617 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000233 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00005.png
-  artifactKey: Guid(6dc2f614c9a8e427792e533426dbe25d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00005.png using Guid(6dc2f614c9a8e427792e533426dbe25d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0320557e2f750d6cda4c843c470cdb91') in 0.011620 seconds
-  Import took 0.013709 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000193 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00009.png
-  artifactKey: Guid(ecf228bd60aaf44aeb5717b225b9bab2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00009.png using Guid(ecf228bd60aaf44aeb5717b225b9bab2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7833180c7651aa9ccc6e10d0955812e4') in 0.011074 seconds
-  Import took 0.013141 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000154 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00008.png
-  artifactKey: Guid(938dd37514bec45d39613a42a06a1cb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00008.png using Guid(938dd37514bec45d39613a42a06a1cb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43383b1f60dba6e46a25de07af5d91f2') in 0.011197 seconds
-  Import took 0.013215 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000240 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00001.png
-  artifactKey: Guid(d4c04a6e02a3c4a41b8a8c547a881c44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00001.png using Guid(d4c04a6e02a3c4a41b8a8c547a881c44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '301ccbc86c8d5877829e6f720067c253') in 0.011171 seconds
-  Import took 0.013187 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000173 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00003.png
-  artifactKey: Guid(d1f03e683e3e74fd69b10f273c9f363f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00003.png using Guid(d1f03e683e3e74fd69b10f273c9f363f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5596cd2714e1b1e372a3853b1a0b219c') in 0.012977 seconds
-  Import took 0.015026 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000135 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00010.png
-  artifactKey: Guid(962f1aafaa24df44ca9130cedfa4bd67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00010.png using Guid(962f1aafaa24df44ca9130cedfa4bd67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16e770a790cc11fca559be0b8db4501f') in 0.011912 seconds
-  Import took 0.013999 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000146 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00015.png
-  artifactKey: Guid(a8b4823231948864e8d16988e06b4d37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00015.png using Guid(a8b4823231948864e8d16988e06b4d37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78419ba0f6c9bc989065a25048c0c42e') in 0.010996 seconds
-  Import took 0.013038 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000148 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00014.png
-  artifactKey: Guid(12919bebd08f5e947a361e8a1a93ba39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00014.png using Guid(12919bebd08f5e947a361e8a1a93ba39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa04a1c56097aafd34e407fd4053f587') in 0.011158 seconds
-  Import took 0.013191 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000143 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00006.png
-  artifactKey: Guid(c4be600e9e5ba44f185241c5b13843bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00006.png using Guid(c4be600e9e5ba44f185241c5b13843bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a072b1b264aeba8fa0921826b714aa5') in 0.012313 seconds
-  Import took 0.014351 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000139 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00012.png
-  artifactKey: Guid(7c9c992a438891a40be8ace1b6808e50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00012.png using Guid(7c9c992a438891a40be8ace1b6808e50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cb460df6c6561df10f2c54769933d3a') in 0.012183 seconds
-  Import took 0.014114 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000217 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00011.png
-  artifactKey: Guid(f980ecb3e759df848b9f8880d0ae46fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00011.png using Guid(f980ecb3e759df848b9f8880d0ae46fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5b637ff0a183d1bd03afb066adeb0d8') in 0.011988 seconds
-  Import took 0.014179 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000150 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00004.png
-  artifactKey: Guid(5979a5b3d6b2d43ccac8e172b49a0af6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00004.png using Guid(5979a5b3d6b2d43ccac8e172b49a0af6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8058fdfdc7bedb3a2746e57c1ecc491') in 0.013180 seconds
-  Import took 0.015144 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000139 seconds.
-  path: Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00007.png
-  artifactKey: Guid(8788e2dc8f4f34762913b838e53065ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GameDevHQ/FileBase/Projects/Tutorials/Starter_Files/2D_Galaxy_Assets/Sprites/Power_Ups/Shield/Powerup2_0008_00007.png using Guid(8788e2dc8f4f34762913b838e53065ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4188b948e93be4291ed83de0ef8acb8') in 0.012089 seconds
-  Import took 0.014149 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 86.900004 seconds.
   path: Assets/Prefabs/Enemy.prefab
   artifactKey: Guid(2a0beb7bc6cc4e849a029bef362b089a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Enemy.prefab using Guid(2a0beb7bc6cc4e849a029bef362b089a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c60156b00624acb1c5c20eaba6574cf4') in 0.066233 seconds
-  Import took 0.068744 seconds .
+Start importing Assets/Prefabs/Enemy.prefab using Guid(2a0beb7bc6cc4e849a029bef362b089a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '006798f3b7b9038488c4df795c5fee53') in 0.025716 seconds
+  Import took 0.029468 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000380 seconds.
+  path: Assets/Prefabs/PlayerProjectile.prefab
+  artifactKey: Guid(23688518fcdd1ac40a2da0ff2b541846) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PlayerProjectile.prefab using Guid(23688518fcdd1ac40a2da0ff2b541846) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acf24d1f400a252b3da2b48c96142ff2') in 0.016219 seconds
+  Import took 0.019422 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/Prefabs/Speed_PowerUp.prefab
+  artifactKey: Guid(0464e0589de130f4b8b1a4fc9fe6e5d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Speed_PowerUp.prefab using Guid(0464e0589de130f4b8b1a4fc9fe6e5d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c16731eb73076852ab11127c44333baf') in 0.016469 seconds
+  Import took 0.019594 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000253 seconds.
-  path: Assets/Prefabs/Player_Parent.prefab
-  artifactKey: Guid(26bd604481984be449959529e906619c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Player_Parent.prefab using Guid(26bd604481984be449959529e906619c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f878b178d0df94f0e62731c6e68085c') in 0.012874 seconds
-  Import took 0.015099 seconds .
+  path: Assets/Prefabs/EMP_PowerUp.prefab
+  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05ba3648158ad8431c2d1b4dfed71e66') in 0.019896 seconds
+  Import took 0.022695 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000211 seconds.
+  Time since last request: 0.000236 seconds.
+  path: Assets/Prefabs/EnemyProjectile.prefab
+  artifactKey: Guid(d15fee0b1867e534990f26afd49c4c4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EnemyProjectile.prefab using Guid(d15fee0b1867e534990f26afd49c4c4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d34d54c3959054ad76805fe0fa9cd33') in 0.014636 seconds
+  Import took 0.017812 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000257 seconds.
+  path: Assets/Prefabs/TrippleShot_PowerUp.prefab
+  artifactKey: Guid(821e37f30c4ee3a47b6683b91835c77f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TrippleShot_PowerUp.prefab using Guid(821e37f30c4ee3a47b6683b91835c77f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a05d5c8468aff5c6e70ec21455985991') in 0.017062 seconds
+  Import took 0.020476 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Prefabs/Asteroid.prefab
+  artifactKey: Guid(4dafdd33b992af24aaf8656ef3e4eb6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Asteroid.prefab using Guid(4dafdd33b992af24aaf8656ef3e4eb6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58403e966978d229a6d12d12c1c9f97b') in 0.019461 seconds
+  Import took 0.022535 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Prefabs/Shield_PowerUp.prefab
+  artifactKey: Guid(cbbc20058543bd544be5e607b8802b9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Shield_PowerUp.prefab using Guid(cbbc20058543bd544be5e607b8802b9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b1e3f7f28cf16120267b3b27c78957a') in 0.016183 seconds
+  Import took 0.019099 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/Prefabs/TrippleShot.prefab
+  artifactKey: Guid(1548f4a1c9f43734397c769954c661f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TrippleShot.prefab using Guid(1548f4a1c9f43734397c769954c661f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f9e97f450439582124c3e9b3fb7fe9b') in 0.018618 seconds
+  Import took 0.021657 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Prefabs/Player_Parent.prefab
+  artifactKey: Guid(26bd604481984be449959529e906619c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player_Parent.prefab using Guid(26bd604481984be449959529e906619c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73527bf234aa12945a0c27cb0a939d34') in 0.019031 seconds
+  Import took 0.021983 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/Prefabs/EMP_Projectile.prefab
+  artifactKey: Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EMP_Projectile.prefab using Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5eab0626a9a4c8447733bd7f62829f32') in 0.133029 seconds
+  Import took 0.135883 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000304 seconds.
   path: Assets/Prefabs/Player.prefab
   artifactKey: Guid(d5cdff682d41f7241871433f53c1b73c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Player.prefab using Guid(d5cdff682d41f7241871433f53c1b73c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e433108560926ff7dea69eb14fa499f') in 0.035217 seconds
-  Import took 0.053252 seconds .
+Start importing Assets/Prefabs/Player.prefab using Guid(d5cdff682d41f7241871433f53c1b73c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fd540801eeaaccc39007714c2de5131') in 0.294669 seconds
+  Import took 0.297598 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/Prefabs/Health_PowerUp.prefab
+  artifactKey: Guid(7f62f4542cc1e504aa207afda907a6df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Health_PowerUp.prefab using Guid(7f62f4542cc1e504aa207afda907a6df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c2501db1d4fd34f42553f1f1727aa5f') in 0.014677 seconds
+  Import took 0.017510 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001520 seconds.
+Registered in 0.002200 seconds.
 Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.730 seconds
+- Completed reload, in  0.979 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 68.7 MB.
-System memory in use after: 68.7 MB.
+Unloading 1194 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 68.5 MB.
+System memory in use after: 68.6 MB.
 
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1695.
-Total: 1.829900 ms (FindLiveObjects: 0.146600 ms CreateObjectMapping: 0.044300 ms MarkObjects: 1.586400 ms  DeleteObjects: 0.051000 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1694.
+Total: 2.562000 ms (FindLiveObjects: 0.199400 ms CreateObjectMapping: 0.099000 ms MarkObjects: 2.202200 ms  DeleteObjects: 0.060100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.192826 seconds.
+  path: Assets/Prefabs/EMP_Projectile.prefab
+  artifactKey: Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EMP_Projectile.prefab using Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53ad3830fbf24417a23dcdaa82bb5059') in 0.065227 seconds
+  Import took 0.068934 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001550 seconds.
+Registered in 0.002227 seconds.
 Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.737 seconds
+- Completed reload, in  0.987 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.4 MB.
-System memory in use after: 69.5 MB.
+Unloading 1194 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 68.5 MB.
+System memory in use after: 68.6 MB.
 
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1697.
-Total: 1.865500 ms (FindLiveObjects: 0.170700 ms CreateObjectMapping: 0.052900 ms MarkObjects: 1.579300 ms  DeleteObjects: 0.061200 ms)
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1697.
+Total: 2.378800 ms (FindLiveObjects: 0.212900 ms CreateObjectMapping: 0.103200 ms MarkObjects: 2.044700 ms  DeleteObjects: 0.016600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 120.644329 seconds.
+  path: Assets/Prefabs/EMP_Projectile.prefab
+  artifactKey: Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EMP_Projectile.prefab using Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07ab631ec41df4a78f94bc8921cd1704') in 0.067370 seconds
+  Import took 0.070439 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.036247 seconds.
+  path: Assets/Prefabs/EMP_Projectile.prefab
+  artifactKey: Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EMP_Projectile.prefab using Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a0a13cbc2a9341825e85952cc69b825') in 0.012189 seconds
+  Import took 0.015274 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021045 seconds.
+  path: Assets/Prefabs/EMP_Projectile.prefab
+  artifactKey: Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EMP_Projectile.prefab using Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a0a13cbc2a9341825e85952cc69b825') in 0.008493 seconds
+  Import took 0.011530 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.026706 seconds.
+  path: Assets/Prefabs/EMP_Projectile.prefab
+  artifactKey: Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EMP_Projectile.prefab using Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e458b67c2f14c8429f4ed32405ac8621') in 0.012763 seconds
+  Import took 0.015748 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.025182 seconds.
+  path: Assets/Prefabs/EMP_Projectile.prefab
+  artifactKey: Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EMP_Projectile.prefab using Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e458b67c2f14c8429f4ed32405ac8621') in 0.008903 seconds
+  Import took 0.012471 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 91.734272 seconds.
+  path: Assets/Prefabs/EMP_Projectile.prefab
+  artifactKey: Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/EMP_Projectile.prefab using Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02cc772cd34bf7632a3738749209b606') in 0.010733 seconds
+  Import took 0.013660 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001547 seconds.
+Registered in 0.001946 seconds.
 Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.757 seconds
+- Completed reload, in  0.927 seconds
 Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.33 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.7 MB.
-System memory in use after: 69.8 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1699.
-Total: 1.498700 ms (FindLiveObjects: 0.148600 ms CreateObjectMapping: 0.040500 ms MarkObjects: 1.269200 ms  DeleteObjects: 0.039100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001593 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.715 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.6 MB.
-System memory in use after: 69.7 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1701.
-Total: 2.083900 ms (FindLiveObjects: 0.175700 ms CreateObjectMapping: 0.059900 ms MarkObjects: 1.793100 ms  DeleteObjects: 0.054000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001604 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.718 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.7 MB.
-System memory in use after: 69.8 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1703.
-Total: 1.466200 ms (FindLiveObjects: 0.125300 ms CreateObjectMapping: 0.035400 ms MarkObjects: 1.264800 ms  DeleteObjects: 0.039900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001531 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.711 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.7 MB.
-System memory in use after: 69.8 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1705.
-Total: 1.639000 ms (FindLiveObjects: 0.128800 ms CreateObjectMapping: 0.039700 ms MarkObjects: 1.428000 ms  DeleteObjects: 0.041500 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001558 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.735 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.4 MB.
-System memory in use after: 69.4 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1707.
-Total: 1.462100 ms (FindLiveObjects: 0.125900 ms CreateObjectMapping: 0.035000 ms MarkObjects: 1.259700 ms  DeleteObjects: 0.040400 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001934 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.726 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.7 MB.
-System memory in use after: 69.8 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1709.
-Total: 1.407600 ms (FindLiveObjects: 0.124700 ms CreateObjectMapping: 0.036000 ms MarkObjects: 1.202500 ms  DeleteObjects: 0.043100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001475 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.699 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1194 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 69.5 MB.
 System memory in use after: 69.6 MB.
 
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1711.
-Total: 1.903700 ms (FindLiveObjects: 0.145100 ms CreateObjectMapping: 0.045000 ms MarkObjects: 1.663200 ms  DeleteObjects: 0.049300 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 934.564760 seconds.
-  path: Assets/Scripts/UI_Manager.cs
-  artifactKey: Guid(a462fa6be8e99b24dad181fb1d87d628) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/UI_Manager.cs using Guid(a462fa6be8e99b24dad181fb1d87d628) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9d7755a1699b73a8557d06cb11e5987') in 0.011527 seconds
-  Import took 0.013822 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001510 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.724 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.7 MB.
-System memory in use after: 69.8 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1713.
-Total: 1.855600 ms (FindLiveObjects: 0.149700 ms CreateObjectMapping: 0.045100 ms MarkObjects: 1.611900 ms  DeleteObjects: 0.047700 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 122.206180 seconds.
-  path: Assets/Scripts/UI_Manager.cs
-  artifactKey: Guid(a462fa6be8e99b24dad181fb1d87d628) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/UI_Manager.cs using Guid(a462fa6be8e99b24dad181fb1d87d628) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8be79baff7498f27114379d37e4607b2') in 0.005510 seconds
-  Import took 0.007931 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001638 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.721 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.7 MB.
-System memory in use after: 69.8 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1715.
-Total: 1.964900 ms (FindLiveObjects: 0.158000 ms CreateObjectMapping: 0.050700 ms MarkObjects: 1.699900 ms  DeleteObjects: 0.054900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 647.021139 seconds.
-  path: Assets/Materials/EMP_Mat.mat
-  artifactKey: Guid(e446b933dac25e34f93e88ee3b42fd9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/EMP_Mat.mat using Guid(e446b933dac25e34f93e88ee3b42fd9b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67a2d970593e3d87903b8ce51a936aef') in 0.064777 seconds
-  Import took 0.067327 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 182.821097 seconds.
-  path: Assets/Prefabs/EMP_Projectile.prefab
-  artifactKey: Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_Projectile.prefab using Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea4816cbda312e05008f7bbd994725c2') in 0.022050 seconds
-  Import took 0.024611 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 27.384527 seconds.
-  path: Assets/Prefabs/EMP_Projectile.prefab
-  artifactKey: Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_Projectile.prefab using Guid(f0075ffe8c7bb7b4a8ab996b089d0373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30e5dbb95987aa8d142dd568e8aa3bb2') in 0.006974 seconds
-  Import took 0.009100 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 327.896608 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e43d97a9ed973159af02b53301f7b2b5') in 0.017160 seconds
-  Import took 0.019299 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.004128 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e43d97a9ed973159af02b53301f7b2b5') in 0.007191 seconds
-  Import took 0.010079 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001581 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.719 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.2 MB.
-System memory in use after: 70.2 MB.
-
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1753.
-Total: 1.678100 ms (FindLiveObjects: 0.140600 ms CreateObjectMapping: 0.037300 ms MarkObjects: 1.433300 ms  DeleteObjects: 0.066000 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 826.538377 seconds.
-  path: Assets/Prefabs/Player.prefab
-  artifactKey: Guid(d5cdff682d41f7241871433f53c1b73c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Player.prefab using Guid(d5cdff682d41f7241871433f53c1b73c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c74a79444894ca43d319b523d0e41c65') in 0.074788 seconds
-  Import took 0.078412 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000238 seconds.
-  path: Assets/Prefabs/Player_Parent.prefab
-  artifactKey: Guid(26bd604481984be449959529e906619c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Player_Parent.prefab using Guid(26bd604481984be449959529e906619c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b1f497cbb26881196752ef6f1c2a53f') in 0.013290 seconds
-  Import took 0.015726 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001443 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.744 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.1 MB.
-System memory in use after: 70.2 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1756.
-Total: 1.414300 ms (FindLiveObjects: 0.135100 ms CreateObjectMapping: 0.037500 ms MarkObjects: 1.202300 ms  DeleteObjects: 0.038500 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 37.127244 seconds.
-  path: Assets/Prefabs/Asteroid.prefab
-  artifactKey: Guid(4dafdd33b992af24aaf8656ef3e4eb6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Asteroid.prefab using Guid(4dafdd33b992af24aaf8656ef3e4eb6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dab3c5f6985568634ae107eba5fe03bb') in 0.058438 seconds
-  Import took 0.060735 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001507 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.716 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.9 MB.
-System memory in use after: 69.9 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1759.
-Total: 1.764000 ms (FindLiveObjects: 0.152600 ms CreateObjectMapping: 0.044600 ms MarkObjects: 1.520800 ms  DeleteObjects: 0.045000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001689 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.746 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.2 MB.
-System memory in use after: 70.2 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1761.
-Total: 1.778600 ms (FindLiveObjects: 0.162300 ms CreateObjectMapping: 0.043800 ms MarkObjects: 1.525100 ms  DeleteObjects: 0.045800 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 185.234655 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0de3f1554c5c8935512b7fd5f43ba88c') in 0.029126 seconds
-  Import took 0.031636 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.230844 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6d7b51a47f005fb131c75d1860b0422') in 0.005068 seconds
-  Import took 0.007272 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.056848 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcbc4f8682d7166f439b24c35d016c37') in 0.004491 seconds
-  Import took 0.006689 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.297090 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd815fd7b0be49fd17bfa0080c6466fc8') in 0.033950 seconds
-  Import took 0.036607 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.448896 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81dc660157afbec2f0f07c5ddb0a99fc') in 0.011553 seconds
-  Import took 0.013752 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.012400 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1893821200aac39921f69d9269753f1') in 0.012098 seconds
-  Import took 0.014321 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.233003 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49496fdda64f06a76d79d919029c9cd6') in 0.012344 seconds
-  Import took 0.014741 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.372994 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f48be769cb05f92ed5da1673e0f805b') in 0.014052 seconds
-  Import took 0.016300 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.996317 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd961b72497d03269bba7c79f11ff6296') in 0.011523 seconds
-  Import took 0.013704 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.884439 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b8ee0db0ede52658947d18f1bedea30') in 0.013350 seconds
-  Import took 0.015571 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.326284 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f2c8691b546ceacd8c88c381090d488') in 0.010872 seconds
-  Import took 0.013100 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.493006 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52ea32ccfd9af4a493514cc97b2770c6') in 0.010373 seconds
-  Import took 0.012629 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.594389 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55f28bea2e405bcb1a149a59bd4a67e8') in 0.011174 seconds
-  Import took 0.013504 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.589268 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f459aebee0c8c52a7e1bc12d2196c4d7') in 0.011834 seconds
-  Import took 0.014267 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.266715 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33fc88fdf16732c41b1915d72110cb0e') in 0.012118 seconds
-  Import took 0.014374 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.377050 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47b255f279ea03524a98388ff068a119') in 0.011067 seconds
-  Import took 0.013239 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.278954 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11f88184349e6d5ccb43eadbd75b320f') in 0.011031 seconds
-  Import took 0.013306 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.932533 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bd24e4a806256326d6ed3b76ac3d260') in 0.010667 seconds
-  Import took 0.012834 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.919802 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '973838b2cb709b9ff9dcf678659ec02f') in 0.013166 seconds
-  Import took 0.015683 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.562909 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebb1f809a98fc5d4af6cc2f4ff84382e') in 0.010533 seconds
-  Import took 0.012680 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.798485 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2bbcdd5754a8459718170707bb804db') in 0.010967 seconds
-  Import took 0.013143 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.642873 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd56e5146e0ffbe64e4591bb0c247f398') in 0.008282 seconds
-  Import took 0.010476 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.472099 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bd50e8f7aeffdf0dbb8417b379055b9') in 0.008622 seconds
-  Import took 0.010926 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.116019 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '934eac0e9df18a042332b469edd15c4a') in 0.008090 seconds
-  Import took 0.010182 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.248926 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e73ec62fd75d1d54a63978291ee28336') in 0.007278 seconds
-  Import took 0.009671 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.273806 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52f5b9059d7add2ec8bd4e540b618f98') in 0.007107 seconds
-  Import took 0.009260 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.223153 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c233cf453221117fa42c187130009f1d') in 0.007747 seconds
-  Import took 0.009886 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 76.826022 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fce440cba8974914e24e5660ebdc549') in 0.012345 seconds
-  Import took 0.014517 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001699 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.730 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.2 MB.
-System memory in use after: 70.2 MB.
-
-Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 1764.
-Total: 1.955600 ms (FindLiveObjects: 0.160300 ms CreateObjectMapping: 0.047700 ms MarkObjects: 1.611500 ms  DeleteObjects: 0.135100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001840 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.818 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.3 MB.
-System memory in use after: 70.4 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1766.
-Total: 1.726500 ms (FindLiveObjects: 0.181000 ms CreateObjectMapping: 0.057800 ms MarkObjects: 1.437800 ms  DeleteObjects: 0.047900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 359.590916 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4c7be6117d28c409b728a6a76d46387') in 0.055596 seconds
-  Import took 0.058044 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001851 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.866 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.2 MB.
-System memory in use after: 70.3 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1769.
-Total: 1.934800 ms (FindLiveObjects: 0.200500 ms CreateObjectMapping: 0.070300 ms MarkObjects: 1.584800 ms  DeleteObjects: 0.077900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001450 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.707 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 69.9 MB.
-System memory in use after: 69.9 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1771.
-Total: 1.666200 ms (FindLiveObjects: 0.151900 ms CreateObjectMapping: 0.042200 ms MarkObjects: 1.428600 ms  DeleteObjects: 0.042500 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 203.568510 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e798e01858df426a66f325f0cf0f73d0') in 0.039802 seconds
-  Import took 0.042296 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 228.270056 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f59bc591cf55942eb8fab4deba299a5b') in 0.039251 seconds
-  Import took 0.041429 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.224663 seconds.
-  path: Assets/Prefabs/EMP_PowerUp.prefab
-  artifactKey: Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/EMP_PowerUp.prefab using Guid(4f219589639297f4c8768b157d002380) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d23da8d591002bdf07f23161e94db73') in 0.008656 seconds
-  Import took 0.010807 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001528 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.712 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.3 MB.
-System memory in use after: 70.3 MB.
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1774.
-Total: 3.491800 ms (FindLiveObjects: 0.225300 ms CreateObjectMapping: 0.055700 ms MarkObjects: 2.932100 ms  DeleteObjects: 0.277500 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001782 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.708 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.0 MB.
-System memory in use after: 70.1 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1776.
-Total: 1.947400 ms (FindLiveObjects: 0.176700 ms CreateObjectMapping: 0.053700 ms MarkObjects: 1.666800 ms  DeleteObjects: 0.049000 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 145.952552 seconds.
-  path: Assets/Prefabs/Enemy.prefab
-  artifactKey: Guid(2a0beb7bc6cc4e849a029bef362b089a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Enemy.prefab using Guid(2a0beb7bc6cc4e849a029bef362b089a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82cf7adfea00f18f4a7000a90f7b15dd') in 0.053916 seconds
-  Import took 0.056280 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001598 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.731 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.3 MB.
-System memory in use after: 70.3 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1779.
-Total: 1.809100 ms (FindLiveObjects: 0.162600 ms CreateObjectMapping: 0.050800 ms MarkObjects: 1.551100 ms  DeleteObjects: 0.043700 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001567 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.699 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.2 MB.
-System memory in use after: 70.3 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1781.
-Total: 2.133500 ms (FindLiveObjects: 0.222400 ms CreateObjectMapping: 0.058400 ms MarkObjects: 1.792300 ms  DeleteObjects: 0.058900 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001573 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.728 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.3 MB.
-System memory in use after: 70.3 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1783.
-Total: 1.697000 ms (FindLiveObjects: 0.153600 ms CreateObjectMapping: 0.043200 ms MarkObjects: 1.455000 ms  DeleteObjects: 0.044000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002308 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.756 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.3 MB.
-System memory in use after: 70.4 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1785.
-Total: 1.661000 ms (FindLiveObjects: 0.165100 ms CreateObjectMapping: 0.050300 ms MarkObjects: 1.399700 ms  DeleteObjects: 0.044800 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001566 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.724 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.0 MB.
-System memory in use after: 70.1 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1787.
-Total: 1.745800 ms (FindLiveObjects: 0.164400 ms CreateObjectMapping: 0.052000 ms MarkObjects: 1.482300 ms  DeleteObjects: 0.046100 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002096 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.736 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1195 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.3 MB.
-System memory in use after: 70.4 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1789.
-Total: 1.599800 ms (FindLiveObjects: 0.189000 ms CreateObjectMapping: 0.038100 ms MarkObjects: 1.304100 ms  DeleteObjects: 0.067700 ms)
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1700.
+Total: 2.265500 ms (FindLiveObjects: 0.209800 ms CreateObjectMapping: 0.100800 ms MarkObjects: 1.925400 ms  DeleteObjects: 0.027900 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
