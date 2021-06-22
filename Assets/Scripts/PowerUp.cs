@@ -33,6 +33,9 @@ public class PowerUp : MonoBehaviour
                         break;
                     case 3:
                         playerController.AddAmmo(5);
+                        break;
+                    case 4:
+                        playerController.AddHealth(1);
                         break; 
                     default:
                         Debug.Log("Default value"); 

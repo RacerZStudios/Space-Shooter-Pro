@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3314715034870681593}
+  - component: {fileID: 8749534420536928659}
   m_Layer: 0
   m_Name: EnemyProjectile
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8749534420536928659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541079184550153418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a012425ebefb44448cb369b65822867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projSpeed: 10
+  isEnemyProjectile: 0
 --- !u!1001 &3110146968885990369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,9 +102,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7082824340317498423, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082824340317498423, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -424377719
+      objectReference: {fileID: 0}
     - target: {fileID: 9053873461069042147, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6707209955241362434, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
@@ -154,9 +177,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7082824340317498423, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082824340317498423, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -424377719
+      objectReference: {fileID: 0}
     - target: {fileID: 9053873461069042147, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6707209955241362434, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}

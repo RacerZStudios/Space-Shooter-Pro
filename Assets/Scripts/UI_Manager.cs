@@ -22,13 +22,15 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     private GameObject player;
     [SerializeField]
-    private Text ammoCount; 
+    private Text ammoCount;
+    private int finalScore;
+    [SerializeField]
+    public Slider thurstSlider; 
 
     private void Start()
     {
         GameOverText.gameObject.SetActive(false);
         restartText.gameObject.SetActive(false);
-
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); 
         if(gameManager == null)
         {
@@ -48,7 +50,9 @@ public class UI_Manager : MonoBehaviour
 
     public void UpdateScore(int playerScore)
     {
+        int finalScore;
         scoretext.text = "Score: " + playerScore.ToString();
+        finalScore = playerScore;
     }
 
     public void UpdateLives(int currentLives)
@@ -60,24 +64,33 @@ public class UI_Manager : MonoBehaviour
         {
             return;
         }
-        else if(liveSprites.Length > 0 && livesImage != null)
+
+        if(liveSprites.Length > 0 && livesImage != null)
         {
             livesImage.sprite = liveSprites[currentLives];
             if(liveSprites.Length < 0)
             {
                 player.GetComponent<BoxCollider2D>().enabled = false; 
-                return;
             }
         }
 
-        if(currentLives <= 0 || currentLives <= 2 || currentLives < 2)
+        if(currentLives <= 0 || currentLives <= 1)
         {
             GameOverText.gameObject.SetActive(true);
             restartText.gameObject.SetActive(true);
+            scoretext.text += finalScore; 
             gameManager.GameOver(); 
             StartCoroutine(GameOverFlickerRoutine());
             Destroy(livesImage); 
-            return; 
+        }
+    }
+
+    public void AddLivves(int livesToAdd)
+    {
+        if (liveSprites.Length == 1 && livesImage != null)
+        {
+            livesToAdd += 1;
+            liveSprites[livesToAdd] = livesImage.sprite;
         }
     }
 
@@ -89,6 +102,14 @@ public class UI_Manager : MonoBehaviour
             yield return new WaitForSeconds(3);
             GameOverText.text = "";
             yield return new WaitForSeconds(3);
+        }
+    }
+
+    public void StartThrust()
+    {
+        if(thurstSlider.value <= 1)
+        {
+            thurstSlider.value-= 0.001f;
         }
     }
 }

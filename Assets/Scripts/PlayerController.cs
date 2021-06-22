@@ -34,7 +34,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public bool isShield;
     [SerializeField]
-    private float thrustSpeed = 5; 
+    private float thrustSpeed = 5;
+    [SerializeField]
+    private bool isThruster; 
 
     private float horizontalInput = -0.1f;
     private float verticalInput = 0.1f;
@@ -152,30 +154,11 @@ public class PlayerController : MonoBehaviour
             playerT.Translate(Vector3.down * speed * Time.deltaTime);
         }
 
-        // Thrust Speed Feature 
-        if(Input.GetKey(KeyCode.LeftShift))
+        Vector3 dir = new Vector3(horizontalInput, verticalInput, 0);
+
+        if (uI_Manager.thurstSlider.value > 0)
         {
-            if (horizontalInput < 0)
-            { 
-                playerT.TransformDirection(Vector3.left * thrustSpeed * Time.deltaTime);
-            }
-
-            if (horizontalInput > 0)
-            {
-                playerT.Translate(Vector3.right * thrustSpeed * Time.deltaTime);
-            }
-
-            if (verticalInput > -0.1f)
-            {
-                playerT.Translate(Vector3.up * thrustSpeed * Time.deltaTime);
-            }
-
-            if (verticalInput < -1)
-            {
-                playerT.TransformDirection(Vector3.down * thrustSpeed * Time.deltaTime);
-            }
-
-            Vector3 dir = new Vector3(horizontalInput, verticalInput, 0); 
+            ThrustActive();
         }
 
         // if player is greater than 0, y position = 0 
@@ -198,6 +181,35 @@ public class PlayerController : MonoBehaviour
         else if(playerT.position.x < -10)
         {
             playerT.position = new Vector3(10, playerT.position.y, 0); 
+        }
+    }
+
+    public void ThrustActive()
+    {
+        // Thrust Speed Feature 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            uI_Manager.StartThrust();
+
+            if (horizontalInput < 0)
+            {
+                playerT.TransformDirection(Vector3.left * thrustSpeed * Time.deltaTime);
+            }
+
+            if (horizontalInput > 0)
+            {
+                playerT.Translate(Vector3.right * thrustSpeed * Time.deltaTime);
+            }
+
+            if (verticalInput > -0.1f)
+            {
+                playerT.Translate(Vector3.up * thrustSpeed * Time.deltaTime);
+            }
+
+            if (verticalInput < -1)
+            {
+                playerT.TransformDirection(Vector3.down * thrustSpeed * Time.deltaTime);
+            }
         }
     }
 
@@ -225,7 +237,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(lives <= 0 || lives <= 1)
+        if(lives <= 0)
         {
             gM.isGameOver = true; 
             spawnManager.PlayerDead();
@@ -296,10 +308,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void AddHealth(int health)
+    {
+        uI_Manager.AddLivves(1); 
+        if(lives != 0 && lives == 1)
+        {
+            lives += 1;
+        }
+    }
+
     public void AddAmmo(int ammo)
     {
         uI_Manager.AmmoStorage(ammoAmount);
-        ammoAmount = ammo; 
+        ammoAmount = ammo + ammoAmount; 
     }
 
     public void AddScore(int points)

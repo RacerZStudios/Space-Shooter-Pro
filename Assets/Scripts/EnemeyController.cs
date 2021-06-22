@@ -8,6 +8,7 @@ public class EnemeyController : MonoBehaviour
     public float moveSpeed = 1.5f;
     public bool isDestroyed;
    // public Transform []spawnPos;
+   [SerializeField]
     private PlayerController playerController;
     [SerializeField]
     private Animator anim;
@@ -42,21 +43,33 @@ public class EnemeyController : MonoBehaviour
         {
             audioSource.Play();
             isDestroyed = true;
-            if (playerController == null)
+            if(isDestroyed == true || playerController != null)
             {
-                playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
+                int score = 10;
+                score += score; 
+                UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
+                uiM.UpdateScore(score); 
+                Debug.Log(playerController + "Score");
             }
 
-            if (playerController != null)
+            if(playerController != null)
             {
-                playerController.GetComponent<PlayerController>().AddScore(10);
+                playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
+                playerController.AddScore(10); 
+                return; 
             }
+            else if(playerController == null && isDestroyed)
+            {
+                Destroy(this); 
+            }
+
             StartCoroutine(PlayEnemyDeadAnim());
         }
 
-        if (collision.gameObject.name == "PlayerController")
+        if (collision.gameObject.name == "PlayerController" || collision.gameObject.tag == "Player") 
         {
             audioSource.Play();
+            Debug.Log(playerController + "hit"); 
             if(playerController == null)
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>(); 
@@ -94,10 +107,20 @@ public class EnemeyController : MonoBehaviour
             }
         }
 
-        if (!isDestroyed && transform.position.y > -3 && gameObject != null)
+
+        if (!isDestroyed && transform.position.y > -3)
         {
-            transform.position += -Vector3.up * moveSpeed * Time.deltaTime;
-            return; 
+            transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+            if (transform.position.y < -3)
+            {
+                Destroy(gameObject);
+            }
         }
+
+        //if (!isDestroyed && transform.position.y > -3)
+        //{
+        //    transform.position += -Vector3.up * moveSpeed * Time.deltaTime;
+        //    return; 
+        //}
     }
 }

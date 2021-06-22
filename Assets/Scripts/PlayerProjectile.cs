@@ -15,7 +15,7 @@ public class PlayerProjectile : MonoBehaviour
         {
             MoveUp();
         }
-        else
+        else if(isEnemyProjectile == true)
         {
             MoveDown(); 
         }
@@ -62,8 +62,13 @@ public class PlayerProjectile : MonoBehaviour
 
             if(player != null)
             {
-                player.TakeDamage(); 
+                player.SendMessage("TakeDamage");
+                return; 
             }
+        }
+        else if(collision.gameObject.tag == "Player")
+        {
+            Debug.Log("player hit");  
         }
     }
 }
