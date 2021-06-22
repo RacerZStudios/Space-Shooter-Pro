@@ -67,7 +67,8 @@ public class PlayerController : MonoBehaviour
     private GameManager gM;
     [SerializeField]
     private Shield_Manager shield_Manager;
-    private int ammoAmount; 
+    private int ammoAmount;
+    private SpriteRenderer spriteRender; 
 
     private void Start()
     {
@@ -75,6 +76,7 @@ public class PlayerController : MonoBehaviour
         uI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>(); 
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         audioSource = GetComponent<AudioSource>();
+        spriteRender = GetComponent<SpriteRenderer>(); 
         player = GetComponent<GameObject>(); 
         OnStartPlayerLocation(); 
 
@@ -308,8 +310,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public IEnumerator AddHealthEffect()
+    {
+        if(spriteRender != null)
+        {
+            spriteRender.color = new Color(1, 1, 1, 1);
+            Debug.Log("Collected Health " + Color.red);
+            yield return new WaitForSeconds(2);
+            spriteRender.color = new Color(0, 209f, 255f, 255f);
+            Debug.Log("Orogin Color " + Color.cyan);
+            uI_Manager.addHealthText.gameObject.SetActive(false);
+        }
+    }
+
     public void AddHealth(int health)
     {
+        uI_Manager.addHealthText.gameObject.SetActive(true); 
+        StartCoroutine(AddHealthEffect()); 
         uI_Manager.AddLivves(1); 
         if(lives != 0 && lives == 1)
         {

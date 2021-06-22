@@ -25,10 +25,13 @@ public class UI_Manager : MonoBehaviour
     private Text ammoCount;
     private int finalScore;
     [SerializeField]
-    public Slider thurstSlider; 
+    public Slider thurstSlider;
+    [SerializeField]
+    public Text addHealthText; 
 
     private void Start()
     {
+        addHealthText.gameObject.SetActive(false); 
         GameOverText.gameObject.SetActive(false);
         restartText.gameObject.SetActive(false);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); 
