@@ -142,11 +142,7 @@ public class PlayerController : MonoBehaviour
                 Instantiate(empProjectile, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
                 uI_Manager.AmmoStorage(ammoAmount);
             }
-            else
-            {
-                isEMPProjectile = false;
-                return; 
-            }
+            isEMPProjectile = false; 
         }
 
         // in line code cleanup 
