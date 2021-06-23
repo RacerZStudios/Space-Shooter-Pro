@@ -12,12 +12,16 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R) && isGameOver == true)
         {
-            SceneManager.LoadScene(1); 
+            SceneManager.LoadScene(1); // Restart the Game 
+        }
+        else if (Input.GetKeyDown(KeyCode.R) && isGameOver == false)
+        {
+            SceneManager.LoadScene(1); // Restart the Game Anytime 
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape)) // Load the Main Menu 
         {
-            Application.Quit(); 
+            SceneManager.LoadScene(0); 
         }
     }
 
