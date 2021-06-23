@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
 
         // Player Projectile Input 
-        if(Input.GetKeyDown(KeyCode.Space) && Time.time > canFire && isEMPProjectile == false && ammoAmount <= 15 && ammoAmount != 0)
+        if(Input.GetKeyDown(KeyCode.Space) && Time.time > canFire && isEMPProjectile == false && ammoAmount <= 15 && ammoAmount != 0 && ammoAmount != 16)
         {
             canFire = Time.time + fireTime;
             audioSource.Play(); 
@@ -129,16 +129,23 @@ public class PlayerController : MonoBehaviour
             if (isTrippleShot == true)
             {
                 Instantiate(trippleShotObject, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
+                uI_Manager.AmmoStorage(ammoAmount);
                 return;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && ammoAmount <= 15 && ammoAmount != 0)
+
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && isEMPProjectile == true && ammoAmount <= 15 && ammoAmount != 0 && ammoAmount != 16)
         {
             standardFire = Time.time + fireTime;
             if (isEMPProjectile == true)
             {
                 Instantiate(empProjectile, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
-                return;
+                uI_Manager.AmmoStorage(ammoAmount);
+            }
+            else
+            {
+                isEMPProjectile = false;
+                return; 
             }
         }
 
@@ -270,7 +277,6 @@ public class PlayerController : MonoBehaviour
     public IEnumerator DoTrippleShot()
     {
         yield return new WaitForSeconds(5);
-        TrippleShotActive();
         isTrippleShot = false; 
     }
 
@@ -283,7 +289,6 @@ public class PlayerController : MonoBehaviour
     public IEnumerator DoEMPShot()
     {
         yield return new WaitForSeconds(5);
-        EMPPowerUpActive();
         isEMPProjectile = false;
     }
 

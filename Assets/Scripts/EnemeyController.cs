@@ -66,6 +66,35 @@ public class EnemeyController : MonoBehaviour
             StartCoroutine(PlayEnemyDeadAnim());
         }
 
+        if(collision.gameObject.tag == "EnemyProjectile")
+        {
+            audioSource.Play();
+            isDestroyed = true;
+            if (isDestroyed == true || playerController != null)
+            {
+                int score = 50;
+                score += score;
+                UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
+                uiM.UpdateScore(score);
+                Debug.Log(playerController + "Score");
+            }
+
+            if (playerController != null)
+            {
+                playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
+                playerController.AddScore(50);
+                return;
+            }
+            else if (playerController == null && isDestroyed)
+            {
+                Destroy(this);
+            }
+
+            Debug.Log("Emp" + PlayEnemyDeadAnimEMP()); 
+            gameObject.transform.position += Vector3.left * moveSpeed * Time.deltaTime; 
+            StartCoroutine(PlayEnemyDeadAnimEMP());
+        }
+
         if (collision.gameObject.name == "PlayerController" || collision.gameObject.tag == "Player") 
         {
             audioSource.Play();
@@ -90,6 +119,17 @@ public class EnemeyController : MonoBehaviour
         Destroy(gameObject, 2.0f);
         Destroy(GetComponent<Collider2D>()); 
         yield return null; 
+    }
+
+    IEnumerator PlayEnemyDeadAnimEMP()
+    {
+        yield return new WaitForSeconds(3.0f);
+        audioSource.Play();
+        anim.SetTrigger("OnEnemyDeath");
+        yield return new WaitForSeconds(anim.speed);
+        Destroy(gameObject, 2.0f);
+        Destroy(GetComponent<Collider2D>());
+        yield return null;
     }
 
     private void Update()

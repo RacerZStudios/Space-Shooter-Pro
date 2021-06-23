@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 5291074473495551213}
   - component: {fileID: 367073454110138203}
   - component: {fileID: 3647341247574730368}
-  - component: {fileID: 8666259575488457915}
   - component: {fileID: 6329373552247494454}
   - component: {fileID: 75898545918573125}
+  - component: {fileID: 3470254620540718155}
   m_Layer: 0
   m_Name: EMP_Projectile
-  m_TagString: PlayerProjectile
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,20 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8666259575488457915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3345187054109330014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a012425ebefb44448cb369b65822867, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projSpeed: 10
-  isEnemyProjectile: 0
 --- !u!58 &6329373552247494454
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,3 +121,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3470254620540718155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3345187054109330014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f7dc8699cdc6d4897d35d544f7f24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projSpeed: 10
+  isEMPProjectile: 0
