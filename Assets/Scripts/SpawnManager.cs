@@ -19,7 +19,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     public Transform []powerUpSpawn;
     [SerializeField]
-    public Transform[] spwanPoints; 
+    public Transform[] spwanPoints;
+    [SerializeField]
+    public GameObject newEnemy;
+    [SerializeField]
+    private GameObject newEnemySpawn; 
 
     public bool stopSpawn;
 
@@ -38,6 +42,8 @@ public class SpawnManager : MonoBehaviour
             Vector3 spawnPos = new Vector3(Random.Range(-3, 3), 6, 0); 
             GameObject enemyInstance = Instantiate(enemy, spwanPoints[0].transform.position, Quaternion.identity);
             enemyInstance.transform.parent = enemyContainer.transform;
+            GameObject newEnemyInstance = Instantiate(newEnemy, spwanPoints[3].transform.position, Quaternion.identity);
+            newEnemyInstance.transform.parent = newEnemySpawn.transform;
             yield return new WaitForSeconds(Random.Range(3, 7));
         }
     }

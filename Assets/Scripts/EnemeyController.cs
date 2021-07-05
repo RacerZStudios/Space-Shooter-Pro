@@ -7,7 +7,6 @@ public class EnemeyController : MonoBehaviour
     [SerializeField] 
     public float moveSpeed = 1.5f;
     public bool isDestroyed;
-   // public Transform []spawnPos;
    [SerializeField]
     private PlayerController playerController;
     [SerializeField]
@@ -19,7 +18,11 @@ public class EnemeyController : MonoBehaviour
     [SerializeField]
     private Transform eProjSpawn; 
     private float fireRate = 3;
-    private float canFire = -1; 
+    private float canFire = -1;
+    [SerializeField]
+    private Rigidbody2D rB;
+    [SerializeField]
+    private bool isNewEnemy; 
 
     private void Start()
     {
@@ -32,6 +35,8 @@ public class EnemeyController : MonoBehaviour
         {
             return;
         }
+
+        rB = GetComponent<Rigidbody2D>(); 
 
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>(); 
@@ -132,9 +137,40 @@ public class EnemeyController : MonoBehaviour
         yield return null;
     }
 
+    IEnumerator NewEnemyAnim()
+    {
+        if (this.gameObject.tag == "NewEnemy" || this.gameObject != null)
+        {
+            isNewEnemy = true; 
+            if(isNewEnemy == true)
+            {
+                anim.SetBool("IsNewEnemy", true); 
+                anim.Play("NewEnemy_Anim");
+                if (rB != null)
+                {
+                    rB.AddForce(Vector3.down * moveSpeed * Time.deltaTime);
+                    Debug.Log("Adding force");
+                }
+                if (rB != null)
+                {
+                    rB.AddForce(Vector3.down * moveSpeed * Time.deltaTime);
+                    Debug.Log("Adding force");
+                }
+                isNewEnemy = false; 
+            }
+            yield return null;
+        }
+    }
+
     private void Update()
     {
-        if(Time.time > canFire)
+        while (this != null)
+        {
+            StartCoroutine(NewEnemyAnim());
+            break;
+        }
+
+        if (Time.time > canFire)
         {
             fireRate = Random.Range(3, 6);
             canFire = Time.time * fireRate;
@@ -156,11 +192,5 @@ public class EnemeyController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
-        //if (!isDestroyed && transform.position.y > -3)
-        //{
-        //    transform.position += -Vector3.up * moveSpeed * Time.deltaTime;
-        //    return; 
-        //}
     }
 }
