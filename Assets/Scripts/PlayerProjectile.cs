@@ -68,7 +68,7 @@ public class PlayerProjectile : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("player hit");  
+           // Debug.Log("player hit");  
         }
     }
 }

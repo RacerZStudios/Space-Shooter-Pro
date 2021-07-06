@@ -39,6 +39,12 @@ public class EnemeyController : MonoBehaviour
         rB = GetComponent<Rigidbody2D>(); 
 
         anim = GetComponent<Animator>();
+
+        if (anim == null)
+        {
+            return; 
+        }
+
         audioSource = GetComponent<AudioSource>(); 
     }
 
@@ -103,7 +109,7 @@ public class EnemeyController : MonoBehaviour
         if (collision.gameObject.name == "PlayerController" || collision.gameObject.tag == "Player") 
         {
             audioSource.Play();
-            Debug.Log(playerController + "hit"); 
+            // Debug.Log(playerController + "hit"); 
             if(playerController == null)
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>(); 
@@ -142,7 +148,7 @@ public class EnemeyController : MonoBehaviour
         if (this.gameObject.tag == "NewEnemy" || this.gameObject != null)
         {
             isNewEnemy = true; 
-            if(isNewEnemy == true)
+            if(isNewEnemy == true && anim != null)
             {
                 anim.SetBool("IsNewEnemy", true); 
                 anim.Play("NewEnemy_Anim");
@@ -156,7 +162,8 @@ public class EnemeyController : MonoBehaviour
                     rB.AddForce(Vector3.down * moveSpeed * Time.deltaTime);
                     Debug.Log("Adding force");
                 }
-                isNewEnemy = false; 
+                isNewEnemy = false;
+                yield return null; 
             }
             yield return null;
         }

@@ -23,6 +23,7 @@ public class UI_Manager : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private Text ammoCount;
+    private int maxAmmo; 
     private int finalScore;
     [SerializeField]
     public Slider thurstSlider;
@@ -43,11 +44,13 @@ public class UI_Manager : MonoBehaviour
 
     public void AmmoStorage(int ammoAmount)
     {
+        maxAmmo = 15;
+        ammoCount.text = maxAmmo.ToString();
         ammoAmount--;
-        ammoCount.text = "Ammo " + ammoAmount.ToString();
+        ammoCount.text = "Current Ammo " + ammoAmount.ToString() + " Max Ammo " + " : " + maxAmmo;
         if (ammoAmount <= 0)
         {
-            ammoCount.text = "Ammo: " + ammoAmount.ToString() + " " + "Out of Ammo ";
+            ammoCount.text = "Ammo: " + ammoAmount.ToString() + " / " + "Out of Ammo ";
         }
     }
 
