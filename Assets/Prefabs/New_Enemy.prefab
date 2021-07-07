@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6278301708160342858}
   - component: {fileID: 1311916189}
   - component: {fileID: 1311916190}
-  - component: {fileID: 5437431227838383685}
+  - component: {fileID: 6719838422158075790}
   m_Layer: 0
   m_Name: New_Enemy
   m_TagString: NewEnemy
@@ -280,7 +280,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5437431227838383685
+--- !u!114 &6719838422158075790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4943889418459928722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4819c4cfaeb3677469fb3b1c5b7c7e37, type: 3}
+  m_Script: {fileID: 11500000, guid: e39b87809219e0743a5c7a91ae2c139d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
@@ -299,3 +299,5 @@ MonoBehaviour:
   audioSource: {fileID: 1311916190}
   enemyProjectile: {fileID: 541079184550153418, guid: 1624131b1de525f40adeb4191557e611, type: 3}
   eProjSpawn: {fileID: 653613149388205080}
+  rB: {fileID: 1311916187}
+  isNewEnemy: 0

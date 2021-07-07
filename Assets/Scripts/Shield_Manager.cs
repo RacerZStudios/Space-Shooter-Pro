@@ -9,7 +9,7 @@ public class Shield_Manager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && gameObject.activeInHierarchy)
         {
-            Debug.Log("Shield Hit");
+           // Debug.Log("Shield Hit");
             switch (shieldLife)
             {
                 case 0:

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemeyController : MonoBehaviour
+public class NewEnemeyController : MonoBehaviour
 {
     [SerializeField] 
     public float moveSpeed = 1.5f;
@@ -63,9 +63,7 @@ public class EnemeyController : MonoBehaviour
                // Debug.Log(playerController + "Score");
             }
 
-            StartCoroutine(PlayEnemyDeadAnim());
-
-            if (playerController != null)
+            if(playerController != null)
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
                 playerController.AddScore(10); 
@@ -73,8 +71,10 @@ public class EnemeyController : MonoBehaviour
             }
             else if(playerController == null && isDestroyed)
             {
-                Destroy(gameObject, 2.0f); 
+                Destroy(this); 
             }
+
+            StartCoroutine(PlayEnemyDeadAnim());
         }
 
         if(collision.gameObject.tag == "EnemyProjectile")
@@ -87,7 +87,7 @@ public class EnemeyController : MonoBehaviour
                 score += score;
                 UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
                 uiM.UpdateScore(score);
-               // Debug.Log(playerController + "Score");
+                Debug.Log(playerController + "Score");
             }
 
             if (playerController != null)
@@ -101,7 +101,7 @@ public class EnemeyController : MonoBehaviour
                 Destroy(this);
             }
 
-           // Debug.Log("Emp" + PlayEnemyDeadAnimEMP()); 
+            Debug.Log("Emp" + PlayEnemyDeadAnimEMP()); 
             gameObject.transform.position += Vector3.left * moveSpeed * Time.deltaTime; 
             StartCoroutine(PlayEnemyDeadAnimEMP());
         }
@@ -126,10 +126,9 @@ public class EnemeyController : MonoBehaviour
     {
         audioSource.Play();
         anim.SetTrigger("OnEnemyDeath");
-        yield return new WaitForSeconds(anim.speed);
-        Destroy(GetComponent<Collider2D>());
-        yield return new WaitForSeconds(2.0f);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(anim.speed); 
+        Destroy(gameObject, 2.0f);
+        Destroy(GetComponent<Collider2D>()); 
         yield return null; 
     }
 
@@ -139,14 +138,38 @@ public class EnemeyController : MonoBehaviour
         audioSource.Play();
         anim.SetTrigger("OnEnemyDeath");
         yield return new WaitForSeconds(anim.speed);
+        Destroy(gameObject, 2.0f);
         Destroy(GetComponent<Collider2D>());
-        yield return new WaitForSeconds(3.0f);
-        Destroy(gameObject);
+        yield return null;
+    }
+
+    IEnumerator NewEnemyAnim()
+    {
+        if (this.gameObject.tag == "NewEnemy" || this.gameObject != null)
+        {
+            isNewEnemy = true; 
+            if(isNewEnemy == true && anim != null)
+            {
+                anim.SetBool("IsNewEnemy", true); 
+                anim.Play("NewEnemy_Anim");
+                if (rB != null)
+                {
+                    rB.AddForce(Vector3.down * moveSpeed * Time.deltaTime);
+                }
+            }
+        }
+        isNewEnemy = false;
         yield return null;
     }
 
     private void Update()
     {
+        while (this != null)
+        {
+            StartCoroutine(NewEnemyAnim());
+            break;
+        }
+
         if (Time.time > canFire)
         {
             fireRate = Random.Range(3, 6);

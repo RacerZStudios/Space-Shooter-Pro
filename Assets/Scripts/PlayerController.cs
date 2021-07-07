@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
 
         // Player Projectile Input 
-        if(Input.GetKeyDown(KeyCode.Space) && Time.time > canFire && isEMPProjectile == false && ammoAmount <= 15 && ammoAmount != 0 && ammoAmount != 16)
+        if(Input.GetKeyDown(KeyCode.Space) && Time.time > canFire && isEMPProjectile == false && ammoAmount >= 0 && ammoAmount != 0)
         {
             canFire = Time.time + fireTime;
             audioSource.Play(); 
@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && isEMPProjectile == true && ammoAmount <= 15 && ammoAmount != 0 && ammoAmount != 16)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && isEMPProjectile == true && ammoAmount >= 0 && ammoAmount != 0)
         {
             standardFire = Time.time + fireTime;
             if (isEMPProjectile == true)
@@ -342,10 +342,10 @@ public class PlayerController : MonoBehaviour
         if(spriteRender != null)
         {
             spriteRender.color = new Color(1, 1, 1, 1);
-            Debug.Log("Collected Health " + Color.red);
+           // Debug.Log("Collected Health " + Color.red);
             yield return new WaitForSeconds(2);
             spriteRender.color = new Color(0, 209f, 255f, 255f);
-            Debug.Log("Orogin Color " + Color.cyan);
+           // Debug.Log("Orogin Color " + Color.cyan);
             uI_Manager.addHealthText.gameObject.SetActive(false);
         }
     }

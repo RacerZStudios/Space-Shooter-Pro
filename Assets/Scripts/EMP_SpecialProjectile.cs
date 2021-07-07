@@ -61,9 +61,5 @@ public class EMP_SpecialProjectile : MonoBehaviour
                 return;
             }
         }
-        else if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("player hit");
-        }
     }
 }
