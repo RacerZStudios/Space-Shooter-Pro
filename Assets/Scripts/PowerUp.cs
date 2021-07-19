@@ -5,9 +5,10 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     private PlayerController playerController;
-    public float powerUpSpeed = 5;
     [SerializeField]
-    public int powerUpID;
+    private float powerUpSpeed = 5;
+    [SerializeField]
+    private int powerUpID;
     [SerializeField]
     private AudioClip clip; 
 
@@ -39,6 +40,9 @@ public class PowerUp : MonoBehaviour
                         break;
                     case 5:
                         playerController.EMPPowerUpActive();
+                        break;
+                    case 6:
+                        playerController.NegativeEffect(0);
                         break;
                     default:
                         Debug.Log("Default value"); 

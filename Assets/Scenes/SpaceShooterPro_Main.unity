@@ -903,6 +903,7 @@ MonoBehaviour:
   thrustSpeed: 50
   isThruster: 0
   isEMPProjectile: 0
+  isNegativeEffect: 0
   playerProjectile: {fileID: 3110005347284216258, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
   empProjectile: {fileID: 3345187054109330014, guid: f0075ffe8c7bb7b4a8ab996b089d0373, type: 3}
   projT: {fileID: 945768077}
@@ -2588,6 +2589,7 @@ MonoBehaviour:
   - {fileID: 7369993231101859610, guid: a3191db8d835a3f46a109eb53b92b835, type: 3}
   - {fileID: 2194743391871329429, guid: 7f62f4542cc1e504aa207afda907a6df, type: 3}
   - {fileID: 2441434696067070306, guid: 4f219589639297f4c8768b157d002380, type: 3}
+  - {fileID: 2194743391871329429, guid: bba1c26ceadd4144e9cde8b2146a82ec, type: 3}
   powerUpSpawn:
   - {fileID: 513172659}
   - {fileID: 1063261350}
@@ -2595,6 +2597,7 @@ MonoBehaviour:
   - {fileID: 993800890}
   - {fileID: 180815494}
   - {fileID: 180815494}
+  - {fileID: 368135758}
   spwanPoints:
   - {fileID: 1845315605}
   - {fileID: 38989413}

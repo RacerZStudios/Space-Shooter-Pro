@@ -39,7 +39,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool isThruster;
     [SerializeField]
-    private bool isEMPProjectile; 
+    private bool isEMPProjectile;
+    [SerializeField]
+    private bool isNegativeEffect; 
 
     private float horizontalInput = -0.1f;
     private float verticalInput = 0.1f;
@@ -76,6 +78,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        if(isNegativeEffect == true)
+        {
+            isNegativeEffect = false;
+        }
+
         ammoAmount = 15; 
         uI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>(); 
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
@@ -174,7 +181,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 dir = new Vector3(horizontalInput, verticalInput, 0);
 
-        if (uI_Manager.thurstSlider.value > 0)
+        if (uI_Manager.thurstSlider.value > 0 && isNegativeEffect != true)
         {
             ThrustActive();
         }
@@ -295,7 +302,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(SpeedBoostPowerDown()); 
     }
 
-    IEnumerator SpeedBoostPowerDown()
+    public IEnumerator SpeedBoostPowerDown()
     {
         yield return new WaitForSeconds(5);
         isSpeedBoost = false;
@@ -358,6 +365,30 @@ public class PlayerController : MonoBehaviour
         if(lives != 0 && lives == 1)
         {
             lives += 1;
+        }
+    }
+
+    public void NegativeEffect(int speed)
+    {
+        PlayerController player = GetComponent<PlayerController>();
+        if(player != null)
+        {
+            player.speed = 0;
+            player.transform.position.Normalize();
+            isNegativeEffect = true;
+            StartCoroutine(DoNegativeEffect());
+        }
+    }
+
+    public IEnumerator DoNegativeEffect()
+    {
+        yield return new WaitForSeconds(5);
+        PlayerController player = GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.speed = 3;
+            yield return player.transform.position;
+            isNegativeEffect = false;
         }
     }
 

@@ -66,6 +66,8 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(3);
             GameObject powerUp5 = Instantiate(powerUp[5], powerUpSpawn[4].transform.position, Quaternion.identity);
             yield return new WaitForSeconds(3);
+            GameObject powerUp6 = Instantiate(powerUp[6], powerUpSpawn[4].transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(3);
         }
     }
 
