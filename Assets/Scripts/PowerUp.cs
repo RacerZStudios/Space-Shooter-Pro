@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
+    [SerializeField]
     private PlayerController playerController;
     [SerializeField]
     private float powerUpSpeed = 5;
     [SerializeField]
     private int powerUpID;
     [SerializeField]
-    private AudioClip clip; 
-
+    private AudioClip clip;
+    [SerializeField]
+    private PowerUp []powerUp;
+    private void Start()
+    {
+        if(playerController == null)
+        {
+            playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            return; 
+        }
+        if(powerUp == null)
+        {
+            powerUp[0] = FindObjectOfType<PowerUp>().GetComponent<PowerUp>();
+            Debug.Log("Power Up is Null"); 
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -60,6 +75,14 @@ public class PowerUp : MonoBehaviour
         if(transform.position.y < -3)
         {
             Destroy(gameObject); 
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (powerUp.Length != 0 && powerUp != null)
+            {
+                powerUp[0].transform.position = Vector3.MoveTowards(powerUp[0].transform.position, playerController.transform.position, 10);
+            }
         }
     }
 }

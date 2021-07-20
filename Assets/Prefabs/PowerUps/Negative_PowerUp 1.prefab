@@ -181,6 +181,8 @@ MonoBehaviour:
   powerUpSpeed: 5
   powerUpID: 6
   clip: {fileID: 8300000, guid: 5ee343246919d2b4bba63ae629e95494, type: 3}
+  powerUp:
+  - {fileID: 2194743391871329428}
 --- !u!1 &2194743392523722713
 GameObject:
   m_ObjectHideFlags: 0

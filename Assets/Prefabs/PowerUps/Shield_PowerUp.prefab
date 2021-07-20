@@ -167,3 +167,5 @@ MonoBehaviour:
   powerUpSpeed: 5
   powerUpID: 2
   clip: {fileID: 8300000, guid: 5ee343246919d2b4bba63ae629e95494, type: 3}
+  powerUp:
+  - {fileID: 5348369833064208852}
