@@ -10,6 +10,7 @@ TagManager:
   - NewEnemy
   - EnemyShield
   - AgressiveEnemy
+  - BossEnemy
   layers:
   - Default
   - TransparentFX
