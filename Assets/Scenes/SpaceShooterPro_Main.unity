@@ -1668,6 +1668,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883593729}
   m_CullTransparentMesh: 1
+--- !u!1 &911577586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 911577587}
+  m_Layer: 0
+  m_Name: AgressiveEnemy_Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &911577587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911577586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.88, y: 0.64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1677954815}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &945768076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,8 +2633,11 @@ MonoBehaviour:
   - {fileID: 38989413}
   - {fileID: 209261490}
   - {fileID: 1438798734}
+  - {fileID: 911577587}
   newEnemy: {fileID: 4943889418459928722, guid: ac8b8b29e9675a949961ded6c5645abc, type: 3}
   newEnemySpawn: {fileID: 1438798733}
+  agressiveEnemy: {fileID: 4943889418459928722, guid: 2f254f7828140be4b906bc411e687f47, type: 3}
+  agressiveEnemySpawn: {fileID: 911577586}
   stopSpawn: 0
 --- !u!4 &1677954815
 Transform:
@@ -2628,6 +2661,7 @@ Transform:
   - {fileID: 180815494}
   - {fileID: 368135758}
   - {fileID: 1438798734}
+  - {fileID: 911577587}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

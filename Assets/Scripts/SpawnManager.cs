@@ -23,8 +23,12 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     public GameObject newEnemy;
     [SerializeField]
-    private GameObject newEnemySpawn; 
-
+    private GameObject newEnemySpawn;
+    [SerializeField]
+    private GameObject agressiveEnemy;
+    [SerializeField]
+    private GameObject agressiveEnemySpawn;
+    [SerializeField]
     public bool stopSpawn;
 
     public void StartSpawning()
@@ -44,6 +48,9 @@ public class SpawnManager : MonoBehaviour
             enemyInstance.transform.parent = enemyContainer.transform;
             GameObject newEnemyInstance = Instantiate(newEnemy, spwanPoints[3].transform.position, Quaternion.identity);
             newEnemyInstance.transform.parent = newEnemySpawn.transform;
+            yield return new WaitForSeconds(Random.Range(3, 7));
+            GameObject agressiveEnemyInstance = Instantiate(agressiveEnemy, spwanPoints[4].transform.position, Quaternion.identity);
+            agressiveEnemyInstance.transform.parent = agressiveEnemySpawn.transform;
             yield return new WaitForSeconds(Random.Range(3, 7));
         }
     }
