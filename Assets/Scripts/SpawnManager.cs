@@ -29,12 +29,34 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject agressiveEnemySpawn;
     [SerializeField]
+    private GameObject bossEnemy;
+    [SerializeField]
+    private GameObject bossSpawn; 
+    [SerializeField]
     public bool stopSpawn;
 
     public void StartSpawning()
     {
         StartCoroutine(SpawnRoutine());
         StartCoroutine(SpawnPowerUpRoutine());
+        StartCoroutine(BossEnemy()); 
+    }
+
+    public IEnumerator BossEnemy()
+    {
+        yield return new WaitForSeconds(40);
+        while (player != null || stopSpawn == true)
+        {
+            yield return new WaitForSeconds(Random.Range(3, 7));
+            GameObject bossInstance = Instantiate(bossEnemy, bossSpawn.transform.position, Quaternion.identity);
+            bossInstance.transform.parent = bossSpawn.transform;
+            break; 
+        }
+
+        if (stopSpawn == true)
+        {
+            StopCoroutine(SpawnRoutine());
+        }
     }
 
     public IEnumerator SpawnRoutine()
@@ -52,6 +74,7 @@ public class SpawnManager : MonoBehaviour
             GameObject agressiveEnemyInstance = Instantiate(agressiveEnemy, spwanPoints[4].transform.position, Quaternion.identity);
             agressiveEnemyInstance.transform.parent = agressiveEnemySpawn.transform;
             yield return new WaitForSeconds(Random.Range(3, 7));
+            break; 
         }
     }
 
@@ -75,24 +98,29 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(3);
             GameObject powerUp6 = Instantiate(powerUp[6], powerUpSpawn[4].transform.position, Quaternion.identity);
             yield return new WaitForSeconds(3);
+            break; 
         }
     }
 
     private void Update()
     {
+        if(player == null)
+        {
+            stopSpawn = true; 
+            Destroy(gameObject); 
+        }
+        else if (Time.time >= 40)
+        {
+            stopSpawn = true;
+        }
+
         if (stopSpawn == true)
         {
             StopCoroutine(SpawnRoutine());
             StopCoroutine(SpawnPowerUpRoutine());
         }
 
-        if(player == null)
-        {
-            stopSpawn = true; 
-            Destroy(gameObject); 
-        }
-
-        if(enemy == null || enemeyController == null)
+        if (enemy == null || enemeyController == null)
         {
             Debug.LogError(enemy.gameObject + enemeyController.ToString() + "are null"); 
             return; 

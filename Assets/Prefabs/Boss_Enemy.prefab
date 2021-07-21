@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6278301708160342858}
   - component: {fileID: 1311916189}
   - component: {fileID: 1311916190}
+  - component: {fileID: 511868659}
   m_Layer: 0
   m_Name: Boss_Enemy
   m_TagString: BossEnemy
@@ -279,3 +280,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &511868659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943889418459928722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8bccf163d8f3541abbdfaa64f90c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
