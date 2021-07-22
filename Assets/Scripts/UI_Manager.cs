@@ -45,6 +45,12 @@ public class UI_Manager : MonoBehaviour
     public void AmmoStorage(int ammoAmount)
     {
         maxAmmo = 15;
+        if(ammoAmount >= maxAmmo)
+        {
+            // if ammo amount is grater than max amount 
+            // set ammo amount to max amount 
+            ammoAmount = maxAmmo; 
+        }
         ammoCount.text = maxAmmo.ToString();
         ammoAmount--;
         ammoCount.text = "Current Ammo " + ammoAmount.ToString() + " Max Ammo " + " : " + maxAmmo;

@@ -22,12 +22,10 @@ public class EnemyShield : MonoBehaviour
             PlayerProjectile proj = other.GetComponent<PlayerProjectile>();
             proj.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Discrete;   
             health--; 
-          //  Debug.Log(" Hit enemy shield"); 
             if(health <= 1)
             {
                 Destroy(gameObject);
             }
-            return; 
         }
     }
 

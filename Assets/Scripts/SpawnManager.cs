@@ -48,14 +48,17 @@ public class SpawnManager : MonoBehaviour
         while (player != null || stopSpawn == true)
         {
             yield return new WaitForSeconds(Random.Range(3, 7));
+            StartCoroutine(SpawnPowerUpRoutine());
+            yield return new WaitForSeconds(Random.Range(3, 7));
             GameObject bossInstance = Instantiate(bossEnemy, bossSpawn.transform.position, Quaternion.identity);
-            bossInstance.transform.parent = bossSpawn.transform;
+           // bossInstance.transform.parent = bossSpawn.transform;
+            bossInstance.transform.position = new Vector3(bossInstance.transform.position.x, bossSpawn.transform.position.y, bossInstance.transform.position.z); 
             break; 
         }
 
         if (stopSpawn == true)
         {
-            StopCoroutine(SpawnRoutine());
+            StopCoroutine(SpawnRoutine()); 
         }
     }
 
@@ -117,7 +120,7 @@ public class SpawnManager : MonoBehaviour
         if (stopSpawn == true)
         {
             StopCoroutine(SpawnRoutine());
-            StopCoroutine(SpawnPowerUpRoutine());
+           // StopCoroutine(SpawnPowerUpRoutine());
         }
 
         if (enemy == null || enemeyController == null)
