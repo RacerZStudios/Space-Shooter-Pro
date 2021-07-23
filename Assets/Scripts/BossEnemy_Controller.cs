@@ -163,20 +163,5 @@ public class BossEnemy_Controller : MonoBehaviour
             GameObject enemyProj = Instantiate(bossProjectile, bProjSpawn.position, Quaternion.identity);
             enemyProj.transform.parent = bProjSpawn.transform; 
         }
-
-        //// test 
-        //if (!isDestroyed && transform.position.y > -3)
-        //{
-        //    transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
-        //    if (transform.position.y < -3)
-        //    {
-        //        Destroy(gameObject);
-        //    }
-        //}
-
-        if (health.minhealth <= 10)  
-        {
-            StartCoroutine(PlayBossDeadAnim());
-        }
     }
 }

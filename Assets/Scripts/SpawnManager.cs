@@ -33,7 +33,20 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject bossSpawn; 
     [SerializeField]
-    public bool stopSpawn;
+    private bool stopSpawn;
+    [SerializeField]
+    private bool bossDefeated;
+    [SerializeField]
+    private BossEnemy_Controller bC;
+
+    private void Start()
+    {
+        if(bC != null)
+        {
+            bC = GameObject.Find("BossEnemy").GetComponent<BossEnemy_Controller>();
+            return; 
+        }
+    }
 
     public void StartSpawning()
     {
@@ -45,27 +58,27 @@ public class SpawnManager : MonoBehaviour
     public IEnumerator BossEnemy()
     {
         yield return new WaitForSeconds(40);
-        while (player != null || stopSpawn == true)
+        if (bC != null)
         {
-            yield return new WaitForSeconds(Random.Range(3, 7));
+            bC = GameObject.Find("BossEnemy").GetComponent<BossEnemy_Controller>();
+        }
+        while (player != null)
+        {
+            stopSpawn = false;
             StartCoroutine(SpawnPowerUpRoutine());
+
             yield return new WaitForSeconds(Random.Range(3, 7));
             GameObject bossInstance = Instantiate(bossEnemy, bossSpawn.transform.position, Quaternion.identity);
            // bossInstance.transform.parent = bossSpawn.transform;
             bossInstance.transform.position = new Vector3(bossInstance.transform.position.x, bossSpawn.transform.position.y, bossInstance.transform.position.z); 
             break; 
         }
-
-        if (stopSpawn == true)
-        {
-            StopCoroutine(SpawnRoutine()); 
-        }
     }
 
     public IEnumerator SpawnRoutine()
     {
         yield return new WaitForSeconds(3); 
-        while(player != null || stopSpawn == false) 
+        while(player != null) 
         {
             yield return new WaitForSeconds(Random.Range(3, 7));
             Vector3 spawnPos = new Vector3(Random.Range(-3, 3), 6, 0); 
@@ -83,7 +96,6 @@ public class SpawnManager : MonoBehaviour
 
     public IEnumerator SpawnPowerUpRoutine()
     {
-        yield return new WaitForSeconds(3);
         while (player != null && stopSpawn == false)
         {
             yield return new WaitForSeconds(Random.Range(3, 7));
@@ -107,25 +119,35 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
-        if(player == null)
+        if (player == null)
         {
-            stopSpawn = true; 
+            PlayerDead(); 
             Destroy(gameObject); 
         }
-        else if (Time.time >= 40)
+        
+        if (Time.time >= 40f)
         {
             stopSpawn = true;
+            if (stopSpawn == true)
+            {
+                StopCoroutine(SpawnRoutine());
+            }
         }
 
-        if (stopSpawn == true)
+        if (Time.time >= 45f)
         {
-            StopCoroutine(SpawnRoutine());
-           // StopCoroutine(SpawnPowerUpRoutine());
+            stopSpawn = false;
         }
 
         if (enemy == null || enemeyController == null)
         {
             Debug.LogError(enemy.gameObject + enemeyController.ToString() + "are null"); 
+            return; 
+        }
+
+        if(bossEnemy == null && bossEnemy.activeInHierarchy == true || bossDefeated == true)
+        {
+            Debug.Log("You Win!");
             return; 
         }
     }

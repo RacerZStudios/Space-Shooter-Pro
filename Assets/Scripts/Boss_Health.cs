@@ -6,7 +6,7 @@ using UnityEngine;
 public class Boss_Health : MonoBehaviour
 {
     [SerializeField]
-    public int minhealth;
+    private int minhealth;
     [SerializeField]
     private int maxhealth;
     [SerializeField]
@@ -21,8 +21,14 @@ public class Boss_Health : MonoBehaviour
             Debug.Log("Slider is Null"); 
         }
         slider = FindObjectOfType<Slider>().GetComponentInChildren<Slider>(); 
-        minhealth = 0;
-        currenthealth = 100;
+        if(minhealth != 0)
+        {
+            minhealth = 0;
+        }
+        if(currenthealth != 100)
+        {
+            currenthealth = 100;
+        }
         maxhealth = 100;
         maxhealth = currenthealth;  
     }
@@ -33,6 +39,10 @@ public class Boss_Health : MonoBehaviour
         {
             currenthealth -= 10;
             slider.value -= 0.1f; 
+            if(currenthealth <= 10 || slider.value <= 0.1f)
+            {
+                Debug.Log("Boss Defeated!!!"); 
+            }
             if(currenthealth <= 10 && slider.value <= 0.1f)
             {
                 Destroy(gameObject); 
