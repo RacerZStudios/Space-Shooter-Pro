@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpaceShooterPro_Main.unity
     guid: 286974d12aca532469502cc79f80168b
+  - enabled: 1
+    path: Assets/Scenes/WinGame.unity
+    guid: 022ea388609b3a242b399395abbb316a
   m_configObjects: {}

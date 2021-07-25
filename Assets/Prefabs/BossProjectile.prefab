@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3316388525168096190}
   - component: {fileID: 2815933359892577355}
   - component: {fileID: 2815933359892577354}
+  - component: {fileID: 5722144099475155125}
   m_Layer: 0
-  m_Name: BossProjectil
+  m_Name: BossProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,3 +175,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.40529385, y: 6.7070136}
   m_EdgeRadius: 0
+--- !u!114 &5722144099475155125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3061782787589075324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c60938c833e1d409513a69a6269d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  audioSource: {fileID: 1311916190, guid: 7d5ab813ffb4c6347b44ac3a1fb0703f, type: 3}

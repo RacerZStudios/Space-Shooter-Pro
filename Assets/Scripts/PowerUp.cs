@@ -16,11 +16,11 @@ public class PowerUp : MonoBehaviour
     private PowerUp []powerUp;
     private void Start()
     {
-        if(playerController == null)
+        if (playerController != null)
         {
-            playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            return; 
+            playerController = FindObjectOfType<PlayerController>().GetComponent<PlayerController>();
         }
+
         if(powerUp == null)
         {
             powerUp[0] = FindObjectOfType<PowerUp>().GetComponent<PowerUp>();
@@ -82,9 +82,14 @@ public class PowerUp : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (powerUp.Length != 0 && powerUp != null)
+            PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            if (powerUp.Length != 0 && powerUp != null && player != null)
             {
-                powerUp[0].transform.position = Vector3.MoveTowards(powerUp[0].transform.position, playerController.transform.position, 10);
+                powerUp[0].transform.position = Vector3.MoveTowards(powerUp[0].transform.position, player.transform.position, 10);
+                if (player == null)
+                {                  
+                    return; 
+                }
             }
         }
     }

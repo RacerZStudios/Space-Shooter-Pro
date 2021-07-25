@@ -75,7 +75,11 @@ public class BossEnemy_Controller : MonoBehaviour
                 int score = 10;
                 score += score;
                 UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
-                uiM.UpdateScore(score);
+                if(uiM != null)
+                {
+                    uiM.UpdateScore(score);
+                    return; 
+                }
             }
 
             if (playerController != null)

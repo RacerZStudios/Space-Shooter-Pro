@@ -73,6 +73,11 @@ public class SpawnManager : MonoBehaviour
             bossInstance.transform.position = new Vector3(bossInstance.transform.position.x, bossSpawn.transform.position.y, bossInstance.transform.position.z); 
             break; 
         }
+        if(player == null)
+        {
+            stopSpawn = true;
+            StopCoroutine(SpawnPowerUpRoutine());
+        }
     }
 
     public IEnumerator SpawnRoutine()

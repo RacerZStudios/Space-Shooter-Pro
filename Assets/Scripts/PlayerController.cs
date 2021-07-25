@@ -92,28 +92,37 @@ public class PlayerController : MonoBehaviour
         }
 
         ammoAmount = 15; 
-        uI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>(); 
-        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+
+        if(uI_Manager != null)
+        {
+            uI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();
+        }
+
+        if(spawnManager != null)
+        {
+            spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        }
+
         audioSource = GetComponent<AudioSource>();
         spriteRender = GetComponent<SpriteRenderer>(); 
         player = GetComponent<GameObject>(); 
-        OnStartPlayerLocation(); 
+        OnStartPlayerLocation();
 
-        if(spawnManager == null)
+        if (spawnManager == null)
         {
-            Debug.LogError("The SpawnManager doesn't exist and is null");
+           // Debug.LogError("The SpawnManager doesn't exist and is null");
             return; 
         }
 
         if(uI_Manager == null)
         {
-            Debug.LogError("UI Manager is null");
+           // Debug.LogError("UI Manager is null");
             return; 
         }
 
         if(audioSource == null)
         {
-            Debug.LogError("No audio source is assigned or is null"); 
+           // Debug.LogError("No audio source is assigned or is null"); 
         }
         else
         {
@@ -135,18 +144,27 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && Time.time > canFire && isEMPProjectile == false && ammoAmount >= 0 && ammoAmount != 0)
         {
             canFire = Time.time + fireTime;
-            audioSource.Play(); 
+            if(audioSource != null)
+            {
+                audioSource.Play();
+            }
             Instantiate(playerProjectile, projT.position + new Vector3(0, projOffset.y,0), Quaternion.identity);
             playerProjectile.GetComponent<Rigidbody2D>().AddForce(projT.transform.position * projSpeed * Time.deltaTime);
-            uI_Manager.AmmoStorage(ammoAmount);
-            ammoAmount--;
+            if(uI_Manager != null)
+            {
+                uI_Manager.AmmoStorage(ammoAmount);
+                ammoAmount--;
+            }
 
             // Triple Shot Projectile 
             if (isTrippleShot == true)
             {
                 Instantiate(trippleShotObject, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
-                uI_Manager.AmmoStorage(ammoAmount);
-                return;
+                if(uI_Manager != null)
+                {
+                    uI_Manager.AmmoStorage(ammoAmount);
+                    return;
+                }
             }
         }
 
@@ -204,9 +222,12 @@ public class PlayerController : MonoBehaviour
 
         Vector3 dir = new Vector3(horizontalInput, verticalInput, 0);
 
-        if (uI_Manager.thurstSlider.value > 0 && isNegativeEffect != true)
+        if(uI_Manager != null)
         {
-            ThrustActive();
+            if (uI_Manager.thurstSlider.value > 0 && isNegativeEffect != true)
+            {
+                ThrustActive();
+            }
         }
 
         // if player is greater than 0, y position = 0 
@@ -229,6 +250,18 @@ public class PlayerController : MonoBehaviour
         else if(playerT.position.x < -10)
         {
             playerT.position = new Vector3(10, playerT.position.y, 0); 
+        }
+
+        if (uI_Manager == null)
+        {
+            Destroy(uI_Manager);
+            return;
+        }
+
+        if (spawnManager == null)
+        {
+            Destroy(spawnManager);
+            return;
         }
     }
 
@@ -270,7 +303,7 @@ public class PlayerController : MonoBehaviour
             return; 
         }
 
-        if(gameObject != null)
+        if(gameObject != null && uI_Manager != null)
         {
             uI_Manager.UpdateLives(lives);
             lives--;
@@ -429,13 +462,19 @@ public class PlayerController : MonoBehaviour
 
     public void AddAmmo(int ammo)
     {
-        uI_Manager.AmmoStorage(ammoAmount);
-        ammoAmount = ammo + ammoAmount; 
+        if(uI_Manager != null)
+        {
+            uI_Manager.AmmoStorage(ammoAmount);
+            ammoAmount = ammo + ammoAmount;
+        }
     }
 
     public void AddScore(int points)
     {
-        uI_Manager.UpdateScore(score);
-        score += points;
+        if(uI_Manager != null)
+        {
+            uI_Manager.UpdateScore(score);
+            score += points;
+        }
     }
 }

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     public bool isGameOver;
+    [SerializeField]
+    private bool winGame; 
 
     private void Update()
     {
@@ -23,6 +25,16 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(0); 
         }
+
+        if (Input.GetKeyDown(KeyCode.R) && winGame == true)
+        {
+            SceneManager.LoadScene(0); // Return to Menu 
+        }
+    }
+
+    public void WinGame()
+    {
+        winGame = true; 
     }
 
     public void GameOver()

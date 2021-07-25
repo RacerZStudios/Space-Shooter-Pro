@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using UnityEngine.SceneManagement; 
 using UnityEngine;
 
 public class Boss_Health : MonoBehaviour
@@ -41,7 +42,8 @@ public class Boss_Health : MonoBehaviour
             slider.value -= 0.1f; 
             if(currenthealth <= 10 || slider.value <= 0.1f)
             {
-                Debug.Log("Boss Defeated!!!"); 
+                SceneManager.LoadSceneAsync(2); 
+              //  Debug.Log("Boss Defeated!!!"); 
             }
             if(currenthealth <= 10 && slider.value <= 0.1f)
             {
