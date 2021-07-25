@@ -59,6 +59,9 @@ public class PowerUp : MonoBehaviour
                     case 6:
                         playerController.NegativeEffect(0);
                         break;
+                    case 7:
+                        playerController.SpecialProjectileActive();
+                        break;
                     default:
                         Debug.Log("Default value"); 
                         break; 

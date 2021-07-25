@@ -41,7 +41,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool isEMPProjectile;
     [SerializeField]
-    private bool isNegativeEffect; 
+    private bool isNegativeEffect;
+    [SerializeField]
+    private bool isSpecialProjectile; 
 
     private float horizontalInput = -0.1f;
     private float verticalInput = 0.1f;
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
     private UI_Manager uI_Manager; 
 
     public GameObject trippleShotObject;
+    public GameObject specialProjectile; 
 
     // reference shield visuals 
     public GameObject shieldVis;
@@ -78,6 +81,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        if(isSpecialProjectile == true)
+        {
+            isSpecialProjectile = false; 
+        }
+
         if(isNegativeEffect == true)
         {
             isNegativeEffect = false;
@@ -133,6 +141,7 @@ public class PlayerController : MonoBehaviour
             uI_Manager.AmmoStorage(ammoAmount);
             ammoAmount--;
 
+            // Triple Shot Projectile 
             if (isTrippleShot == true)
             {
                 Instantiate(trippleShotObject, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
@@ -141,6 +150,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        // EMP Projectile 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && isEMPProjectile == true && ammoAmount >= 0 && ammoAmount != 0)
         {
             standardFire = Time.time + fireTime;
@@ -151,6 +161,19 @@ public class PlayerController : MonoBehaviour
             }
             isEMPProjectile = false; 
         }
+
+        // Special Projectile 
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && isSpecialProjectile == true && ammoAmount >= 0 && ammoAmount != 0)
+        {
+            standardFire = Time.time + fireTime;
+            if (isSpecialProjectile == true)
+            {
+                Instantiate(specialProjectile, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
+                uI_Manager.AmmoStorage(ammoAmount);
+            }
+            isSpecialProjectile = false;
+        }
+
 
         // in line code cleanup 
         // Clamp transform from -3 and 0 
@@ -281,6 +304,18 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         isTrippleShot = false; 
+    }
+
+    public void SpecialProjectileActive()
+    {
+        isSpecialProjectile = true;      
+        StartCoroutine(DoTrippleShot());
+    }
+
+    public IEnumerator DoSpecialProjectile()
+    {
+        yield return new WaitForSeconds(5);
+        isSpecialProjectile = false;
     }
 
     public void EMPPowerUpActive()

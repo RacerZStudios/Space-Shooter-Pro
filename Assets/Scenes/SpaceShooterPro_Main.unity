@@ -904,12 +904,14 @@ MonoBehaviour:
   isThruster: 0
   isEMPProjectile: 0
   isNegativeEffect: 0
+  isSpecialProjectile: 0
   playerProjectile: {fileID: 3110005347284216258, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
   empProjectile: {fileID: 3345187054109330014, guid: f0075ffe8c7bb7b4a8ab996b089d0373, type: 3}
   projT: {fileID: 945768077}
   projOffset: {x: 0, y: 0.5, z: 0}
   uI_Manager: {fileID: 954152448}
   trippleShotObject: {fileID: 5886549814711065128, guid: 1548f4a1c9f43734397c769954c661f2, type: 3}
+  specialProjectile: {fileID: 3110005347284216258, guid: b30ea289ab46c384ab1cbe88f5f58d34, type: 3}
   shieldVis: {fileID: 1228506176}
   engineFire:
   - {fileID: 1510661329}
@@ -1696,7 +1698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1677954815}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &945768076
 GameObject:
@@ -2005,6 +2007,36 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &976171369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 976171370}
+  m_Layer: 0
+  m_Name: PowerUp_Container (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &976171370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976171369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.86, y: 1.91, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1677954815}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &993800889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,7 +2477,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1677954815}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510661329
 GameObject:
@@ -2620,6 +2652,7 @@ MonoBehaviour:
   - {fileID: 2194743391871329429, guid: 7f62f4542cc1e504aa207afda907a6df, type: 3}
   - {fileID: 2441434696067070306, guid: 4f219589639297f4c8768b157d002380, type: 3}
   - {fileID: 2194743391871329429, guid: bba1c26ceadd4144e9cde8b2146a82ec, type: 3}
+  - {fileID: 7369993231101859610, guid: 92f40a9d579d86d4cba0892a42f4a37d, type: 3}
   powerUpSpawn:
   - {fileID: 513172659}
   - {fileID: 1063261350}
@@ -2627,7 +2660,7 @@ MonoBehaviour:
   - {fileID: 993800890}
   - {fileID: 180815494}
   - {fileID: 180815494}
-  - {fileID: 368135758}
+  - {fileID: 976171370}
   spwanPoints:
   - {fileID: 1845315605}
   - {fileID: 38989413}
@@ -2642,6 +2675,8 @@ MonoBehaviour:
   bossEnemy: {fileID: 4943889418459928722, guid: 7d5ab813ffb4c6347b44ac3a1fb0703f, type: 3}
   bossSpawn: {fileID: 1984305484}
   stopSpawn: 0
+  bossDefeated: 0
+  bC: {fileID: 0}
 --- !u!4 &1677954815
 Transform:
   m_ObjectHideFlags: 0
@@ -2663,6 +2698,7 @@ Transform:
   - {fileID: 993800890}
   - {fileID: 180815494}
   - {fileID: 368135758}
+  - {fileID: 976171370}
   - {fileID: 1438798734}
   - {fileID: 911577587}
   - {fileID: 1984305485}
@@ -2994,7 +3030,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1677954815}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2095755589
 GameObject:

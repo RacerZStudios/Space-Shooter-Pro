@@ -11,6 +11,7 @@ TagManager:
   - EnemyShield
   - AgressiveEnemy
   - BossEnemy
+  - SpecialProjectile
   layers:
   - Default
   - TransparentFX
