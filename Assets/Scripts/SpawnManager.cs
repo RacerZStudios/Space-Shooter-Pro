@@ -86,13 +86,16 @@ public class SpawnManager : MonoBehaviour
         while(player != null) 
         {
             yield return new WaitForSeconds(Random.Range(3, 7));
+
             Vector3 spawnPos = new Vector3(Random.Range(-3, 3), 6, 0); 
-            GameObject enemyInstance = Instantiate(enemy, spwanPoints[0].transform.position, Quaternion.identity);
+            GameObject enemyInstance = Instantiate(enemy, spwanPoints[0].transform.position, Quaternion.identity); // normal enemy 
             enemyInstance.transform.parent = enemyContainer.transform;
-            GameObject newEnemyInstance = Instantiate(newEnemy, spwanPoints[3].transform.position, Quaternion.identity);
+
+            GameObject newEnemyInstance = Instantiate(newEnemy, spwanPoints[3].transform.position, Quaternion.identity); // new enemy 
             newEnemyInstance.transform.parent = newEnemySpawn.transform;
+
             yield return new WaitForSeconds(Random.Range(3, 7));
-            GameObject agressiveEnemyInstance = Instantiate(agressiveEnemy, spwanPoints[4].transform.position, Quaternion.identity);
+            GameObject agressiveEnemyInstance = Instantiate(agressiveEnemy, spwanPoints[4].transform.position, Quaternion.identity); // argressive enemy 
             agressiveEnemyInstance.transform.parent = agressiveEnemySpawn.transform;
             yield return new WaitForSeconds(Random.Range(3, 7));
             break; 
@@ -104,21 +107,21 @@ public class SpawnManager : MonoBehaviour
         while (player != null && stopSpawn == false)
         {
             yield return new WaitForSeconds(Random.Range(3, 7));
-            GameObject powerUp0 = Instantiate(powerUp[0], powerUpSpawn[0].transform.position, Quaternion.identity);
+            GameObject powerUp0 = Instantiate(powerUp[0], powerUpSpawn[0].transform.position, Quaternion.identity); // triple shot 
             yield return new WaitForSeconds(Random.Range(3, 7));
-            GameObject powerUp1 = Instantiate(powerUp[1], powerUpSpawn[1].transform.position, Quaternion.identity);
+            GameObject powerUp1 = Instantiate(powerUp[1], powerUpSpawn[1].transform.position, Quaternion.identity); // speed 
             yield return new WaitForSeconds(Random.Range(3, 7));
-            GameObject powerUp2 = Instantiate(powerUp[2], powerUpSpawn[2].transform.position, Quaternion.identity);
+            GameObject powerUp2 = Instantiate(powerUp[2], powerUpSpawn[2].transform.position, Quaternion.identity); // Shield 
             yield return new WaitForSeconds(Random.Range(3, 7));
-            GameObject powerUp3 = Instantiate(powerUp[3], powerUpSpawn[3].transform.position, Quaternion.identity);
+            GameObject powerUp3 = Instantiate(powerUp[3], powerUpSpawn[3].transform.position, Quaternion.identity); // Ammo 
             yield return new WaitForSeconds(3);
-            GameObject powerUp4 = Instantiate(powerUp[4], powerUpSpawn[4].transform.position, Quaternion.identity);
+            GameObject powerUp4 = Instantiate(powerUp[4], powerUpSpawn[4].transform.position, Quaternion.identity); // Health (Rare)
             yield return new WaitForSeconds(3);
-            GameObject powerUp5 = Instantiate(powerUp[5], powerUpSpawn[4].transform.position, Quaternion.identity);
+            GameObject powerUp5 = Instantiate(powerUp[5], powerUpSpawn[4].transform.position, Quaternion.identity); // EMP 
             yield return new WaitForSeconds(3);
-            GameObject powerUp6 = Instantiate(powerUp[6], powerUpSpawn[4].transform.position, Quaternion.identity);
+            GameObject powerUp6 = Instantiate(powerUp[6], powerUpSpawn[4].transform.position, Quaternion.identity); // Negative 
             yield return new WaitForSeconds(3);
-            GameObject powerUp7 = Instantiate(powerUp[7], powerUpSpawn[5].transform.position, Quaternion.identity);
+            GameObject powerUp7 = Instantiate(powerUp[7], powerUpSpawn[5].transform.position, Quaternion.identity); // Special 
             yield return new WaitForSeconds(3);
             break; 
         }

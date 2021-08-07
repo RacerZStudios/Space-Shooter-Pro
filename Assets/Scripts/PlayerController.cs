@@ -224,11 +224,13 @@ public class PlayerController : MonoBehaviour
 
         if(uI_Manager != null)
         {
-            if (uI_Manager.thurstSlider.value > 0 && isNegativeEffect != true)
+            if (uI_Manager.thurstSlider.value != 0 && isNegativeEffect != true)
             {
                 ThrustActive();
             }
         }
+
+        RegenThrustActive(); 
 
         // if player is greater than 0, y position = 0 
         // else if position on y is less than -3.0f, y position = -3.0f
@@ -291,6 +293,23 @@ public class PlayerController : MonoBehaviour
             {
                 playerT.TransformDirection(Vector3.down * thrustSpeed * Time.deltaTime);
             }
+        }
+    }
+
+    public void RegenThrustActive()
+    {
+        while (true)
+        {
+            if (uI_Manager.thurstSlider.value <= 0.5f && uI_Manager != null)
+            {
+                uI_Manager.StartCoroutine(uI_Manager.RegenThrust());
+            }
+            break;
+        }
+
+        if(uI_Manager == null)
+        {
+            StopAllCoroutines(); 
         }
     }
 

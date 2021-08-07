@@ -124,4 +124,13 @@ public class UI_Manager : MonoBehaviour
             thurstSlider.value-= 0.001f;
         }
     }
+
+    public IEnumerator RegenThrust()
+    {
+        yield return new WaitForSeconds(3); 
+        if(thurstSlider.value <= 1)
+        {
+            thurstSlider.value+= 0.001f; 
+        }
+    }
 }

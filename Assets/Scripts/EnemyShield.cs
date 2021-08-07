@@ -20,11 +20,15 @@ public class EnemyShield : MonoBehaviour
         if(other.gameObject.tag == "PlayerProjectile")
         {
             PlayerProjectile proj = other.GetComponent<PlayerProjectile>();
-            proj.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Discrete;   
-            health--; 
-            if(health <= 1)
+            if(proj != null)
             {
-                Destroy(gameObject);
+                proj.GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Discrete;
+                health--;
+                if (health <= 1)
+                {
+                    Destroy(gameObject);
+                }
+                return; 
             }
         }
     }
