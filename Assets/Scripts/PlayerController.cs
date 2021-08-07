@@ -304,12 +304,11 @@ public class PlayerController : MonoBehaviour
             {
                 uI_Manager.StartCoroutine(uI_Manager.RegenThrust());
             }
+            else if (uI_Manager == null)
+            {
+                StopAllCoroutines();
+            }
             break;
-        }
-
-        if(uI_Manager == null)
-        {
-            StopAllCoroutines(); 
         }
     }
 
