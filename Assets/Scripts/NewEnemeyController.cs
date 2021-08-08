@@ -22,11 +22,22 @@ public class NewEnemeyController : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rB;
     [SerializeField]
-    private bool isNewEnemy; 
+    private bool isNewEnemy;
+    [SerializeField]
+    private SpawnManager spawnManager;
 
     private void Start()
     {
-        if(playerController != null)
+        if (spawnManager == null)
+        {
+            return;
+        }
+        else if (spawnManager != null)
+        {
+            spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        }
+
+        if (playerController != null)
         {
             playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         }
@@ -54,7 +65,16 @@ public class NewEnemeyController : MonoBehaviour
         {
             audioSource.Play();
             isDestroyed = true;
-            if(isDestroyed == true || playerController != null)
+            SpawnManager sM = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+            if (sM != null)
+            {
+                sM.enemyCountDestroyed += 1;
+                if (sM.enemyCountDestroyed > 0)
+                {
+                    StartCoroutine(sM.BossEnemy());
+                }
+            }
+            if (isDestroyed == true || playerController != null)
             {
                 int score = 10;
                 score += score; 

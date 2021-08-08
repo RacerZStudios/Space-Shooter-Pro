@@ -230,7 +230,13 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        RegenThrustActive(); 
+        if(uI_Manager != null)
+        {
+            if(uI_Manager.thurstSlider.value != -0.1f)
+            {
+                RegenThrustActive();
+            }
+        }
 
         // if player is greater than 0, y position = 0 
         // else if position on y is less than -3.0f, y position = -3.0f
@@ -298,17 +304,13 @@ public class PlayerController : MonoBehaviour
 
     public void RegenThrustActive()
     {
-        while (true)
+        if (uI_Manager.thurstSlider.value <= 0.5f && uI_Manager != null)
         {
-            if (uI_Manager.thurstSlider.value <= 0.5f && uI_Manager != null)
-            {
-                uI_Manager.StartCoroutine(uI_Manager.RegenThrust());
-            }
-            else if (uI_Manager == null)
-            {
-                StopAllCoroutines();
-            }
-            break;
+            uI_Manager.StartCoroutine(uI_Manager.RegenThrust());
+        }
+        else if (uI_Manager == null)
+        {
+            StopAllCoroutines();
         }
     }
 

@@ -2678,6 +2678,8 @@ MonoBehaviour:
   stopSpawn: 0
   bossDefeated: 0
   bC: {fileID: 0}
+  enemyCountDestroyed: 0
+  maxTime: 0
 --- !u!4 &1677954815
 Transform:
   m_ObjectHideFlags: 0

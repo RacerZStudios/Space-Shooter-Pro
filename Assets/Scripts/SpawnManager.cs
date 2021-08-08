@@ -38,6 +38,10 @@ public class SpawnManager : MonoBehaviour
     private bool bossDefeated;
     [SerializeField]
     private BossEnemy_Controller bC;
+    [SerializeField]
+    public int enemyCountDestroyed;
+    [SerializeField]
+    private float maxTime = 0; 
 
     private void Start()
     {
@@ -46,6 +50,8 @@ public class SpawnManager : MonoBehaviour
             bC = GameObject.Find("BossEnemy").GetComponent<BossEnemy_Controller>();
             return; 
         }
+
+        enemyCountDestroyed = 0; 
     }
 
     public void StartSpawning()
@@ -57,23 +63,38 @@ public class SpawnManager : MonoBehaviour
 
     public IEnumerator BossEnemy()
     {
-        yield return new WaitForSeconds(40);
+        while (maxTime <= 0.130f || maxTime < 0.30f)
+        {
+            StartCoroutine(WaitTime());
+            break;
+        }
+
+        yield return new WaitForSeconds(2);
+        // yield return new WaitForSeconds(40); waits for 40 sec // spawns after 40 sec 
         if (bC != null)
         {
             bC = GameObject.Find("BossEnemy").GetComponent<BossEnemy_Controller>();
         }
-        while (player != null)
+
+        while (player != null && stopSpawn == true)
         {
             stopSpawn = false;
             StartCoroutine(SpawnPowerUpRoutine());
-
-            yield return new WaitForSeconds(Random.Range(3, 7));
-            GameObject bossInstance = Instantiate(bossEnemy, bossSpawn.transform.position, Quaternion.identity);
-           // bossInstance.transform.parent = bossSpawn.transform;
-            bossInstance.transform.position = new Vector3(bossInstance.transform.position.x, bossSpawn.transform.position.y, bossInstance.transform.position.z); 
+            if(stopSpawn == false)
+            {
+                yield return null; 
+                //Destroy(this); // this calls
+                //yield return new WaitForSeconds(Random.Range(3, 7));
+                GameObject bossInstance = Instantiate(bossEnemy, bossSpawn.transform.position, Quaternion.identity);
+                // bossInstance.transform.parent = bossSpawn.transform;
+                bossInstance.transform.position = new Vector3(bossInstance.transform.position.x, bossSpawn.transform.position.y, bossInstance.transform.position.z);
+                yield return new WaitForSeconds(0.5f); // wait to spawn boss 
+                Destroy(this); 
+            }        
             break; 
         }
-        if(player == null)
+
+        if (player == null)
         {
             stopSpawn = true;
             StopCoroutine(SpawnPowerUpRoutine());
@@ -160,6 +181,29 @@ public class SpawnManager : MonoBehaviour
             Debug.Log("You Win!");
             return; 
         }
+
+        if(maxTime > 0.131f)
+        {
+            StopCoroutine(WaitTime()); 
+        }
+    }
+
+    private IEnumerator WaitTime()
+    {
+        maxTime += Time.deltaTime;
+        yield return new WaitForSeconds(2); 
+        while (enemyCountDestroyed >= 0 && maxTime != 0.13f)
+        {
+            yield return new WaitForSeconds(2);
+            StartCoroutine(BossEnemy());
+            if (enemyCountDestroyed >= 1 && maxTime >= 0.13f)
+            {
+                StopCoroutine(BossEnemy());
+            }
+            break;
+        }
+
+        yield return null; 
     }
 
     public void PlayerDead()

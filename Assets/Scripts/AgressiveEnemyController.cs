@@ -18,10 +18,21 @@ public class AgressiveEnemyController : MonoBehaviour
     [SerializeField]
     private bool isAgressiveEnemy;
     [SerializeField]
-    private float range = 0.3f; 
+    private float range = 0.3f;
+    [SerializeField]
+    private SpawnManager spawnManager;
 
     private void Start()
     {
+        if (spawnManager == null)
+        {
+            return;
+        }
+        else if (spawnManager != null)
+        {
+            spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        }
+
         if (playerController != null)
         {
             playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -50,6 +61,15 @@ public class AgressiveEnemyController : MonoBehaviour
         {
             audioSource.Play();
             isDestroyed = true;
+            SpawnManager sM = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+            if (sM != null)
+            {
+                sM.enemyCountDestroyed += 1;
+                if (sM.enemyCountDestroyed > 0)
+                {
+                    StartCoroutine(sM.BossEnemy());
+                }
+            }
             if (isDestroyed == true || playerController != null)
             {
                 int score = 10;

@@ -69,6 +69,10 @@ public class EnemeyController : MonoBehaviour
             if(sM != null)
             {
                 sM.enemyCountDestroyed += 1;
+                if(sM.enemyCountDestroyed > 0)
+                {
+                    StartCoroutine(sM.BossEnemy());
+                }
             }
             if(isDestroyed == true || playerController != null)
             {
