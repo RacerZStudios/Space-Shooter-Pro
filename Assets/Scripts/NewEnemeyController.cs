@@ -89,10 +89,6 @@ public class NewEnemeyController : MonoBehaviour
                 playerController.AddScore(10); 
                 return; 
             }
-            else if(playerController == null && isDestroyed)
-            {
-                Destroy(this); 
-            }
 
             StartCoroutine(PlayEnemyDeadAnim());
         }
@@ -115,10 +111,6 @@ public class NewEnemeyController : MonoBehaviour
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
                 playerController.AddScore(50);
                 return;
-            }
-            else if (playerController == null && isDestroyed)
-            {
-                Destroy(this);
             }
 
             Debug.Log("Emp" + PlayEnemyDeadAnimEMP()); 

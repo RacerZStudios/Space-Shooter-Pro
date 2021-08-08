@@ -51,19 +51,56 @@ public class SpawnManager : MonoBehaviour
             return; 
         }
 
-        enemyCountDestroyed = 0; 
+        enemyCountDestroyed = 0;
+        InvokeRepeating("SpawnEnemy1", 5, 3);
+        InvokeRepeating("SpawnEnemy2", 15, 3);
+        InvokeRepeating("SpawnEnemy3", 3, 3);
+    }
+
+    public IEnumerator SpawnEnemy1()
+    {
+        while(this != null)
+        {
+            yield return new WaitForSeconds(3);
+            GameObject enemyInstance = Instantiate(enemy, spwanPoints[0].transform.position, Quaternion.identity); // normal enemy 
+            enemyInstance.transform.parent = enemyContainer.transform;
+            yield return new WaitForSeconds(3);
+        }
+    }
+
+    public IEnumerator SpawnEnemy2()
+    {
+        while (this != null)
+        {
+            yield return new WaitForSeconds(Random.Range(3, 7));
+            GameObject newEnemyInstance = Instantiate(newEnemy, spwanPoints[3].transform.position, Quaternion.identity); // new enemy 
+            newEnemyInstance.transform.parent = newEnemySpawn.transform;
+            yield return new WaitForSeconds(3);
+        }
+    }
+
+    public IEnumerator SpawnEnemy3()
+    {
+        while (this != null)
+        {
+            yield return new WaitForSeconds(Random.Range(3, 7));
+            GameObject agressiveEnemyInstance = Instantiate(agressiveEnemy, spwanPoints[4].transform.position, Quaternion.identity); // argressive enemy 
+            agressiveEnemyInstance.transform.parent = agressiveEnemySpawn.transform;
+            yield return new WaitForSeconds(3);
+        }
     }
 
     public void StartSpawning()
     {
-        StartCoroutine(SpawnRoutine());
+        StartCoroutine(SpawnEnemy1());
+        StartCoroutine(SpawnEnemy2());
+        StartCoroutine(SpawnEnemy3());
         StartCoroutine(SpawnPowerUpRoutine());
-        StartCoroutine(BossEnemy()); 
     }
 
     public IEnumerator BossEnemy()
     {
-        while (maxTime <= 0.130f || maxTime < 0.30f)
+        while (maxTime >= 0.130f || maxTime <= 0.131f)
         {
             StartCoroutine(WaitTime());
             break;
@@ -76,56 +113,29 @@ public class SpawnManager : MonoBehaviour
             bC = GameObject.Find("BossEnemy").GetComponent<BossEnemy_Controller>();
         }
 
-        while (player != null && stopSpawn == true)
+        while (player != null)
         {
             stopSpawn = false;
-            StartCoroutine(SpawnPowerUpRoutine());
+            if(this != null)
+            {
+                StartCoroutine(SpawnPowerUpRoutine());
+            }
+
             if(stopSpawn == false)
             {
-                yield return null; 
-                //Destroy(this); // this calls
-                //yield return new WaitForSeconds(Random.Range(3, 7));
+                yield return new WaitForSeconds(3); 
                 GameObject bossInstance = Instantiate(bossEnemy, bossSpawn.transform.position, Quaternion.identity);
-                // bossInstance.transform.parent = bossSpawn.transform;
                 bossInstance.transform.position = new Vector3(bossInstance.transform.position.x, bossSpawn.transform.position.y, bossInstance.transform.position.z);
                 yield return new WaitForSeconds(0.5f); // wait to spawn boss 
                 Destroy(this); 
             }        
             break; 
         }
-
-        if (player == null)
-        {
-            stopSpawn = true;
-            StopCoroutine(SpawnPowerUpRoutine());
-        }
-    }
-
-    public IEnumerator SpawnRoutine()
-    {
-        yield return new WaitForSeconds(3); 
-        while(player != null) 
-        {
-            yield return new WaitForSeconds(Random.Range(3, 7));
-
-            Vector3 spawnPos = new Vector3(Random.Range(-3, 3), 6, 0); 
-            GameObject enemyInstance = Instantiate(enemy, spwanPoints[0].transform.position, Quaternion.identity); // normal enemy 
-            enemyInstance.transform.parent = enemyContainer.transform;
-
-            GameObject newEnemyInstance = Instantiate(newEnemy, spwanPoints[3].transform.position, Quaternion.identity); // new enemy 
-            newEnemyInstance.transform.parent = newEnemySpawn.transform;
-
-            yield return new WaitForSeconds(Random.Range(3, 7));
-            GameObject agressiveEnemyInstance = Instantiate(agressiveEnemy, spwanPoints[4].transform.position, Quaternion.identity); // argressive enemy 
-            agressiveEnemyInstance.transform.parent = agressiveEnemySpawn.transform;
-            yield return new WaitForSeconds(Random.Range(3, 7));
-            break; 
-        }
     }
 
     public IEnumerator SpawnPowerUpRoutine()
     {
-        while (player != null && stopSpawn == false)
+        while (this != null)
         {
             yield return new WaitForSeconds(Random.Range(3, 7));
             GameObject powerUp0 = Instantiate(powerUp[0], powerUpSpawn[0].transform.position, Quaternion.identity); // triple shot 
@@ -144,7 +154,6 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(3);
             GameObject powerUp7 = Instantiate(powerUp[7], powerUpSpawn[5].transform.position, Quaternion.identity); // Special 
             yield return new WaitForSeconds(3);
-            break; 
         }
     }
 
@@ -155,19 +164,10 @@ public class SpawnManager : MonoBehaviour
             PlayerDead(); 
             Destroy(gameObject); 
         }
-        
+
         if (Time.time >= 40f)
         {
             stopSpawn = true;
-            if (stopSpawn == true)
-            {
-                StopCoroutine(SpawnRoutine());
-            }
-        }
-
-        if (Time.time >= 45f)
-        {
-            stopSpawn = false;
         }
 
         if (enemy == null || enemeyController == null)
@@ -182,9 +182,9 @@ public class SpawnManager : MonoBehaviour
             return; 
         }
 
-        if(maxTime > 0.131f)
+        if (maxTime > 0.131f)
         {
-            StopCoroutine(WaitTime()); 
+            StopCoroutine(WaitTime());
         }
     }
 
@@ -192,11 +192,11 @@ public class SpawnManager : MonoBehaviour
     {
         maxTime += Time.deltaTime;
         yield return new WaitForSeconds(2); 
-        while (enemyCountDestroyed >= 0 && maxTime != 0.13f)
+        while (enemyCountDestroyed >= 3)
         {
             yield return new WaitForSeconds(2);
             StartCoroutine(BossEnemy());
-            if (enemyCountDestroyed >= 1 && maxTime >= 0.13f)
+            if (enemyCountDestroyed >= 3 && maxTime > 0.13f)
             {
                 StopCoroutine(BossEnemy());
             }
