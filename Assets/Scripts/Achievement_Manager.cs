@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement; 
 using UnityEngine;
 
-public class Achievement_Manager : MonoBehaviour
+public class Achievement_Manager : BossEnemy_Controller
 {
     [SerializeField]
     private Toggle toggle;
@@ -13,60 +13,59 @@ public class Achievement_Manager : MonoBehaviour
     [SerializeField]
     private BossEnemy_Controller bC;
     [SerializeField]
-    private GameObject achievementPanel; 
+    private GameObject achievementPanel;
+    [SerializeField]
+    private GameObject boss;
 
-    private void Start()
+    public static Achievement_Manager aCM;
+
+    private void Awake()
     {
-        DontDestroyOnLoad(this);
-
-        if (toggle != null)
-        {
-            return; 
-        }
-
-        toggle = GameObject.Find("Toggle").GetComponent<Toggle>(); 
-
-        if(bC != null)
-        {
-            return; 
-        }
-        else
-        {
-            bC = GameObject.Find("Boss_Enemy").GetComponent<BossEnemy_Controller>(); 
-        }
-
-        if (achievementPanel != null)
-        {
-            return;
-        }
-        else
-        {
-            achievementPanel = GameObject.Find("Achievements_Panel").GetComponent<GameObject>();
-        }
+        aCM = this; 
     }
 
     private void Update()
     {
-        if(bC != null)
+        if(bc == true)
         {
-            BossEnemy_Controller BC = GetComponent<BossEnemy_Controller>();
-            BC.GetComponent<BossEnemy_Controller>();
-            if (BC.isDestroyed.Equals(true) && bC != null || BC.isDestroyed == true)
-            {
-                Debug.Log("Achievement Unlocked"); 
+            Debug.Log("Boss Active"); 
+        }
 
-                achievementPanel.gameObject.SetActive(true); 
-                isBossDefeated = true; 
-                if(isBossDefeated == true)
+        if(achievementPanel.activeInHierarchy)
+        {
+            achievementPanel.GetComponent<GameObject>();
+        }
+
+        if(boss??false)
+        {
+            isBossDefeated = false;
+            bC.GetComponent<BossEnemy_Controller>();
+        }
+
+        if (boss == null && isBossDefeated == true)
+        {
+            achievementPanel.SetActive(true);
+        }
+
+        if (bC != null)
+        {
+            if (bC == null)
+            {
+                Debug.Log("Achievement Unlocked");
+
+                achievementPanel.gameObject.SetActive(true);
+                isBossDefeated = true;
+                if (isBossDefeated == true)
                 {
                     toggle.isOn = true;
-                }    
-            }
-            else if (bC == null)
-            {
-                return;
-            }
+                }
+            }         
         }
      
+        else if (bC == null)
+        {
+           // Debug.LogError(" Boss in Null");
+            return;
+        }     
     }
 }

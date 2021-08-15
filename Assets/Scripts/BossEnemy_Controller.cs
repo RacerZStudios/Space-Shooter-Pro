@@ -23,7 +23,14 @@ public class BossEnemy_Controller : MonoBehaviour
     private Rigidbody2D rB;
     private bool isBossEnemy;
     [SerializeField]
-    private Boss_Health health; 
+    private Boss_Health health;
+
+    public static BossEnemy_Controller bc;
+
+    private void Awake()
+    {
+        bc = this; 
+    }
 
     private void Start()
     {
@@ -138,6 +145,13 @@ public class BossEnemy_Controller : MonoBehaviour
         if (gameObject.tag == "BossEnemy" || gameObject != null)
         {
             isBossEnemy = true;
+            Achievement_Manager achievement_Manager = GameObject.Find("Achievements_Maanger").GetComponent<Achievement_Manager>(); 
+            if(achievement_Manager.isDestroyed == true)
+            {
+                Debug.Log("Achievement Manager is true");
+                achievement_Manager.isBossEnemy = true;
+                Debug.Log(achievement_Manager.isBossEnemy); 
+            }
             if (isBossEnemy == true && anim != null)
             {
                 anim.SetBool("IsBossEnemy", true);
@@ -160,12 +174,16 @@ public class BossEnemy_Controller : MonoBehaviour
             break;
         }
 
-        if (Time.time > canFire)
+        if (Time.time > canFire && bossProjectile != null)
         {
             fireRate = Random.Range(3, 6);
             canFire = Time.time * fireRate;
-            GameObject enemyProj = Instantiate(bossProjectile, bProjSpawn.position, Quaternion.identity);
-            enemyProj.transform.parent = bProjSpawn.transform; 
+            if(this != null)
+            {
+                GameObject enemyProj = Instantiate(bossProjectile, bProjSpawn.position, Quaternion.identity);
+                enemyProj.transform.parent = bProjSpawn.transform;
+                return; 
+            }
         }
     }
 }

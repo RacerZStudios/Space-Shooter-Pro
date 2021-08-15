@@ -183,7 +183,10 @@ public class AgressiveEnemyController : MonoBehaviour
                     {
                         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, range);
                         yield return new WaitForSeconds(1.5f);
-                        transform.LookAt(player.transform.position);
+                        if(player != null)
+                        {
+                            transform.LookAt(player.transform.position);
+                        }
                         yield return null; 
                     }
                 }
