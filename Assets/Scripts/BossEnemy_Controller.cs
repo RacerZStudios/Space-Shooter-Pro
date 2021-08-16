@@ -23,7 +23,9 @@ public class BossEnemy_Controller : MonoBehaviour
     private Rigidbody2D rB;
     private bool isBossEnemy;
     [SerializeField]
-    private Boss_Health health;
+    public Boss_Health health;
+    [SerializeField]
+    public bool bossDefeated; 
 
     public static BossEnemy_Controller bc;
 
@@ -77,10 +79,11 @@ public class BossEnemy_Controller : MonoBehaviour
         {
            // audioSource.Play();
             isDestroyed = true;
-            if (isDestroyed == true || playerController != null)
+            if (isDestroyed == true && bc.health.currenthealth <= 20|| playerController != null)
             {
-                int score = 10;
-                score += score;
+                Debug.Log("Boss Reducing Health here"); 
+                int score = 100;
+                score ++;
                 UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
                 if(uiM != null)
                 {
@@ -145,6 +148,7 @@ public class BossEnemy_Controller : MonoBehaviour
         if (gameObject.tag == "BossEnemy" || gameObject != null)
         {
             isBossEnemy = true;
+            
             Achievement_Manager achievement_Manager = GameObject.Find("Achievements_Maanger").GetComponent<Achievement_Manager>(); 
             if(achievement_Manager.isDestroyed == true)
             {

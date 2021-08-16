@@ -11,7 +11,7 @@ public class Boss_Health : MonoBehaviour
     [SerializeField]
     private int maxhealth;
     [SerializeField]
-    private int currenthealth;
+    public int currenthealth;
     [SerializeField]
     private Slider slider; 
 
@@ -42,7 +42,7 @@ public class Boss_Health : MonoBehaviour
             slider.value -= 0.1f; 
             if(currenthealth <= 10 || slider.value <= 0.1f)
             {
-                SceneManager.LoadSceneAsync(2); 
+              //  SceneManager.LoadSceneAsync(2); 
               //  Debug.Log("Boss Defeated!!!"); 
             }
             if(currenthealth <= 10 && slider.value <= 0.1f)
