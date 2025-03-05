@@ -12,6 +12,7 @@ TagManager:
   - AgressiveEnemy
   - BossEnemy
   - SpecialProjectile
+  - PlayerLazer
   layers:
   - Default
   - TransparentFX
