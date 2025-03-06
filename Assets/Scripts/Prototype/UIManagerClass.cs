@@ -8,13 +8,20 @@ public class UIManagerClass : MonoBehaviour
     [SerializeField]
     private TMP_Text scoreText;
     [SerializeField]
-    private TMP_Text livesText; 
+    private TMP_Text livesText;
+    [SerializeField]
+    private TMP_Text gameOverText;
+    [SerializeField]
+    private TMP_Text restartLevel; 
 
     // Start is called before the first frame update
     void Start()
     {
         scoreText.text = ("Score: " + scoreText.text);
+        livesText.text += (int) 3; 
         livesText.text = ("Lives " + livesText.text);
+        gameOverText.text = "";
+        restartLevel.text = ""; 
     }
 
     // Update is called once per frame
@@ -29,8 +36,28 @@ public class UIManagerClass : MonoBehaviour
         scoreText.text = ("Score: ") + playerScore.ToString();
     }
 
-    public void UpdateLives(int lives)
+    // Update PlayerLives 
+    public void UpdatePlayerLives(int lives)
     {
         livesText.text = ("Lives: ") + lives.ToString(); 
+    }
+
+    public void RestartGameLevel(bool restartGameLevel)
+    {
+        if (restartGameLevel.Equals(true))
+        {
+            restartLevel.text = " 'R' to Restart Level ";
+        }
+    }
+
+    private IEnumerator GameOver()
+    {
+        gameOverText.text = "GAME OVER";
+        yield return new WaitForSeconds(3);
+        gameOverText.text = ""; 
+        yield return new WaitForSeconds(3);
+        gameOverText.text = "GAME OVER";
+        yield return null; 
+
     }
 }

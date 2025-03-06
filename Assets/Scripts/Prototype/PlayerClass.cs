@@ -49,7 +49,11 @@ public class PlayerClass : MonoBehaviour
     private SpriteRenderer playerMaterial;
 
     [SerializeField]
-    private UIManagerClass uiManager; 
+    private UIManagerClass uiManager;
+
+    // get game level manager reference 
+    [SerializeField]
+    private GameLevelManager gameLevelManager; 
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +63,8 @@ public class PlayerClass : MonoBehaviour
         spawnSystem = GameObject.FindObjectOfType<SpawnSystem>();
 
         uiManager = GameObject.FindObjectOfType<UIManagerClass>();
+
+        gameLevelManager = GameObject.FindObjectOfType<GameLevelManager>();
 
         _fireRate = 0.5f; 
         // set start speed
@@ -183,6 +189,7 @@ public class PlayerClass : MonoBehaviour
             playerMaterial.color = Color.red;
             // decrement lives if damaged 
             lives--;
+            // call player lives 
             PlayerLives(lives); 
 
             // check if player lives is < 1 or player is dead 
@@ -196,6 +203,13 @@ public class PlayerClass : MonoBehaviour
                 {
                     // destroy player and respawn or end game 
                     Destroy(gameObject);
+
+                    // Send Message to GameOver Coroutine 
+                    uiManager.SendMessage("GameOver");
+
+                    // Restart Level  
+                    gameLevelManager.GetGameOver(); 
+
                 }
             }
 
@@ -218,7 +232,7 @@ public class PlayerClass : MonoBehaviour
     public void PlayerLives(int health)
     {
         lives = health;
-        uiManager.UpdateLives(health);
+        uiManager.UpdatePlayerLives(health);
     }
 
     // create AddScore method 
