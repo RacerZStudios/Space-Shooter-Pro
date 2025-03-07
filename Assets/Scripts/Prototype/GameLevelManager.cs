@@ -26,7 +26,7 @@ public class GameLevelManager : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.R) && gameOver == true)
             {
                 // get scene index to load
-                SceneManager.LoadScene(0); 
+                SceneManager.LoadScene(1); 
             }
         }
     }

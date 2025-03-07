@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototype/SpaceShooterProto.unity
     guid: b9fad003fb6d98043895994d7c06160e
+  - enabled: 1
+    path: Assets/Scenes/Prototype/SpaceShooter_MainMenu.unity
+    guid: 1d11466cf98240d4e81ad5a003f13404
   - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 4918a7b65cf7405459ab611de80992a6
