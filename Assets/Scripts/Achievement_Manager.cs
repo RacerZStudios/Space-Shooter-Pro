@@ -35,11 +35,11 @@ public class Achievement_Manager : BossEnemy_Controller
     {
         if(bc == true)
         {
-            Debug.Log("Boss Active"); 
-            if(bc.CompareTag("BossEnemy"))
-            {
-                Debug.Log("Boss"); 
-            }
+            //Debug.Log("Boss Active"); 
+            //if(bc.CompareTag("BossEnemy"))
+            //{
+            //    Debug.Log("Boss"); 
+            //}
             if(bc.gameObject == null || bc.isDestroyed == true && bc.health.currenthealth <= 20) 
             {
                 bc.bossDefeated = true; 

@@ -18,14 +18,16 @@ public class PlayerController : MonoBehaviour
     public float speed = 3;
     [SerializeField]
     public float speedBoost = 2; 
-    [SerializeField] Transform playerT;
+    [SerializeField] 
+    private Transform playerT;
     [SerializeField]
     public float projSpeed = 10;
     [SerializeField]
     private float fireTime = 0.5f;
     private float canFire = -1f;
     private float standardFire = 5; 
-    [SerializeField] private int lives = 3;
+    [SerializeField] 
+    private int lives = 3;
     [SerializeField]
     private SpawnManager spawnManager;
     [SerializeField] // toggle behavior active in inspector 
@@ -77,10 +79,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Shield_Manager shield_Manager;
     private int ammoAmount;
-    private SpriteRenderer spriteRender; 
+    private SpriteRenderer spriteRender;
+
+    [SerializeField]
+    private bool isController; 
 
     private void Start()
     {
+        if(player)
+        {
+            GameObject.FindObjectOfType<PlayerController>();
+            player = this.gameObject;
+            SetStartPlayerLocation();
+        }
+
+        // set player speed 
+        speed = 4.5f; 
+
         if(isSpecialProjectile == true)
         {
             isSpecialProjectile = false; 
@@ -105,8 +120,6 @@ public class PlayerController : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         spriteRender = GetComponent<SpriteRenderer>(); 
-        player = GetComponent<GameObject>(); 
-        OnStartPlayerLocation();
 
         if (spawnManager == null)
         {
@@ -129,14 +142,45 @@ public class PlayerController : MonoBehaviour
             audioSource.clip = projSound; 
         }
     }
-    void OnStartPlayerLocation()
+    void SetStartPlayerLocation()
     {
         // take the current player position and assign a new position of (0,0,0) 
-        playerT.position = new Vector3(0, 0, 0); 
+        playerT.position = new Vector3(0, 0, 0);
+        
+    }
+
+    void SetNewPlayerLocation()
+    {
+        if (playerT.position.y < -10.0f && player != null)
+        {
+            // get and set player controller position 
+            player.transform.position = new Vector3(0, 0, 0);
+        }
+    }
+
+    // Controller Input 
+    void ControllerInput()
+    {
+        if(horizontalInput > 0 || verticalInput > 0 || horizontalInput < 0 || verticalInput < 0)
+        {
+            isController = true;
+            if (Input.GetJoystickNames().Length > 0 && isController == true)
+            {
+                if (Input.GetButtonDown("Fire"))
+                {
+                    Debug.Log(GetHashCode().ToString());
+                    Instantiate(playerProjectile, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
+                    playerProjectile.GetComponent<Rigidbody2D>().AddForce(projT.transform.position * projSpeed * Time.deltaTime);
+                }
+            }
+            return; 
+        }       
     }
 
     private void Update()
     {
+        ControllerInput();
+
         horizontalInput = Input.GetAxis("Horizontal"); 
         verticalInput = Input.GetAxis("Vertical");
 
@@ -200,29 +244,31 @@ public class PlayerController : MonoBehaviour
         // Vector3 direction = new Vector3(horizontalInput, verticalInput, 0); // another way to handle axis input 
         // playerT.Translate(direction * speed * Time.deltaTime); 
 
-        if (horizontalInput < 0)
+        Vector3 dir = new Vector3(horizontalInput, verticalInput, 0);
+
+        if (dir.x < 0)
         {   // new Vector3(1,0,0) * variable speed * real timestep 
             playerT.Translate(Vector3.left * speed * Time.deltaTime);
         }
 
-        if (horizontalInput > 0)
+        if (dir.x > 0)
         {
             playerT.Translate(Vector3.right * speed * Time.deltaTime);
         }
 
-        if (verticalInput > 0)
+        if (dir.y > 0)
         {
             playerT.Translate(Vector3.up * speed * Time.deltaTime);
         }
 
-        if (verticalInput < 0)
+        if (dir.y < 0)
         {
             playerT.Translate(Vector3.down * speed * Time.deltaTime);
         }
 
-        Vector3 dir = new Vector3(horizontalInput, verticalInput, 0);
+        SetNewPlayerLocation();
 
-        if(uI_Manager != null)
+        if (uI_Manager != null)
         {
             if (uI_Manager.thurstSlider.value != 0 && isNegativeEffect != true)
             {
@@ -232,7 +278,7 @@ public class PlayerController : MonoBehaviour
 
         if(uI_Manager != null)
         {
-            if(uI_Manager.thurstSlider.value != -0.1f)
+            if(uI_Manager.thurstSlider.value < 0.1f)
             {
                 RegenThrustActive();
             }
@@ -240,7 +286,7 @@ public class PlayerController : MonoBehaviour
 
         // if player is greater than 0, y position = 0 
         // else if position on y is less than -3.0f, y position = -3.0f
-        if (playerT.position.y >= 0)
+        if (playerT.position.y > 10)
         {
             playerT.position = new Vector3(playerT.position.x, 0, 0); 
         }
@@ -249,8 +295,8 @@ public class PlayerController : MonoBehaviour
             playerT.position = new Vector3(playerT.position.x, -3.0f, 0);
         }
 
-        // if player on x > 10, x pos = -11 
-        // else if player on x is < -11,  pos = 11 
+        // if player on x > 10, x pos = -10 
+        // else if player on x is < -10,  pos = 10 
         if(playerT.position.x > 10)
         {
             playerT.position = new Vector3(-10, playerT.position.y, 0); 
@@ -276,35 +322,35 @@ public class PlayerController : MonoBehaviour
     public void ThrustActive()
     {
         // Thrust Speed Feature 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && uI_Manager.thurstSlider.value > -0.1f)
         {
             uI_Manager.StartThrust();
 
-            if (horizontalInput < 0)
+            if (horizontalInput < 1)
             {
-                playerT.TransformDirection(Vector3.left * thrustSpeed * Time.deltaTime);
+                playerT.Translate(Vector3.left * thrustSpeed * Time.deltaTime);
             }
 
-            if (horizontalInput > 0)
+            else if (horizontalInput > 0)
             {
                 playerT.Translate(Vector3.right * thrustSpeed * Time.deltaTime);
             }
 
-            if (verticalInput > -0.1f)
+            if (verticalInput > 0.1f)
             {
                 playerT.Translate(Vector3.up * thrustSpeed * Time.deltaTime);
             }
 
-            if (verticalInput < -1)
+            else if (verticalInput < -0.1f)
             {
-                playerT.TransformDirection(Vector3.down * thrustSpeed * Time.deltaTime);
+                playerT.Translate(Vector3.down * thrustSpeed * Time.deltaTime);
             }
         }
     }
 
     public void RegenThrustActive()
     {
-        if (uI_Manager.thurstSlider.value <= 0.5f && uI_Manager != null)
+        if (uI_Manager.thurstSlider.value <= 0.1f && uI_Manager != null)
         {
             uI_Manager.StartCoroutine(uI_Manager.RegenThrust());
         }
@@ -386,7 +432,7 @@ public class PlayerController : MonoBehaviour
     public void SpeedBoostActive()
     {
         isSpeedBoost = true;
-        speed *= speedBoost; 
+        speed *= speedBoost * 2; 
         StartCoroutine(SpeedBoostPowerDown()); 
     }
 

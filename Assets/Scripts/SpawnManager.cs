@@ -41,11 +41,18 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     public int enemyCountDestroyed;
     [SerializeField]
-    private float maxTime = 0; 
+    private float maxTime = 0;
+    [SerializeField]
+    private PlayerController playerController; 
 
     private void Start()
     {
-        if(bC != null)
+        if(player)
+        {
+            playerController = FindObjectOfType<PlayerController>();
+        }
+
+        if (bC != null)
         {
             bC = GameObject.Find("BossEnemy").GetComponent<BossEnemy_Controller>();
             return; 
@@ -146,7 +153,7 @@ public class SpawnManager : MonoBehaviour
                 GameObject bossInstance = Instantiate(bossEnemy, bossSpawn.transform.position, Quaternion.identity);
                 bossInstance.transform.position = new Vector3(bossInstance.transform.position.x, bossSpawn.transform.position.y, bossInstance.transform.position.z);
                 yield return new WaitForSeconds(0.5f); // wait to spawn boss 
-                Destroy(this); 
+                Destroy(this);
             }        
             break; 
         }
@@ -162,6 +169,8 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(5);
             GameObject powerUp7 = Instantiate(powerUp[7], powerUpSpawn[5].transform.position, Quaternion.identity); // Special 
             yield return new WaitForSeconds(10);
+            GameObject powerUp4 = Instantiate(powerUp[3], powerUpSpawn[3].transform.position, Quaternion.identity); // Ammo  
+            yield return new WaitForSeconds(15);
         }
     }
 
@@ -204,8 +213,18 @@ public class SpawnManager : MonoBehaviour
         {
             yield return new WaitForSeconds(2);
             StartCoroutine(BossEnemy());
+            if(bossSpawn == true)
+            {
+                if(player != null)
+                {
+                    playerController.AddAmmo(15);
+                }
+                break; 
+            }
             if (enemyCountDestroyed >= 3 && maxTime > 0.13f)
             {
+                GameObject powerUp4 = Instantiate(powerUp[3], powerUpSpawn[3].transform.position, Quaternion.identity); // Spawn Ammo for Boss Battle  
+                yield return new WaitForSeconds(15);
                 StopCoroutine(BossEnemy());
             }
             break;
