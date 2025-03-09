@@ -921,6 +921,7 @@ MonoBehaviour:
   projSound: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
   gM: {fileID: 57660565}
   shield_Manager: {fileID: 1228506182}
+  isController: 0
 --- !u!212 &483228942
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2787,6 +2788,8 @@ MonoBehaviour:
   bC: {fileID: 0}
   enemyCountDestroyed: 0
   maxTime: 0
+  playerController: {fileID: 0}
+  uI_Manager: {fileID: 0}
 --- !u!4 &1677954815
 Transform:
   m_ObjectHideFlags: 0

@@ -169,12 +169,129 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetButtonDown("Fire"))
                 {
                     Debug.Log(GetHashCode().ToString());
-                    Instantiate(playerProjectile, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
-                    playerProjectile.GetComponent<Rigidbody2D>().AddForce(projT.transform.position * projSpeed * Time.deltaTime);
+
+                    if(ammoAmount > 0)
+                    {
+                        FireProjectile();
+
+                        if (isTrippleShot)
+                        {
+                            FireTripleShotProjectile();
+                        }
+                        else if (isEMPProjectile)
+                        {
+                            FireEMPProjectile();
+                        }
+                        else if (isSpecialProjectile)
+                        {
+                            FireSpecialProjectile();
+                        }
+                    }
+                   
                 }
-            }
+                else if (Input.GetButton("Thruster") && uI_Manager.thurstSlider.value != 0)
+                {
+                    ThrustActive();
+                }
+
+                isController = false;
+            }    
             return; 
         }       
+    }
+
+    void FireProjectile()
+    {
+        // Player Projectile Input 
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > canFire && ammoAmount >= 0 && ammoAmount != 0 || isController == true)
+        {
+            canFire = Time.time + fireTime;
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+            Instantiate(playerProjectile, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
+            playerProjectile.GetComponent<Rigidbody2D>().AddForce(projT.transform.position * projSpeed * Time.deltaTime);
+            if (uI_Manager != null)
+            {
+                uI_Manager.AmmoStorage(ammoAmount);
+                ammoAmount--;
+                if(ammoAmount <= 0)
+                {
+                    ammoAmount = 0;
+                }
+            }
+        }
+    }
+
+    void FireTripleShotProjectile()
+    {
+        // Triple Shot Projectile 
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && isTrippleShot == true && ammoAmount >= 0 && ammoAmount != 0 || isController == true)
+        {
+            canFire = Time.time + fireTime;
+            if (isTrippleShot == true)
+            {
+                Instantiate(trippleShotObject, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
+                if (uI_Manager != null)
+                {
+                    uI_Manager.AmmoStorage(ammoAmount);
+                    ammoAmount--;
+                    if (ammoAmount <= 0)
+                    {
+                        ammoAmount = 0;
+                    }
+                }
+            }
+            isTrippleShot = false;
+        }
+    }
+
+    void FireEMPProjectile()
+    {
+        // EMP Projectile 
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && isEMPProjectile == true && ammoAmount >= 0 && ammoAmount != 0 || isController == true)
+        {
+            standardFire = Time.time + fireTime;
+            if (isEMPProjectile == true)
+            {
+                Instantiate(empProjectile, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
+                if (uI_Manager != null)
+                {
+                    uI_Manager.AmmoStorage(ammoAmount);
+                    ammoAmount--;
+                    if (ammoAmount <= 0)
+                    {
+                        ammoAmount = 0;
+                    }
+                }
+            }
+            isEMPProjectile = false;
+        }
+    }
+
+    void FireSpecialProjectile()
+    {
+        // Special Projectile 
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && isSpecialProjectile == true && ammoAmount >= 0 && ammoAmount != 0 || isController == true)
+        {
+            standardFire = Time.time + fireTime;
+            if (isSpecialProjectile == true)
+            {
+                Instantiate(specialProjectile, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
+                if (uI_Manager != null)
+                {
+                    uI_Manager.AmmoStorage(ammoAmount);
+                    ammoAmount--;
+                    if (ammoAmount <= 0)
+                    {
+                        ammoAmount = 0;
+                        return;
+                    }
+                }
+            }
+            isSpecialProjectile = false;
+        }
     }
 
     private void Update()
@@ -184,58 +301,10 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal"); 
         verticalInput = Input.GetAxis("Vertical");
 
-        // Player Projectile Input 
-        if(Input.GetKeyDown(KeyCode.Space) && Time.time > canFire && isEMPProjectile == false && ammoAmount >= 0 && ammoAmount != 0)
-        {
-            canFire = Time.time + fireTime;
-            if(audioSource != null)
-            {
-                audioSource.Play();
-            }
-            Instantiate(playerProjectile, projT.position + new Vector3(0, projOffset.y,0), Quaternion.identity);
-            playerProjectile.GetComponent<Rigidbody2D>().AddForce(projT.transform.position * projSpeed * Time.deltaTime);
-            if(uI_Manager != null)
-            {
-                uI_Manager.AmmoStorage(ammoAmount);
-                ammoAmount--;
-            }
-
-            // Triple Shot Projectile 
-            if (isTrippleShot == true)
-            {
-                Instantiate(trippleShotObject, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
-                if(uI_Manager != null)
-                {
-                    uI_Manager.AmmoStorage(ammoAmount);
-                    return;
-                }
-            }
-        }
-
-        // EMP Projectile 
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && isEMPProjectile == true && ammoAmount >= 0 && ammoAmount != 0)
-        {
-            standardFire = Time.time + fireTime;
-            if (isEMPProjectile == true)
-            {
-                Instantiate(empProjectile, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
-                uI_Manager.AmmoStorage(ammoAmount);
-            }
-            isEMPProjectile = false; 
-        }
-
-        // Special Projectile 
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= standardFire && isSpecialProjectile == true && ammoAmount >= 0 && ammoAmount != 0)
-        {
-            standardFire = Time.time + fireTime;
-            if (isSpecialProjectile == true)
-            {
-                Instantiate(specialProjectile, projT.position + new Vector3(0, projOffset.y, 0), Quaternion.identity);
-                uI_Manager.AmmoStorage(ammoAmount);
-            }
-            isSpecialProjectile = false;
-        }
-
+        FireProjectile();
+        FireTripleShotProjectile();
+        FireEMPProjectile();
+        FireSpecialProjectile();
 
         // in line code cleanup 
         // Clamp transform from -3 and 0 
@@ -322,7 +391,7 @@ public class PlayerController : MonoBehaviour
     public void ThrustActive()
     {
         // Thrust Speed Feature 
-        if (Input.GetKey(KeyCode.LeftShift) && uI_Manager.thurstSlider.value > -0.1f)
+        if (Input.GetKey(KeyCode.LeftShift) && uI_Manager.thurstSlider.value > -0.1f || isController == true)
         {
             uI_Manager.StartThrust();
 
@@ -532,6 +601,17 @@ public class PlayerController : MonoBehaviour
         {
             uI_Manager.AmmoStorage(ammoAmount);
             ammoAmount = ammo + ammoAmount;
+        }
+    }
+
+    public void AddFinalAmmo(int ammo)
+    {
+        if(uI_Manager != null)
+        {
+            if(ammoAmount < 1)
+            {
+                ammoAmount = ammo + ammoAmount + 30; 
+            }
         }
     }
 

@@ -43,10 +43,17 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private float maxTime = 0;
     [SerializeField]
-    private PlayerController playerController; 
+    private PlayerController playerController;
+    [SerializeField]
+    private UI_Manager uI_Manager; 
 
     private void Start()
     {
+        if(uI_Manager == null)
+        {
+            uI_Manager = FindObjectOfType<UI_Manager>();
+        }
+
         if(player)
         {
             playerController = FindObjectOfType<PlayerController>();
@@ -217,7 +224,11 @@ public class SpawnManager : MonoBehaviour
             {
                 if(player != null)
                 {
-                    playerController.AddAmmo(15);
+                    if(playerController)
+                    {
+                        uI_Manager.AmmoStorage(30);
+                        playerController.AddFinalAmmo(30);
+                    }
                 }
                 break; 
             }
