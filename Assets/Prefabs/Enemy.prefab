@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6278301708160342858}
   - component: {fileID: 1311916189}
   - component: {fileID: 1311916190}
+  - component: {fileID: 2260265698942100869}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -115,6 +116,7 @@ MonoBehaviour:
   eProjSpawn: {fileID: 653613149388205080}
   rB: {fileID: 1311916187}
   isNewEnemy: 0
+  spawnManager: {fileID: 0}
 --- !u!50 &1311916187
 Rigidbody2D:
   serializedVersion: 4
@@ -196,7 +198,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3154912113cbb4a498df6f571c74e18c, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.04654569, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -204,7 +206,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!82 &1311916190
 AudioSource:
@@ -302,6 +304,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!122 &2260265698942100869
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943889418459928722}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278193663
+  m_Size: 1.52
 --- !u!1001 &8087406922961845795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -368,6 +382,22 @@ PrefabInstance:
     - target: {fileID: 3828834506227022616, guid: e5b13ad0a63173a4ab1b48bb1e364fb7, type: 3}
       propertyPath: health
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656082817102718450, guid: e5b13ad0a63173a4ab1b48bb1e364fb7, type: 3}
+      propertyPath: m_Color.a
+      value: 0.69411767
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656082817102718450, guid: e5b13ad0a63173a4ab1b48bb1e364fb7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9669811
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656082817102718450, guid: e5b13ad0a63173a4ab1b48bb1e364fb7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9669811
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656082817102718450, guid: e5b13ad0a63173a4ab1b48bb1e364fb7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.56078434
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5359291063065896930, guid: e5b13ad0a63173a4ab1b48bb1e364fb7, type: 3}

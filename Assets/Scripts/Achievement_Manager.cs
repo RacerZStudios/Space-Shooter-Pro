@@ -40,7 +40,7 @@ public class Achievement_Manager : BossEnemy_Controller
             //{
             //    Debug.Log("Boss"); 
             //}
-            if(bc.gameObject == null || bc.isDestroyed == true && bc.health.currenthealth <= 20) 
+            if(bc.gameObject == null || bc.isDestroyed == true && bc.health.currenthealth <= 10) 
             {
                 bc.bossDefeated = true; 
                 if(bc.bossDefeated == true)

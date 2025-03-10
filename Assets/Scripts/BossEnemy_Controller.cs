@@ -79,7 +79,7 @@ public class BossEnemy_Controller : MonoBehaviour
         {
            // audioSource.Play();
             isDestroyed = true;
-            if (isDestroyed == true && bc.health.currenthealth <= 20|| playerController != null)
+            if (isDestroyed == true && bc.health.currenthealth < 10|| playerController != null)
             {
                 Debug.Log("Boss Reducing Health here"); 
                 int score = 100;

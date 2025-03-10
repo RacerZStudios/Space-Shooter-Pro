@@ -79,11 +79,9 @@ public class EnemeyController : MonoBehaviour
                 int score = 10;
                 score += score; 
                 UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
-                uiM.UpdateScore(score); 
-               // Debug.Log(playerController + "Score");
+                uiM.UpdateScore(score);
+                StartCoroutine(PlayEnemyDeadAnim());
             }
-
-            StartCoroutine(PlayEnemyDeadAnim());
 
             if (playerController != null)
             {
@@ -140,6 +138,12 @@ public class EnemeyController : MonoBehaviour
                 playerController.GetComponent<PlayerController>().TakeDamage();
             }
         }
+        
+        // get barrier collision 
+        if(collision.gameObject.CompareTag("Barrier"))
+        {
+            Destroy(gameObject); 
+        }
     }
 
     IEnumerator PlayEnemyDeadAnim()
@@ -184,10 +188,10 @@ public class EnemeyController : MonoBehaviour
         if (!isDestroyed && transform.position.y > -3)
         {
             transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
-            if (transform.position.y < -3)
-            {
-                Destroy(gameObject);
-            }
+        }
+        else if (transform.position.y < -3)
+        {
+            Destroy(gameObject);
         }
     }
 }

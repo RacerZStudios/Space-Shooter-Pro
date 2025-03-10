@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1311916189}
   - component: {fileID: 1311916190}
   - component: {fileID: 6719838422158075790}
+  - component: {fileID: 4226399443329771029}
   m_Layer: 0
   m_Name: New_Enemy
   m_TagString: NewEnemy
@@ -106,7 +107,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.3
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -301,3 +302,16 @@ MonoBehaviour:
   eProjSpawn: {fileID: 653613149388205080}
   rB: {fileID: 1311916187}
   isNewEnemy: 0
+  spawnManager: {fileID: 0}
+--- !u!122 &4226399443329771029
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943889418459928722}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278229493
+  m_Size: 1.71

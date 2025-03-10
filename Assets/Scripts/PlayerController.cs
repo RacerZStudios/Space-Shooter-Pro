@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -377,6 +378,36 @@ public class PlayerController : MonoBehaviour
         {
             playerT.position = new Vector3(10, playerT.position.y, 0); 
         }
+
+        // reset player root transform and position 
+        Vector3 playerPos = new Vector3(playerT.transform.position.x, playerT.transform.position.y, 0);
+        if(playerT.position.y < -3)
+        {
+            Debug.Assert(true, playerT.position.y);
+            playerT.position = new Vector3(playerPos.x, playerPos.y, 0);
+            playerT.position = playerPos;
+            playerT.GetChild(0).transform.position = playerPos;
+        }
+        else
+        {
+            playerT.position = new Vector3(0, 0, 0);
+            playerT.position = playerPos;
+        }
+
+        // reset player position with Key bind 
+        if (playerT.position.y < 0 || playerT.position.y > 0 || player != null)
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                gameObject.transform.position = new Vector3(0, 0, 0);
+                return;
+            }
+        }
+        // reset player position 
+        //if(playerT.position.y > -10)
+        //{
+        //    playerT.position = new Vector3(player.transform.parent.position.x, player.transform.parent.position.y, 0); 
+        //}
 
         if (uI_Manager == null)
         {

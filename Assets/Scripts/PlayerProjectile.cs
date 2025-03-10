@@ -25,7 +25,7 @@ public class PlayerProjectile : MonoBehaviour
     {
         transform.Translate(Vector3.up * projSpeed * Time.deltaTime);
 
-        if (transform.position.y > 5)
+        if (transform.position.y > 10)
         {
             if (transform.parent != null)
             {

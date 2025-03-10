@@ -13,6 +13,7 @@ TagManager:
   - BossEnemy
   - SpecialProjectile
   - PlayerLazer
+  - Barrier
   layers:
   - Default
   - TransparentFX

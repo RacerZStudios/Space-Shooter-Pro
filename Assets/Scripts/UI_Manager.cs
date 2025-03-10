@@ -35,7 +35,7 @@ public class UI_Manager : MonoBehaviour
         addHealthText.gameObject.SetActive(false); 
         GameOverText.gameObject.SetActive(false);
         restartText.gameObject.SetActive(false);
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); 
+        gameManager = GameObject.FindObjectOfType<GameManager>(); 
         if(gameManager == null)
         {
             Debug.LogError("Game Manager is null"); 

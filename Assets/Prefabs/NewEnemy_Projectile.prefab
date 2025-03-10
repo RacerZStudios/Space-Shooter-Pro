@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a012425ebefb44448cb369b65822867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projSpeed: 5
+  projSpeed: 3.5
   isEnemyProjectile: 0
 --- !u!50 &8632794600225434960
 Rigidbody2D:
@@ -62,8 +62,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0.25
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

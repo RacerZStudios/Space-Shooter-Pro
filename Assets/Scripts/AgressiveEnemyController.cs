@@ -96,6 +96,7 @@ public class AgressiveEnemyController : MonoBehaviour
         if (collision.gameObject.name == "PlayerController" || collision.gameObject.tag == "Player")
         {
             audioSource.Play();
+            isAgressiveEnemy = true;
             // Debug.Log(playerController + "hit"); 
             if (playerController == null)
             {
@@ -119,43 +120,18 @@ public class AgressiveEnemyController : MonoBehaviour
         yield return null;
     }
 
-    //IEnumerator AgressiveEnemyAnim()
-    //{
-    //    if (this.gameObject.tag == "NewEnemy" || this.gameObject != null)
-    //    {
-    //        isAgressiveEnemy = true;
-    //        if (isAgressiveEnemy == true && anim != null)
-    //        {
-    //            anim.SetBool("IsNewEnemy", true);
-    //            anim.Play("NewEnemy_Anim");
-    //            if (rB != null)
-    //            {
-    //                rB.AddForce(Vector3.down * moveSpeed * Time.deltaTime);
-    //            }
-    //        }
-    //    }
-    //    isAgressiveEnemy = false;
-    //    yield return null;
-    //}
-
     private void Update()
     {
-        //while (this != null)
-        //{
-        //    StartCoroutine(AgressiveEnemyAnim());
-        //    break;
-        //}
+        StartCoroutine(GoToPlayer());
 
         if (!isDestroyed && transform.position.y > -3)
         {
             transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
-            if (transform.position.y < -3)
-            {
-                Destroy(gameObject);
-            }
         }
-
-        StartCoroutine(GoToPlayer()); 
+        else if (transform.position.y < -3)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator GoToPlayer()
@@ -179,7 +155,7 @@ public class AgressiveEnemyController : MonoBehaviour
                 if (Vector3.Distance(transform.position, player.transform.position) >= range)
                 {
                     yield return new WaitForSeconds(1.5f);
-                    if(playerController != null)
+                    if(playerController != null && isAgressiveEnemy.Equals(true))
                     {
                         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, range);
                         yield return new WaitForSeconds(1.5f);

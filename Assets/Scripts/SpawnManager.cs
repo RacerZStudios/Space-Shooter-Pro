@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -15,9 +16,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject enemyContainer;
     [SerializeField]
-    private GameObject []powerUp;
+    private GameObject[] powerUp;
     [SerializeField]
-    public Transform []powerUpSpawn;
+    public Transform[] powerUpSpawn;
     [SerializeField]
     public Transform[] spwanPoints;
     [SerializeField]
@@ -31,7 +32,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject bossEnemy;
     [SerializeField]
-    private GameObject bossSpawn; 
+    private GameObject bossSpawn;
     [SerializeField]
     private bool stopSpawn;
     [SerializeField]
@@ -45,16 +46,18 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private PlayerController playerController;
     [SerializeField]
-    private UI_Manager uI_Manager; 
+    private UI_Manager uI_Manager;
+    [SerializeField]
+    private GameObject playerParent;
 
     private void Start()
     {
-        if(uI_Manager == null)
+        if (uI_Manager == null)
         {
             uI_Manager = FindObjectOfType<UI_Manager>();
         }
 
-        if(player)
+        if (player)
         {
             playerController = FindObjectOfType<PlayerController>();
         }
@@ -62,7 +65,7 @@ public class SpawnManager : MonoBehaviour
         if (bC != null)
         {
             bC = GameObject.Find("BossEnemy").GetComponent<BossEnemy_Controller>();
-            return; 
+            return;
         }
 
         enemyCountDestroyed = 0;
@@ -180,6 +183,19 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(15);
         }
     }
+
+    //private IEnumerator RespawnPlayer()
+    //{
+    //    yield return new WaitForSeconds(10);
+    //    if (playerController.transform.position.y < -3 && player.activeInHierarchy == true)
+    //    {
+    //        playerController.transform.position = player.transform.parent.position;
+    //    }
+    //    Instantiate(playerParent, playerController.transform.position, Quaternion.identity);
+    //    StopCoroutine(RespawnPlayer());
+
+    //    yield break;
+    //}
 
     private void Update()
     {

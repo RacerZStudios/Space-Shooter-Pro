@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1311916189}
   - component: {fileID: 1311916190}
   - component: {fileID: 6927744695137192489}
+  - component: {fileID: 8323097824857941810}
   m_Layer: 0
   m_Name: Agressive_Enemy
   m_TagString: AgressiveEnemy
@@ -292,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4606e720acbffc442ad10132faaecb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
+  moveSpeed: 3
   isDestroyed: 0
   playerController: {fileID: 0}
   anim: {fileID: 6278301708160342858}
@@ -300,3 +301,16 @@ MonoBehaviour:
   rB: {fileID: 1311916187}
   isAgressiveEnemy: 0
   range: 0.3
+  spawnManager: {fileID: 0}
+--- !u!122 &8323097824857941810
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943889418459928722}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 2826761472
+  m_Size: 1.23
