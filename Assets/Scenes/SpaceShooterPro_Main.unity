@@ -377,7 +377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -94, y: -11.82}
+  m_AnchoredPosition: {x: -100, y: -14.78}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &153320189
@@ -413,7 +413,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press the ''R'' Key to Restart the Level '
+  m_Text: 'Press the ''R'' Key or ''R3'' to Restart Level '
 --- !u!222 &153320190
 CanvasRenderer:
   m_ObjectHideFlags: 0

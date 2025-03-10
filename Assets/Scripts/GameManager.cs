@@ -12,11 +12,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R) && isGameOver == true)
+        if(Input.GetKeyDown(KeyCode.R) && isGameOver == true || Input.GetButtonDown("Restart") && isGameOver == true)
         {
             SceneManager.LoadScene(1); // Restart the Game 
         }
-        else if (Input.GetKeyDown(KeyCode.R) && isGameOver == false)
+        else if (Input.GetKeyDown(KeyCode.R) && isGameOver == false || Input.GetButtonDown("Restart") && isGameOver == false)
         {
             SceneManager.LoadScene(1); // Restart the Game Anytime 
         }
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(0); 
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && winGame == true)
+        if (Input.GetKeyDown(KeyCode.R) && winGame == true || winGame == true)
         {
             SceneManager.LoadScene(0); // Return to Menu 
         }

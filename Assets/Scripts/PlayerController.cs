@@ -296,7 +296,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        ControllerInput();
+        if(Input.GetJoystickNames().Length > 0)
+        {
+            ControllerInput(); 
+        }
 
         horizontalInput = Input.GetAxis("Horizontal"); 
         verticalInput = Input.GetAxis("Vertical");
