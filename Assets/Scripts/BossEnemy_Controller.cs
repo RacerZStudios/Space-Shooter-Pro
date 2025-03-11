@@ -26,6 +26,8 @@ public class BossEnemy_Controller : MonoBehaviour
     public bool bossDefeated; 
 
     public static BossEnemy_Controller bc;
+    [SerializeField]
+    private Achievement_Manager achievementManager; 
 
     private void Awake()
     {
@@ -34,6 +36,11 @@ public class BossEnemy_Controller : MonoBehaviour
 
     private void Start()
     {
+        if (!isDestroyed)
+        {
+            achievementManager = FindObjectOfType<Achievement_Manager>();
+        }
+
         if (gameObject != null && isBossEnemy == false)
         {
             isBossEnemy = true;
@@ -119,7 +126,6 @@ public class BossEnemy_Controller : MonoBehaviour
     {
         anim.SetTrigger("OnBossDeath");
         yield return new WaitForSeconds(anim.speed);
-        yield return null;
     }
 
     IEnumerator BossEnemyAnim()
@@ -127,10 +133,15 @@ public class BossEnemy_Controller : MonoBehaviour
         if (gameObject.tag == "BossEnemy" || gameObject != null)
         {
             isBossEnemy = true;
-            Achievement_Manager achievement_Manager = GameObject.Find("Achievements_Maanger").GetComponent<Achievement_Manager>(); 
-            if(achievement_Manager.isDestroyed == true)
+            if (achievementManager != null)
             {
-                achievement_Manager.isBossEnemy = true; 
+                if (!isBossEnemy)
+                bossDefeated = true; 
+                Achievement_Manager achievement_Manager = GameObject.Find("Achievements_Maanger").GetComponent<Achievement_Manager>();
+                if (achievement_Manager.isDestroyed == true)
+                {
+                    achievement_Manager.isBossEnemy = true;
+                }
             }
             if (isBossEnemy == true && anim != null)
             {
@@ -141,6 +152,13 @@ public class BossEnemy_Controller : MonoBehaviour
                     rB.AddForce(Vector3.down * moveSpeed * Time.deltaTime);
                 }
             }
+
+            if(bossDefeated == true)
+            {
+                StartCoroutine(PlayBossDeadAnim());
+                achievementManager.isBossEnemy = true;
+                yield return null; 
+            }    
         }
         yield return null;
     }

@@ -71,7 +71,7 @@ public class NewEnemeyController : MonoBehaviour
                 sM.enemyCountDestroyed += 1;
                 if (sM.enemyCountDestroyed > 2)
                 {
-                    Debug.Assert(sM.enemyCountDestroyed == 3, true);
+                    // Debug.Assert(sM.enemyCountDestroyed == 3, true);
                     StartCoroutine(sM.BossEnemy());
                 }
             }

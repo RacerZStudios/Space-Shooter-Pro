@@ -9,9 +9,19 @@ public class ChangeSceneManager : MonoBehaviour
     [SerializeField]
     private GameObject achievements;
 
+    public static ChangeSceneManager csMinstance; 
+
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (csMinstance == null)
+        {
+            csMinstance = this;
+            DontDestroyOnLoad(this);
+        }
+        else if(csMinstance != this)
+        {
+            Destroy(this); 
+        }
     }
 
     private void Start()

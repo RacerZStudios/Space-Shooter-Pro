@@ -201,6 +201,10 @@ public class PlayerController : MonoBehaviour
                         ThrustActive();
                     }
                 }
+                else if (Input.GetButton("ResetPlayer") && isController == true)
+                {
+                    ResetPlayerPos();
+                }
 
                 isController = false;
             }
@@ -346,6 +350,8 @@ public class PlayerController : MonoBehaviour
             playerT.Translate(Vector3.down * speed * Time.deltaTime);
         }
 
+        ResetPlayerPos();
+
         SetNewPlayerLocation();
 
         if (uI_Manager != null)
@@ -401,16 +407,6 @@ public class PlayerController : MonoBehaviour
             playerT.position = playerPos;
         }
 
-        // reset player position with Key bind 
-        if (playerT.position.y < 0 || playerT.position.y > 0 || player != null)
-        {
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                gameObject.transform.position = new Vector3(0, 0, 0);
-                return;
-            }
-        }
-
         if (uI_Manager == null)
         {
             Destroy(uI_Manager);
@@ -421,6 +417,19 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(spawnManager);
             return;
+        }
+    }
+
+    public void ResetPlayerPos()
+    {
+        // reset player position with Key bind 
+        if (playerT.position.y < 0 || playerT.position.y > 0 || player != null)
+        {
+            if (Input.GetKeyDown(KeyCode.T) || isController == true)
+            {
+                gameObject.transform.position = new Vector3(0, 0, 0);
+                return;
+            }
         }
     }
 

@@ -8,7 +8,17 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public bool isGameOver;
     [SerializeField]
-    private bool winGame; 
+    private bool winGame;
+    [SerializeField]
+    private BossEnemy_Controller BossEnemy_Controller;
+
+    private void Start()
+    {
+        if (BossEnemy_Controller != null)
+        {
+            BossEnemy_Controller = FindObjectOfType<BossEnemy_Controller>();
+        }
+    }
 
     private void Update()
     {
@@ -28,7 +38,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(0); 
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && winGame == true)
+        if (Input.GetKeyDown(KeyCode.R) && winGame == true || Input.GetButtonDown("Restart") && winGame == true) 
         {
             SceneManager.LoadScene(0); // Return to Menu 
         }
@@ -36,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        winGame = true; 
+        winGame = true;
     }
 
     public void GameOver()

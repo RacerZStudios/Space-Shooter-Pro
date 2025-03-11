@@ -12,7 +12,7 @@ public class Asteroid : MonoBehaviour
     private SpawnManager spawnManager;
     private AudioSource audioSource;
     [SerializeField]
-    private AudioClip audioClip; 
+    private AudioClip audioClip;
 
     private void Start()
     {
@@ -43,6 +43,7 @@ public class Asteroid : MonoBehaviour
             spawnManager.StartSpawning(); 
             audioSource.Play();
             anim.SetTrigger("OnAsteroidDestroy");
+            gameObject.GetComponent<Collider2D>().enabled = false;
             Destroy(gameObject, 2.0f); 
         }
     }
