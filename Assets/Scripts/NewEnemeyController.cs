@@ -25,14 +25,25 @@ public class NewEnemeyController : MonoBehaviour
     private bool isNewEnemy;
     [SerializeField]
     private SpawnManager spawnManager;
+    [SerializeField]
+    private UI_Manager uiManager;
 
     private void Start()
     {
-        if (spawnManager == null)
+        if (uiManager != null)
+        {
+            uiManager.enemyText.text = spawnManager.enemyCountDestroyed.ToString();
+        }
+        else
+        {
+            uiManager = FindObjectOfType<UI_Manager>();
+        }
+
+        if (spawnManager != null)
         {
             return;
         }
-        else if (spawnManager != null)
+        else if (spawnManager == null)
         {
             spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         }
@@ -65,22 +76,25 @@ public class NewEnemeyController : MonoBehaviour
         {
             audioSource.Play();
             isDestroyed = true;
+            StartCoroutine(PlayEnemyDeadAnim());
             SpawnManager sM = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
             if (sM != null)
             {
                 sM.enemyCountDestroyed += 1;
-                if (sM.enemyCountDestroyed > 2)
+                if (sM.enemyCountDestroyed > 25)
                 {
                     // Debug.Assert(sM.enemyCountDestroyed == 3, true);
                     StartCoroutine(sM.BossEnemy());
                 }
             }
-            if (isDestroyed == true || playerController != null)
+            if (isDestroyed == true || playerController != null )
             {
+                if(sM != null)
+                uiManager.enemyText.text = sM.enemyCountDestroyed.ToString();
                 int score = 10;
                 score += score; 
                 UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
-                uiM.UpdateScore(score); 
+                uiM.UpdateScore(score);
             }
 
             if(playerController != null)
@@ -89,8 +103,6 @@ public class NewEnemeyController : MonoBehaviour
                 playerController.AddScore(10); 
                 return; 
             }
-
-            StartCoroutine(PlayEnemyDeadAnim());
         }
 
         if(collision.gameObject.tag == "EnemyProjectile")
@@ -134,6 +146,7 @@ public class NewEnemeyController : MonoBehaviour
     IEnumerator PlayEnemyDeadAnim()
     {
         audioSource.Play();
+        // setup New Enemy Aniation
         anim.SetTrigger("OnEnemyDeath");
         yield return new WaitForSeconds(anim.speed); 
         Destroy(gameObject, 2.0f);

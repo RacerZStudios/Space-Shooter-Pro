@@ -72,7 +72,7 @@ public class SpecialProjectille : MonoBehaviour
     void MoveUp()
     {
         transform.Translate(Vector3.up * projSpeed * Time.deltaTime);
-        if (hasSpecialProjectile == true)
+        if (hasSpecialProjectile == true && gameObject != null)
         {
             Vector3 specialPos = transform.position;
             Vector3.MoveTowards(target.transform.position, specialPos.normalized, 2);

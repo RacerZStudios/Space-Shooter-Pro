@@ -24,17 +24,32 @@ public class EnemeyController : MonoBehaviour
     [SerializeField]
     private bool isNewEnemy;
     [SerializeField]
-    private SpawnManager spawnManager; 
+    private SpawnManager spawnManager;
+    [SerializeField]
+    private UI_Manager uiManager; 
 
     private void Start()
     {
+        if (uiManager != null)
+        {
+            uiManager.enemyText.text = spawnManager.enemyCountDestroyed.ToString();
+        }
+        else
+        {
+            uiManager = FindObjectOfType<UI_Manager>();
+        }
+
         if(spawnManager == null)
         {
+            spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
             return; 
         }
         else if(spawnManager != null)
         {
-            spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>(); 
+            if (spawnManager.enemyCountDestroyed > 0)
+            {
+                spawnManager.enemyCountDestroyed = 0;
+            }
         }
 
         if(playerController != null)
@@ -68,16 +83,17 @@ public class EnemeyController : MonoBehaviour
             SpawnManager sM = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
             if(sM != null)
             {
-                sM.enemyCountDestroyed += 1;
-                if(sM.enemyCountDestroyed > 0)
+                sM.enemyCountDestroyed += 1; 
+                if(sM.enemyCountDestroyed > 20)
                 {
                     StartCoroutine(sM.BossEnemy());
                 }
             }
-            if(isDestroyed == true || playerController != null)
+            if (isDestroyed == true || playerController != null)
             {
+                uiManager.enemyText.text = sM.enemyCountDestroyed.ToString();
                 int score = 10;
-                score += score; 
+                score += score;
                 UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
                 uiM.UpdateScore(score);
                 StartCoroutine(PlayEnemyDeadAnim());

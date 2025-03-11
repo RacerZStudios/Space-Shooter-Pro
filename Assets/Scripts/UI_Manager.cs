@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using TMPro; 
 using UnityEngine;
 
 public class UI_Manager : MonoBehaviour
@@ -26,6 +27,8 @@ public class UI_Manager : MonoBehaviour
     private int maxAmmo; 
     private int finalScore;
     [SerializeField]
+    public TMP_Text enemyText;  
+    [SerializeField]
     public Slider thurstSlider;
     [SerializeField]
     public Text addHealthText;
@@ -47,6 +50,8 @@ public class UI_Manager : MonoBehaviour
         {
             Debug.LogError("Game Manager is null"); 
         }
+
+        enemyText.text = enemyText.text.ToString(); 
     }
 
     public void AmmoStorage(int ammoAmount)

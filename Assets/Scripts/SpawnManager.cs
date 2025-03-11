@@ -69,6 +69,7 @@ public class SpawnManager : MonoBehaviour
         }
 
         enemyCountDestroyed = 0;
+        uI_Manager.enemyText.text = enemyCountDestroyed.ToString(); 
         InvokeRepeating("SpawnEnemy1", 5, 3);
         InvokeRepeating("SpawnEnemy2", 15, 3);
         InvokeRepeating("SpawnEnemy3", 3, 3);
@@ -186,6 +187,10 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
+        if (this != null)
+        {
+            uI_Manager.enemyText.text = enemyCountDestroyed.ToString();
+        }
         if (player == null)
         {
             PlayerDead(); 
@@ -219,7 +224,7 @@ public class SpawnManager : MonoBehaviour
     {
         maxTime += Time.deltaTime;
         yield return new WaitForSeconds(2); 
-        while (enemyCountDestroyed >= 3)
+        while (enemyCountDestroyed >= 3) // spawn boss routine 
         {
             yield return new WaitForSeconds(2);
             StartCoroutine(BossEnemy());

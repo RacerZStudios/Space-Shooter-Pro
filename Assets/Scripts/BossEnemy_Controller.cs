@@ -25,6 +25,7 @@ public class BossEnemy_Controller : MonoBehaviour
     [SerializeField]
     public bool bossDefeated; 
 
+    // Singleton class? 
     public static BossEnemy_Controller bc;
     [SerializeField]
     private Achievement_Manager achievementManager; 

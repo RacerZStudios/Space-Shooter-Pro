@@ -61,6 +61,7 @@ public class AgressiveEnemyController : MonoBehaviour
         {
             audioSource.Play();
             isDestroyed = true;
+            StartCoroutine(PlayEnemyDeadAnim());
             SpawnManager sM = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
             if (sM != null)
             {
@@ -88,8 +89,6 @@ public class AgressiveEnemyController : MonoBehaviour
             {
                 Destroy(this);
             }
-
-            StartCoroutine(PlayEnemyDeadAnim());
         }
 
         if (collision.gameObject.name == "PlayerController" || collision.gameObject.tag == "Player")
@@ -111,6 +110,9 @@ public class AgressiveEnemyController : MonoBehaviour
     IEnumerator PlayEnemyDeadAnim()
     {
         audioSource.Play();
+        // Create Animation for Agressive Enemy
+        //anim.SetTrigger("OnEnemyDeath");
+        //yield return new WaitForSeconds(anim.speed);
         Destroy(gameObject, 2.0f);
         Destroy(GetComponent<Collider2D>());
         yield return null;
