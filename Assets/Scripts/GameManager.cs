@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R) && isGameOver == true || Input.GetButtonDown("Restart") && isGameOver == true)
         {
+            // sceme 2 to load into main game 
             SceneManager.LoadScene(1); // Restart the Game 
         }
         else if (Input.GetKeyDown(KeyCode.R) && isGameOver == false || Input.GetButtonDown("Restart") && isGameOver == false)
@@ -23,10 +24,11 @@ public class GameManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape)) // Load the Main Menu 
         {
+            // scene 1 to load main menu 
             SceneManager.LoadScene(0); 
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && winGame == true || winGame == true)
+        if (Input.GetKeyDown(KeyCode.R) && winGame == true)
         {
             SceneManager.LoadScene(0); // Return to Menu 
         }

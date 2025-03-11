@@ -11,8 +11,6 @@ public class BossEnemy_Controller : MonoBehaviour
     private PlayerController playerController;
     [SerializeField]
     private Animator anim;
-    //[SerializeField]
-    //private AudioSource audioSource;
     [SerializeField]
     private GameObject bossProjectile;
     [SerializeField]
@@ -69,19 +67,15 @@ public class BossEnemy_Controller : MonoBehaviour
         {
             Debug.Log("Boss Health is Null"); 
         }
-
-      //  audioSource = GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "PlayerProjectile")
         {
-           // audioSource.Play();
             isDestroyed = true;
             if (isDestroyed == true && bc.health.currenthealth < 10|| playerController != null)
             {
-                Debug.Log("Boss Reducing Health here"); 
                 int score = 100;
                 score ++;
                 UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
@@ -98,10 +92,6 @@ public class BossEnemy_Controller : MonoBehaviour
                 playerController.AddScore(10);
                 return;
             }
-            //else if (playerController == null && isDestroyed)
-            //{
-            //    Destroy(this);
-            //}
         }
 
 
@@ -110,19 +100,9 @@ public class BossEnemy_Controller : MonoBehaviour
             playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
             playerController.AddScore(50);
         }
-        //else if (playerController == null && isDestroyed)
-        //{
-        //    Destroy(this);
-        //}
-
-        //    Debug.Log("Emp" + PlayEnemyDeadAnimEMP());
-        //    gameObject.transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-        //    StartCoroutine(PlayEnemyDeadAnimEMP());
-        //}
 
         if (collision.gameObject.name == "PlayerController" || collision.gameObject.tag == "Player")
         {
-           // audioSource.Play();
             if (playerController == null)
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
@@ -137,7 +117,6 @@ public class BossEnemy_Controller : MonoBehaviour
 
     IEnumerator PlayBossDeadAnim()
     {
-      //  audioSource.Play();
         anim.SetTrigger("OnBossDeath");
         yield return new WaitForSeconds(anim.speed);
         yield return null;
@@ -148,13 +127,10 @@ public class BossEnemy_Controller : MonoBehaviour
         if (gameObject.tag == "BossEnemy" || gameObject != null)
         {
             isBossEnemy = true;
-            
             Achievement_Manager achievement_Manager = GameObject.Find("Achievements_Maanger").GetComponent<Achievement_Manager>(); 
             if(achievement_Manager.isDestroyed == true)
             {
-                Debug.Log("Achievement Manager is true");
-                achievement_Manager.isBossEnemy = true;
-                Debug.Log(achievement_Manager.isBossEnemy); 
+                achievement_Manager.isBossEnemy = true; 
             }
             if (isBossEnemy == true && anim != null)
             {
@@ -166,7 +142,6 @@ public class BossEnemy_Controller : MonoBehaviour
                 }
             }
         }
-      //   isBossEnemy = false;
         yield return null;
     }
 

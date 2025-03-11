@@ -19,42 +19,43 @@ public class Achievement_Manager : BossEnemy_Controller
     [SerializeField]
     private GameObject boss;
 
+    // singleton reference 
     public static Achievement_Manager aCM;
 
     private void Awake()
     {
-        aCM = this; 
+        if(aCM == null)
+        {
+            aCM = this;
+            DontDestroyOnLoad(achievementCanvas);
+        }
+        else if(aCM != this)
+        {
+            Destroy(achievementCanvas);
+        }
     }
 
     private void Start()
     {
-        DontDestroyOnLoad(achievementCanvas);
+     
     }
 
     private void Update()
     {
         if(bc == true)
         {
-            //Debug.Log("Boss Active"); 
-            //if(bc.CompareTag("BossEnemy"))
-            //{
-            //    Debug.Log("Boss"); 
-            //}
             if(bc.gameObject == null || bc.isDestroyed == true && bc.health.currenthealth <= 10) 
             {
                 bc.bossDefeated = true; 
                 if(bc.bossDefeated == true)
                 {
-                    Debug.Log("Achievement Unlocked"); // this works 
-
-                    achievementPanel.gameObject.SetActive(true);
                     isBossDefeated = true;
+                    achievementPanel.gameObject.SetActive(true);
                     if (isBossDefeated == true)
                     {
-                        // spawn achievement panel 
+                        // spawn achievement panel and load win game scene
                         SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
                     }
-                  //  Debug.LogError("Boss Defeated");
                 }
             }
         }

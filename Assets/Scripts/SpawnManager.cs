@@ -184,19 +184,6 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    //private IEnumerator RespawnPlayer()
-    //{
-    //    yield return new WaitForSeconds(10);
-    //    if (playerController.transform.position.y < -3 && player.activeInHierarchy == true)
-    //    {
-    //        playerController.transform.position = player.transform.parent.position;
-    //    }
-    //    Instantiate(playerParent, playerController.transform.position, Quaternion.identity);
-    //    StopCoroutine(RespawnPlayer());
-
-    //    yield break;
-    //}
-
     private void Update()
     {
         if (player == null)

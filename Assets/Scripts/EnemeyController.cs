@@ -105,7 +105,6 @@ public class EnemeyController : MonoBehaviour
                 score += score;
                 UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
                 uiM.UpdateScore(score);
-               // Debug.Log(playerController + "Score");
             }
 
             if (playerController != null)
@@ -119,7 +118,6 @@ public class EnemeyController : MonoBehaviour
                 Destroy(this);
             }
 
-           // Debug.Log("Emp" + PlayEnemyDeadAnimEMP()); 
             gameObject.transform.position += Vector3.left * moveSpeed * Time.deltaTime; 
             StartCoroutine(PlayEnemyDeadAnimEMP());
         }
@@ -127,7 +125,6 @@ public class EnemeyController : MonoBehaviour
         if (collision.gameObject.name == "PlayerController" || collision.gameObject.tag == "Player") 
         {
             audioSource.Play();
-            // Debug.Log(playerController + "hit"); 
             if(playerController == null)
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>(); 

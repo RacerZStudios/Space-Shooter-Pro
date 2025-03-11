@@ -38,7 +38,6 @@ public class ChangeSceneManager : MonoBehaviour
 
     private void SceneManager_activeSceneChanged(Scene arg0, Scene arg1)
     {
-        Debug.Log("Returned to Main Menu");
         if (arg1.isLoaded)
         {
             GameObject achievements = GetComponent<GameObject>(); 
@@ -46,7 +45,6 @@ public class ChangeSceneManager : MonoBehaviour
             {
                 GameObject.Find("Achievements");
                 achievements.name = "Achievements";
-                Debug.Log("Achievements"); 
             }
             return;
         }
@@ -57,14 +55,12 @@ public class ChangeSceneManager : MonoBehaviour
         if (achievements == null)
         {
             achievements = GameObject.Find("Achievements");
-            Debug.Log("Achievements");
             return; 
         }
         else
         {
             if (achievements != null)
             {
-                Debug.Log("Achievements Spawned");
                 achievements.GetComponent<Button>().interactable = true; 
             }
         }

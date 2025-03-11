@@ -30,7 +30,11 @@ public class Boss_Health : MonoBehaviour
         {
             currenthealth = 100;
         }
-        maxhealth = 100;
+        if (maxhealth != 0)
+        {
+            maxhealth = 100;
+        }
+
         maxhealth = currenthealth;  
     }
 
@@ -40,11 +44,6 @@ public class Boss_Health : MonoBehaviour
         {
             currenthealth -= 10;
             slider.value -= 0.1f; 
-            if(currenthealth <= 1 || slider.value <= 0.1f)
-            {
-              //  SceneManager.LoadSceneAsync(2); 
-              //  Debug.Log("Boss Defeated!!!"); 
-            }
             if(currenthealth <= 1 && slider.value <= 0.1f)
             {
                 Destroy(gameObject); 

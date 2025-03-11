@@ -83,7 +83,10 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRender;
 
     [SerializeField]
-    private bool isController; 
+    public bool isController;
+
+    [SerializeField]
+    private bool thurstSliderActive; 
 
     private void Start()
     {
@@ -109,9 +112,18 @@ public class PlayerController : MonoBehaviour
 
         ammoAmount = 15; 
 
-        if(uI_Manager != null)
+        if(uI_Manager)
         {
-            uI_Manager = GameObject.Find("Canvas").GetComponent<UI_Manager>();
+            thurstSliderActive = true; 
+            if(thurstSliderActive == true)
+            {
+                uI_Manager = FindObjectOfType<UI_Manager>();
+            }
+        }
+        else
+        {
+            thurstSliderActive =false;
+            uI_Manager = null;
         }
 
         if(spawnManager != null)
@@ -124,19 +136,12 @@ public class PlayerController : MonoBehaviour
 
         if (spawnManager == null)
         {
-           // Debug.LogError("The SpawnManager doesn't exist and is null");
-            return; 
-        }
-
-        if(uI_Manager == null)
-        {
-           // Debug.LogError("UI Manager is null");
             return; 
         }
 
         if(audioSource == null)
         {
-           // Debug.LogError("No audio source is assigned or is null"); 
+            return;  
         }
         else
         {
@@ -169,8 +174,6 @@ public class PlayerController : MonoBehaviour
             {
                 if (Input.GetButtonDown("Fire"))
                 {
-                    Debug.Log(GetHashCode().ToString());
-
                     if(ammoAmount > 0)
                     {
                         FireProjectile();
@@ -190,13 +193,17 @@ public class PlayerController : MonoBehaviour
                     }
                    
                 }
-                else if (Input.GetButton("Thruster") && uI_Manager.thurstSlider.value != 0)
+                else if (Input.GetButton("Thruster") && isController == true)
                 {
-                    ThrustActive();
+                    thurstSliderActive = true;
+                    if(thurstSliderActive.Equals(true))
+                    {
+                        ThrustActive();
+                    }
                 }
 
                 isController = false;
-            }    
+            }
             return; 
         }       
     }
@@ -403,11 +410,6 @@ public class PlayerController : MonoBehaviour
                 return;
             }
         }
-        // reset player position 
-        //if(playerT.position.y > -10)
-        //{
-        //    playerT.position = new Vector3(player.transform.parent.position.x, player.transform.parent.position.y, 0); 
-        //}
 
         if (uI_Manager == null)
         {
@@ -427,7 +429,15 @@ public class PlayerController : MonoBehaviour
         // Thrust Speed Feature 
         if (Input.GetKey(KeyCode.LeftShift) && uI_Manager.thurstSlider.value > -0.1f || isController == true)
         {
-            uI_Manager.StartThrust();
+            if(uI_Manager)
+            {
+                uI_Manager.StartThrust();
+            }
+            else
+            {
+                Debug.Assert(true, "UI Manager is Null", uI_Manager);
+                uI_Manager = null;
+            }
 
             if (horizontalInput < 1)
             {
@@ -448,6 +458,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerT.Translate(Vector3.down * thrustSpeed * Time.deltaTime);
             }
+            return; 
         }
     }
 
@@ -586,10 +597,8 @@ public class PlayerController : MonoBehaviour
         if(spriteRender != null)
         {
             spriteRender.color = new Color(1, 1, 1, 1);
-           // Debug.Log("Collected Health " + Color.red);
             yield return new WaitForSeconds(2);
             spriteRender.color = new Color(0, 209f, 255f, 255f);
-           // Debug.Log("Orogin Color " + Color.cyan);
             uI_Manager.addHealthText.gameObject.SetActive(false);
         }
     }

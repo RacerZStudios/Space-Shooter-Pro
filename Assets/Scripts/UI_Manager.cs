@@ -28,10 +28,17 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     public Slider thurstSlider;
     [SerializeField]
-    public Text addHealthText; 
+    public Text addHealthText;
+    [SerializeField]
+    PlayerController playerController; 
 
     private void Start()
     {
+        if (player)
+        {
+            playerController = FindObjectOfType<PlayerController>();
+        }
+
         addHealthText.gameObject.SetActive(false); 
         GameOverText.gameObject.SetActive(false);
         restartText.gameObject.SetActive(false);
@@ -119,9 +126,22 @@ public class UI_Manager : MonoBehaviour
 
     public void StartThrust()
     {
-        if(thurstSlider.value <= 1)
+       if(playerController.isController == true || Input.GetJoystickNames().Length > 0)
         {
-            thurstSlider.value-= 0.001f;
+            if (thurstSlider != null)
+            {
+                thurstSlider.enabled = true;
+                if (thurstSlider.value <= 1)
+                {
+                    thurstSlider.value -= 0.001f;
+                }
+            }
+            else if (thurstSlider == null)
+            {
+                thurstSlider = GetComponent<Slider>();
+                thurstSlider.enabled = false;
+                thurstSlider = null;
+            }
         }
     }
 

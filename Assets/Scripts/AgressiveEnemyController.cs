@@ -76,7 +76,6 @@ public class AgressiveEnemyController : MonoBehaviour
                 score += score;
                 UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
                 uiM.UpdateScore(score);
-                // Debug.Log(playerController + "Score");
             }
 
             if (playerController != null)
@@ -97,7 +96,6 @@ public class AgressiveEnemyController : MonoBehaviour
         {
             audioSource.Play();
             isAgressiveEnemy = true;
-            // Debug.Log(playerController + "hit"); 
             if (playerController == null)
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
@@ -113,8 +111,6 @@ public class AgressiveEnemyController : MonoBehaviour
     IEnumerator PlayEnemyDeadAnim()
     {
         audioSource.Play();
-      //  anim.SetTrigger("OnEnemyDeath");
-      //  yield return new WaitForSeconds(anim.speed);
         Destroy(gameObject, 2.0f);
         Destroy(GetComponent<Collider2D>());
         yield return null;
