@@ -16,9 +16,9 @@ public class PowerUp : MonoBehaviour
     private PowerUp []powerUp;
     private void Start()
     {
-        if (playerController != null)
+        if (playerController == null)
         {
-            playerController = FindObjectOfType<PlayerController>().GetComponent<PlayerController>();
+            playerController = FindObjectOfType<PlayerController>();
         }
 
         if(powerUp == null)
@@ -29,7 +29,7 @@ public class PowerUp : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && playerController != null)
         {
             playerController = collision.transform.GetComponent<PlayerController>();
             AudioSource.PlayClipAtPoint(clip, transform.position); 
@@ -80,13 +80,12 @@ public class PowerUp : MonoBehaviour
             Destroy(gameObject); 
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetButton("Collect"))
         {
-            PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            if (powerUp.Length != 0 && powerUp != null && player != null)
+            if (powerUp.Length != 0 && powerUp != null && playerController != null)
             {
-                powerUp[0].transform.position = Vector3.MoveTowards(powerUp[0].transform.position, player.transform.position, 10);
-                if (player == null)
+                powerUp[0].transform.position = Vector3.MoveTowards(powerUp[0].transform.position, playerController.transform.position, 10);
+                if (playerController == null)
                 {                  
                     return; 
                 }
