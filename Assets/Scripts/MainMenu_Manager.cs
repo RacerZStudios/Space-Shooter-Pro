@@ -6,7 +6,10 @@ using UnityEngine;
 public class MainMenu_Manager : MonoBehaviour
 {
     public GameObject[] menuButtons;
-    public GameObject[] interactButtons; 
+    public GameObject[] interactButtons;
+    public GameObject[] menuInterfaces;
+    [SerializeField]
+    private bool bButton; 
     private void Start()
     {
         menuButtons = new GameObject[menuButtons.Length];
@@ -19,7 +22,12 @@ public class MainMenu_Manager : MonoBehaviour
         interactButtons = new GameObject[interactButtons.Length];
         if(interactButtons.Length > 0 )
         {
-            interactButtons[0] = gameObject;
+            interactButtons[0] = interactButtons[0];
+        }
+
+        if(menuInterfaces.Length > 0)
+        {
+            menuInterfaces[0] = menuInterfaces[0];
         }
     }
 
@@ -54,17 +62,10 @@ public class MainMenu_Manager : MonoBehaviour
                     Debug.Assert(h > 0);
                 }
 
-                if(Input.GetButtonDown("Cancel"))
-                {
-                    interactButtons[0] = gameObject;
-                    interactButtons[0].SetActive(false);
-                }
-
                 if (Input.GetJoystickNames().ToString().Contains(("Back")))
                 {
-                    interactButtons[0] = gameObject;
+                    interactButtons[0] = interactButtons[0];
                     interactButtons[0].SetActive(false);
-                    Debug.Assert(true); 
                 }
             }
         }

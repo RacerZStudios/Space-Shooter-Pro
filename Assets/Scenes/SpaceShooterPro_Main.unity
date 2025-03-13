@@ -1061,7 +1061,7 @@ GameObject:
   - component: {fileID: 622083570}
   - component: {fileID: 622083569}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: EnemyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Enemies Remain: '
+  m_text: 'Enemies Defeated: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.95
+  m_fontSize: 20.25
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2666,6 +2666,7 @@ MonoBehaviour:
   bossDefeated: 0
   bC: {fileID: 0}
   enemyCountDestroyed: 0
+  enemiesDefeatedToBoss: 10
   maxTime: 0
   playerController: {fileID: 0}
   uI_Manager: {fileID: 954152448}
@@ -3070,8 +3071,20 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7176810107530585194, guid: 1c72cb94ee445024699bca0d7c0707b1, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176810107846741993, guid: 1c72cb94ee445024699bca0d7c0707b1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7176810107846741993, guid: 1c72cb94ee445024699bca0d7c0707b1, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176810107846741993, guid: 1c72cb94ee445024699bca0d7c0707b1, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7176810107973401932, guid: 1c72cb94ee445024699bca0d7c0707b1, type: 3}
@@ -3161,6 +3174,10 @@ PrefabInstance:
     - target: {fileID: 7176810107973401933, guid: 1c72cb94ee445024699bca0d7c0707b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176810107973401970, guid: 1c72cb94ee445024699bca0d7c0707b1, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c72cb94ee445024699bca0d7c0707b1, type: 3}

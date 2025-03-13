@@ -26,6 +26,7 @@ public class UI_Manager : MonoBehaviour
     private Text ammoCount;
     private int maxAmmo; 
     private int finalScore;
+    private int enemies; 
     [SerializeField]
     public TMP_Text enemyText;  
     [SerializeField]
@@ -51,7 +52,14 @@ public class UI_Manager : MonoBehaviour
             Debug.LogError("Game Manager is null"); 
         }
 
-        enemyText.text = enemyText.text.ToString(); 
+        if(enemyText)
+        {
+            enemyText.text = "Enemies Defeated: ";
+        }
+        else
+        {
+            enemyText = null;
+        }
     }
 
     public void AmmoStorage(int ammoAmount)
@@ -70,6 +78,18 @@ public class UI_Manager : MonoBehaviour
         {
             ammoCount.text = "Ammo: " + ammoAmount.ToString() + " / " + "Out of Ammo ";
         }
+    }
+
+    public void UpdateEnemiesDefeated(int enemyDefeated)
+    {
+        if (enemyDefeated == 0)
+        {
+            return; 
+        }
+        enemyDefeated++; 
+        int enemies;
+        enemyText.text = "Enemies Defeated: " + enemyDefeated.ToString();
+        enemies = enemyDefeated;
     }
 
     public void UpdateScore(int playerScore)
@@ -131,7 +151,7 @@ public class UI_Manager : MonoBehaviour
 
     public void StartThrust()
     {
-       if(playerController.isController == true || Input.GetJoystickNames().Length > 0)
+       if(playerController.isController == true || Input.GetJoystickNames().Length > 0 || !playerController.isController)
         {
             if (thurstSlider != null)
             {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpecialProjectille : MonoBehaviour
 {
     [SerializeField]
-    public float projSpeed = 10;
+    private float projSpeed = 10;
     [SerializeField]
     private bool isEnemyProjectile;
     [SerializeField]
@@ -77,13 +77,13 @@ public class SpecialProjectille : MonoBehaviour
             Vector3 specialPos = transform.position;
             Vector3.MoveTowards(target.transform.position, specialPos.normalized, 2);
         }
-        if (transform.position.y > 5)
+        if (transform.position.y > 5 || target == null)
         {
             if (transform.parent != null)
             {
-                Destroy(transform.parent.gameObject, 2);
+                Destroy(transform.parent.gameObject, 3);
             }
-            Destroy(gameObject, 2);
+            Destroy(gameObject, 3);
         }
     }
 

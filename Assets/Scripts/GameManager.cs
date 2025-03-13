@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement; 
 using UnityEngine;
+using System.Security.Cryptography;
 
 public class GameManager : MonoBehaviour
 {
@@ -42,6 +43,11 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(0); // Return to Menu 
         }
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void WinGame()

@@ -32,7 +32,7 @@ public class NewEnemeyController : MonoBehaviour
     {
         if (uiManager != null)
         {
-            uiManager.enemyText.text = spawnManager.enemyCountDestroyed.ToString();
+            uiManager.enemyText.text = "Enemies Defeated: ";
         }
         else
         {
@@ -81,15 +81,14 @@ public class NewEnemeyController : MonoBehaviour
             if (sM != null)
             {
                 sM.enemyCountDestroyed += 1;
-                if (sM.enemyCountDestroyed > 25)
+                if (sM.enemyCountDestroyed >= sM.enemiesDefeatedToBoss)
                 {
-                    // Debug.Assert(sM.enemyCountDestroyed == 3, true);
+                    // assert destroyed enemies count here (test)
                     StartCoroutine(sM.BossEnemy());
                 }
             }
-            if (isDestroyed == true || playerController != null )
+            if (isDestroyed == true)
             {
-                if(sM != null)
                 uiManager.enemyText.text = sM.enemyCountDestroyed.ToString();
                 int score = 10;
                 score += score; 
@@ -97,10 +96,11 @@ public class NewEnemeyController : MonoBehaviour
                 uiM.UpdateScore(score);
             }
 
-            if(playerController != null)
+            else if(playerController != null)
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
-                playerController.AddScore(10); 
+                playerController.AddScore(10);
+                playerController.AddEnemiesDefeated(1);
                 return; 
             }
         }

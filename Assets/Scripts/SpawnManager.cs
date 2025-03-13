@@ -41,6 +41,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     public int enemyCountDestroyed;
     [SerializeField]
+    public int enemiesDefeatedToBoss = 10;  
+    [SerializeField]
     private float maxTime = 0;
     [SerializeField]
     private PlayerController playerController;
@@ -51,6 +53,8 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        enemiesDefeatedToBoss = 10; 
+        
         if (uI_Manager == null)
         {
             uI_Manager = FindObjectOfType<UI_Manager>();
@@ -68,7 +72,9 @@ public class SpawnManager : MonoBehaviour
         }
 
         enemyCountDestroyed = 0;
-        uI_Manager.enemyText.text = enemyCountDestroyed.ToString(); 
+        uI_Manager.enemyText.text = "Enemies Defeated: "; 
+
+        // spawn enemies 
         InvokeRepeating("SpawnEnemy1", 5, 3);
         InvokeRepeating("SpawnEnemy2", 15, 3);
         InvokeRepeating("SpawnEnemy3", 3, 3);
@@ -125,7 +131,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    public void StartSpawning()
+    public void StartSpawning() // gets called once from Asteroid being destroy to begin game 
     {
         StartCoroutine(SpawnEnemy1());
         StartCoroutine(SpawnEnemy2());
@@ -188,7 +194,8 @@ public class SpawnManager : MonoBehaviour
     {
         if (this != null)
         {
-            uI_Manager.enemyText.text = enemyCountDestroyed.ToString();
+            // set enemies defeated text and count ui 
+           // uI_Manager.enemyText.text = "Enemies Defeated: " + enemyCountDestroyed;
         }
         if (player == null)
         {
@@ -239,7 +246,7 @@ public class SpawnManager : MonoBehaviour
                 }
                 break; 
             }
-            if (enemyCountDestroyed >= 3 && maxTime > 0.13f)
+            if (enemyCountDestroyed == enemyCountDestroyed.ToString().Length && maxTime > 0.13f)
             {
                 GameObject powerUp4 = Instantiate(powerUp[3], powerUpSpawn[3].transform.position, Quaternion.identity); // Spawn Ammo for Boss Battle  
                 yield return new WaitForSeconds(15);

@@ -25,14 +25,21 @@ public class BossEnemy_Controller : MonoBehaviour
     [SerializeField]
     public bool bossDefeated; 
 
-    // Singleton class? 
+    // Singleton class 
     public static BossEnemy_Controller bc;
     [SerializeField]
     private Achievement_Manager achievementManager; 
 
     private void Awake()
     {
-        bc = this; 
+        if (bc == null)
+        {
+            bc = this;
+        }
+        else
+        {
+            Destroy(bc);
+        }
     }
 
     private void Start()

@@ -320,6 +320,16 @@ public class PlayerController : MonoBehaviour
         FireEMPProjectile();
         FireSpecialProjectile();
 
+        // restart game if boss is null and doesn't trigger win game after first play through 
+        if(ammoAmount <= 0 && uI_Manager.thurstSlider.value <= 0.0f)
+        {
+            if(gM)
+            {
+                gM.EndGame();
+            }
+            // else assert here 
+        }
+
         // in line code cleanup 
         // Clamp transform from -3 and 0 
         // playerT.position = new Vector3(playerT.position.x, Mathf.Clamp(playerT.position.y, -3, 0), 0); 
@@ -355,7 +365,7 @@ public class PlayerController : MonoBehaviour
 
         if (uI_Manager != null)
         {
-            if (uI_Manager.thurstSlider.value != 0 && isNegativeEffect != true)
+            if (uI_Manager.thurstSlider.value != 0 && isNegativeEffect != true || isController)
             {
                 ThrustActive();
             }
@@ -663,6 +673,16 @@ public class PlayerController : MonoBehaviour
             {
                 ammoAmount = ammo + ammoAmount + 30; 
             }
+        }
+    }
+
+    public void AddEnemiesDefeated(int count)
+    {
+        if(uI_Manager != null)
+        {
+            int enemies = 1;
+            uI_Manager.UpdateEnemiesDefeated(enemies);
+            enemies += count; 
         }
     }
 

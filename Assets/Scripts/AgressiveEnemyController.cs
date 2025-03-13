@@ -66,23 +66,28 @@ public class AgressiveEnemyController : MonoBehaviour
             if (sM != null)
             {
                 sM.enemyCountDestroyed += 1;
-                if (sM.enemyCountDestroyed > 0)
+                if (sM.enemyCountDestroyed >= 5)
                 {
                     StartCoroutine(sM.BossEnemy());
                 }
             }
-            if (isDestroyed == true || playerController != null)
+            if (isDestroyed == true)
             {
                 int score = 10;
                 score += score;
                 UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
                 uiM.UpdateScore(score);
+                if(uiM != null)
+                {
+                    uiM.enemyText.text = sM.enemyCountDestroyed.ToString();
+                }
             }
 
-            if (playerController != null)
+            else if (playerController != null)
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
                 playerController.AddScore(10);
+                playerController.AddEnemiesDefeated(1);
                 return;
             }
             else if (playerController == null && isDestroyed)
