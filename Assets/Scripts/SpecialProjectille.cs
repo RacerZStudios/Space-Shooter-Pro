@@ -76,6 +76,7 @@ public class SpecialProjectille : MonoBehaviour
         {
             Vector3 specialPos = transform.position;
             Vector3.MoveTowards(target.transform.position, specialPos.normalized, 2);
+            return; 
         }
         if (transform.position.y > 5 || target == null)
         {

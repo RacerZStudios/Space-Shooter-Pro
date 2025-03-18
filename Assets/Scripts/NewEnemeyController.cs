@@ -30,13 +30,19 @@ public class NewEnemeyController : MonoBehaviour
 
     private void Start()
     {
+        while (this != null)
+        {
+            StartCoroutine(NewEnemyAnim());
+            break;
+        }
+
         if (uiManager != null)
         {
             uiManager.enemyText.text = "Enemies Defeated: ";
         }
         else
         {
-            uiManager = FindObjectOfType<UI_Manager>();
+            uiManager = FindObjectOfType<UI_Manager>().GetComponent<UI_Manager>();
         }
 
         if (spawnManager != null)
@@ -76,6 +82,15 @@ public class NewEnemeyController : MonoBehaviour
         {
             audioSource.Play();
             isDestroyed = true;
+            if (isDestroyed == true)
+            {
+                PlayerController playerController = FindObjectOfType<PlayerController>();
+                if (playerController != null)
+                {
+                    playerController.AddScore(30);
+                    playerController.AddEnemiesDefeated(1);
+                }
+            }
             StartCoroutine(PlayEnemyDeadAnim());
             SpawnManager sM = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
             if (sM != null)
@@ -87,45 +102,11 @@ public class NewEnemeyController : MonoBehaviour
                     StartCoroutine(sM.BossEnemy());
                 }
             }
-            if (isDestroyed == true)
-            {
-                uiManager.enemyText.text = sM.enemyCountDestroyed.ToString();
-                int score = 10;
-                score += score; 
-                UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
-                uiM.UpdateScore(score);
-            }
-
             else if(playerController != null)
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
-                playerController.AddScore(10);
-                playerController.AddEnemiesDefeated(1);
                 return; 
             }
-        }
-
-        if(collision.gameObject.tag == "EnemyProjectile")
-        {
-            audioSource.Play();
-            isDestroyed = true;
-            if (isDestroyed == true || playerController != null)
-            {
-                int score = 50;
-                score += score;
-                UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
-                uiM.UpdateScore(score);
-            }
-
-            if (playerController != null)
-            {
-                playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
-                playerController.AddScore(50);
-                return;
-            }
-
-            gameObject.transform.position += Vector3.left * moveSpeed * Time.deltaTime; 
-            StartCoroutine(PlayEnemyDeadAnimEMP());
         }
 
         if (collision.gameObject.name == "PlayerController" || collision.gameObject.tag == "Player") 
@@ -148,6 +129,8 @@ public class NewEnemeyController : MonoBehaviour
         audioSource.Play();
         // setup New Enemy Aniation
         anim.SetTrigger("OnEnemyDeath");
+        anim.SetBool("EnemyDeath", true);
+        anim.SetBool("IsNewEnemy", false);
         yield return new WaitForSeconds(anim.speed); 
         Destroy(gameObject, 2.0f);
         Destroy(GetComponent<Collider2D>()); 
@@ -186,12 +169,6 @@ public class NewEnemeyController : MonoBehaviour
 
     private void Update()
     {
-        while (this != null)
-        {
-            StartCoroutine(NewEnemyAnim());
-            break;
-        }
-
         if (Time.time > canFire)
         {
             fireRate = Random.Range(3, 6);

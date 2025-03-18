@@ -37,30 +37,59 @@ public class Achievement_Manager : BossEnemy_Controller
 
     private void Start()
     {
-     
+        if(bc == null)
+        {
+            bc = null;
+        }
+        else
+        {
+            bc = FindObjectOfType<BossEnemy_Controller>().GetComponent<BossEnemy_Controller>();
+        }
+
+        if (boss == null)
+        {
+            return; 
+        }
+        else
+        {
+            if(boss != null)
+            {
+                boss = FindObjectOfType<GameObject>().GetComponent<GameObject>();
+            }
+        }   
     }
 
     private void Update()
     {
-        if(bc == true)
+        while (bc != null)
         {
-            if(bc.gameObject == null || bc.isDestroyed == true && bc.health.currenthealth <= 10) 
+            if (bc)
             {
-                bc.bossDefeated = true; 
-                if(bc.bossDefeated == true)
+                if (bc.gameObject == null || bc.isDestroyed == true && bc.health.currenthealth <= 10)
                 {
-                    isBossDefeated = true;
-                    achievementPanel.gameObject.SetActive(true);
-                    if (isBossDefeated == true)
+                    bc.bossDefeated = true;
+                    if (bc.bossDefeated == true)
                     {
-                        // spawn achievement panel and load win game scene
-                        SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
+                        isBossDefeated = true;
+                        achievementPanel.gameObject.SetActive(true);
+                        if (isBossDefeated == true)
+                        {
+                            // spawn achievement panel and load win game scene
+                            SceneManager.LoadSceneAsync(2, LoadSceneMode.Single);
+                        }
                     }
                 }
             }
+            else if (bossDefeated == true)
+            {
+                Debug.Assert(false);
+                Debug.Log("Deplete Ammo and Thrust Bar to Zero to Restart");
+                Debug.Log("Press Select to Continue");
+            }
+            break;
         }
 
-        if(achievementPanel.activeInHierarchy)
+        if (achievementPanel.activeInHierarchy)
         {
             achievementPanel.GetComponent<GameObject>();
         }

@@ -71,6 +71,9 @@ public class PlayerController : MonoBehaviour
     private int score;
 
     [SerializeField]
+    private int enemy; 
+
+    [SerializeField]
     private AudioClip projSound;
     private AudioSource audioSource;
     private GameObject player;
@@ -89,6 +92,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        score = 0;
+        enemy = 0;
+
         if(player)
         {
             GameObject.FindObjectOfType<PlayerController>();
@@ -625,7 +631,7 @@ public class PlayerController : MonoBehaviour
     {
         uI_Manager.addHealthText.gameObject.SetActive(true); 
         StartCoroutine(AddHealthEffect()); 
-        uI_Manager.AddLivves(1); 
+        uI_Manager.AddLives(1); 
         if(lives != 0 && lives == 1)
         {
             lives += 1;
@@ -660,8 +666,8 @@ public class PlayerController : MonoBehaviour
     {
         if(uI_Manager != null)
         {
-            uI_Manager.AmmoStorage(ammoAmount);
             ammoAmount = ammo + ammoAmount;
+            uI_Manager.AmmoStorage(ammoAmount);
         }
     }
 
@@ -680,9 +686,8 @@ public class PlayerController : MonoBehaviour
     {
         if(uI_Manager != null)
         {
-            int enemies = 1;
-            uI_Manager.UpdateEnemiesDefeated(enemies);
-            enemies += count; 
+            enemy += count;
+            uI_Manager.UpdateEnemiesDefeated(enemy);
         }
     }
 
@@ -690,8 +695,8 @@ public class PlayerController : MonoBehaviour
     {
         if(uI_Manager != null)
         {
-            uI_Manager.UpdateScore(score);
             score += points;
+            uI_Manager.UpdateScore(score);
         }
     }
 }

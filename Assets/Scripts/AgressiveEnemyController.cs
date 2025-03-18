@@ -21,9 +21,20 @@ public class AgressiveEnemyController : MonoBehaviour
     private float range = 0.3f;
     [SerializeField]
     private SpawnManager spawnManager;
+    [SerializeField]
+    private UI_Manager uiManager;
 
     private void Start()
     {
+        if (uiManager != null)
+        {
+            uiManager.enemyText.text = "Enemies Defeated: ";
+        }
+        else
+        {
+            uiManager = FindObjectOfType<UI_Manager>().GetComponent<UI_Manager>();
+        }
+
         if (spawnManager == null)
         {
             return;
@@ -61,6 +72,15 @@ public class AgressiveEnemyController : MonoBehaviour
         {
             audioSource.Play();
             isDestroyed = true;
+            if (isDestroyed == true)
+            {
+                PlayerController playerController = FindObjectOfType<PlayerController>();
+                if (playerController != null)
+                {
+                    playerController.AddScore(15);
+                    playerController.AddEnemiesDefeated(1);
+                }
+            }
             StartCoroutine(PlayEnemyDeadAnim());
             SpawnManager sM = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
             if (sM != null)
@@ -71,23 +91,9 @@ public class AgressiveEnemyController : MonoBehaviour
                     StartCoroutine(sM.BossEnemy());
                 }
             }
-            if (isDestroyed == true)
-            {
-                int score = 10;
-                score += score;
-                UI_Manager uiM = GameObject.Find("Canvas").GetComponent<UI_Manager>();
-                uiM.UpdateScore(score);
-                if(uiM != null)
-                {
-                    uiM.enemyText.text = sM.enemyCountDestroyed.ToString();
-                }
-            }
-
             else if (playerController != null)
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
-                playerController.AddScore(10);
-                playerController.AddEnemiesDefeated(1);
                 return;
             }
             else if (playerController == null && isDestroyed)
@@ -116,8 +122,8 @@ public class AgressiveEnemyController : MonoBehaviour
     {
         audioSource.Play();
         // Create Animation for Agressive Enemy
-        //anim.SetTrigger("OnEnemyDeath");
-        //yield return new WaitForSeconds(anim.speed);
+        anim.SetTrigger("OnEnemyDeath");
+        yield return new WaitForSeconds(anim.speed);
         Destroy(gameObject, 2.0f);
         Destroy(GetComponent<Collider2D>());
         yield return null;

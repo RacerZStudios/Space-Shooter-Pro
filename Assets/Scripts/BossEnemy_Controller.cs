@@ -44,6 +44,12 @@ public class BossEnemy_Controller : MonoBehaviour
 
     private void Start()
     {
+        while (this != null)
+        {
+            StartCoroutine(BossEnemyAnim());
+            break;
+        }
+
         if (!isDestroyed)
         {
             achievementManager = FindObjectOfType<Achievement_Manager>();
@@ -173,12 +179,6 @@ public class BossEnemy_Controller : MonoBehaviour
 
     private void LateUpdate()
     {
-        while (this != null)
-        {
-            StartCoroutine(BossEnemyAnim());
-            break;
-        }
-
         if (Time.time > canFire && bossProjectile != null)
         {
             fireRate = Random.Range(3, 6);

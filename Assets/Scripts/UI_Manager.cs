@@ -26,7 +26,6 @@ public class UI_Manager : MonoBehaviour
     private Text ammoCount;
     private int maxAmmo; 
     private int finalScore;
-    private int enemies; 
     [SerializeField]
     public TMP_Text enemyText;  
     [SerializeField]
@@ -52,13 +51,14 @@ public class UI_Manager : MonoBehaviour
             Debug.LogError("Game Manager is null"); 
         }
 
-        if(enemyText)
+        if(enemyText != null)
         {
             enemyText.text = "Enemies Defeated: ";
         }
         else
         {
-            enemyText = null;
+            enemyText.text = FindObjectOfType<TMP_Text>().text; 
+            enemyText.text = ""; 
         }
     }
 
@@ -82,21 +82,12 @@ public class UI_Manager : MonoBehaviour
 
     public void UpdateEnemiesDefeated(int enemyDefeated)
     {
-        if (enemyDefeated == 0)
-        {
-            return; 
-        }
-        enemyDefeated++; 
-        int enemies;
-        enemyText.text = "Enemies Defeated: " + enemyDefeated.ToString();
-        enemies = enemyDefeated;
+        enemyText.text = ("Enemies Defeated: ") + enemyDefeated.ToString();
     }
 
     public void UpdateScore(int playerScore)
     {
-        int finalScore;
-        scoretext.text = "Score: " + playerScore.ToString();
-        finalScore = playerScore;
+        scoretext.text = ("Score: ") + playerScore.ToString();
     }
 
     public void UpdateLives(int currentLives)
@@ -129,7 +120,7 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    public void AddLivves(int livesToAdd)
+    public void AddLives(int livesToAdd)
     {
         if (liveSprites.Length == 1 && livesImage != null)
         {

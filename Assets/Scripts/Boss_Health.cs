@@ -13,11 +13,18 @@ public class Boss_Health : MonoBehaviour
     [SerializeField]
     public int currenthealth;
     [SerializeField]
-    private Slider slider; 
+    private Slider slider;
+    [SerializeField]
+    private BossEnemy_Controller bossController; 
 
     private void Start()
     {
-        if(slider == null)
+        if (bossController == null)
+        {
+            bossController = null;
+        }
+        bossController = FindObjectOfType<BossEnemy_Controller>().GetComponent<BossEnemy_Controller>();
+        if (slider == null)
         {
             Debug.Log("Slider is Null"); 
         }
@@ -46,7 +53,13 @@ public class Boss_Health : MonoBehaviour
             slider.value -= 0.1f; 
             if(currenthealth <= 1 && slider.value <= 0.1f)
             {
-                Destroy(gameObject); 
+                BossEnemy_Controller bossEnemy_Controller = FindObjectOfType<BossEnemy_Controller>().GetComponent<BossEnemy_Controller>();
+                if(bossEnemy_Controller != null)
+                {
+                    bossEnemy_Controller.bossDefeated = true;
+                }
+
+                Destroy(gameObject, 2); 
             }
         }
     }
