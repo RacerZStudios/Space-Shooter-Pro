@@ -10,12 +10,15 @@ public class Asteroid : MonoBehaviour
     private Animator anim;
     [SerializeField]
     private SpawnManager spawnManager;
+    [SerializeField]
+    private WaveSpawn waveSpawn;
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip audioClip;
 
     private void Start()
     {
+        waveSpawn = FindObjectOfType<WaveSpawn>().GetComponent<WaveSpawn>();
         spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = audioClip; 
@@ -40,7 +43,8 @@ public class Asteroid : MonoBehaviour
     {
         if(collision.gameObject.tag == "PlayerProjectile" || collision.gameObject.name == "Barrier")
         {
-            spawnManager.StartSpawning(); 
+            // spawnManager.StartSpawning(); 
+            waveSpawn.StartCoroutine(waveSpawn.Wave1()); 
             audioSource.Play();
             anim.SetTrigger("OnAsteroidDestroy");
             gameObject.GetComponent<Collider2D>().enabled = false;

@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
     private int score;
 
     [SerializeField]
-    private int enemy; 
+    public int enemy; 
 
     [SerializeField]
     private AudioClip projSound;

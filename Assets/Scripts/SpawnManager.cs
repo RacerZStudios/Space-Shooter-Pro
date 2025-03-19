@@ -75,9 +75,9 @@ public class SpawnManager : MonoBehaviour
         uI_Manager.enemyText.text = "Enemies Defeated: "; 
 
         // spawn enemies 
-        InvokeRepeating("SpawnEnemy1", 5, 3);
-        InvokeRepeating("SpawnEnemy2", 15, 3);
-        InvokeRepeating("SpawnEnemy3", 3, 3);
+       // InvokeRepeating("SpawnEnemy1", 5, 3);
+       // InvokeRepeating("SpawnEnemy2", 15, 3);
+       // InvokeRepeating("SpawnEnemy3", 3, 3);
     }
 
     public IEnumerator SpawnEnemy1()

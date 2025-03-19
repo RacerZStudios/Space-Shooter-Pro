@@ -67,7 +67,7 @@ public class UI_Manager : MonoBehaviour
         maxAmmo = 15;
         if(ammoAmount >= maxAmmo)
         {
-            // if ammo amount is grater than max amount 
+            // if ammo amount is greater than max amount 
             // set ammo amount to max amount 
             ammoAmount = maxAmmo; 
         }
