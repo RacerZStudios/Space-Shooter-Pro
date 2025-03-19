@@ -33,7 +33,9 @@ public class UI_Manager : MonoBehaviour
     [SerializeField]
     public Text addHealthText;
     [SerializeField]
-    PlayerController playerController; 
+    PlayerController playerController;
+    [SerializeField]
+    private WaveSpawn waveSpawn;
 
     private void Start()
     {
@@ -60,6 +62,15 @@ public class UI_Manager : MonoBehaviour
             enemyText.text = FindObjectOfType<TMP_Text>().text; 
             enemyText.text = ""; 
         }
+
+        if(waveSpawn != null)
+        {
+            waveSpawn = GetComponent<WaveSpawn>();
+        }
+        else
+        {
+            waveSpawn = null; 
+        }
     }
 
     public void AmmoStorage(int ammoAmount)
@@ -78,6 +89,11 @@ public class UI_Manager : MonoBehaviour
         {
             ammoCount.text = "Ammo: " + ammoAmount.ToString() + " / " + "Out of Ammo ";
         }
+    }
+
+    public void WaveSpawn(int enemies)
+    {
+        enemyText.text = "Enemy Wave: " + enemies.ToString();
     }
 
     public void UpdateEnemiesDefeated(int enemyDefeated)

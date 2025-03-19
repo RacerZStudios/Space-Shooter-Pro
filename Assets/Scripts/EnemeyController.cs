@@ -26,10 +26,17 @@ public class EnemeyController : MonoBehaviour
     [SerializeField]
     private SpawnManager spawnManager;
     [SerializeField]
-    private UI_Manager uiManager; 
+    private UI_Manager uiManager;
+    [SerializeField]
+    private WaveSpawn waveSpawn;
 
     private void Start()
     {
+        if(waveSpawn == null)
+        {
+            waveSpawn = FindObjectOfType<WaveSpawn>();
+        }   
+        
         if (uiManager != null)
         {
             uiManager.enemyText.text = "Enemies Defeated: " + spawnManager.enemyCountDestroyed.ToString();
@@ -83,10 +90,12 @@ public class EnemeyController : MonoBehaviour
             if (isDestroyed == true)
             {
                 PlayerController playerController = FindObjectOfType<PlayerController>();
+                WaveSpawn waveSpawn = FindObjectOfType<WaveSpawn>();
                 if(playerController != null)
                 {
                     playerController.AddScore(10);
                     playerController.AddEnemiesDefeated(1);
+                    playerController.UpdateWaves(1);
                 }
             }
             StartCoroutine(PlayEnemyDeadAnim());

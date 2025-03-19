@@ -27,6 +27,8 @@ public class NewEnemeyController : MonoBehaviour
     private SpawnManager spawnManager;
     [SerializeField]
     private UI_Manager uiManager;
+    [SerializeField]
+    private WaveSpawn waveSpawn;
 
     private void Start()
     {
@@ -34,6 +36,11 @@ public class NewEnemeyController : MonoBehaviour
         {
             StartCoroutine(NewEnemyAnim());
             break;
+        }
+
+        if (waveSpawn == null)
+        {
+            waveSpawn = FindObjectOfType<WaveSpawn>();
         }
 
         if (uiManager != null)
@@ -85,10 +92,12 @@ public class NewEnemeyController : MonoBehaviour
             if (isDestroyed == true)
             {
                 PlayerController playerController = FindObjectOfType<PlayerController>();
+                WaveSpawn waveSpawn = FindObjectOfType<WaveSpawn>();
                 if (playerController != null)
                 {
                     playerController.AddScore(30);
                     playerController.AddEnemiesDefeated(1);
+                    playerController.UpdateWaves(1);
                 }
             }
             StartCoroutine(PlayEnemyDeadAnim());

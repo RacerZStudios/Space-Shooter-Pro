@@ -230,7 +230,7 @@ public class SpawnManager : MonoBehaviour
     {
         maxTime += Time.deltaTime;
         yield return new WaitForSeconds(2); 
-        while (enemyCountDestroyed >= 3) // spawn boss routine 
+        while (enemyCountDestroyed >= 10) // spawn boss routine 
         {
             yield return new WaitForSeconds(2);
             StartCoroutine(BossEnemy());

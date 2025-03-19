@@ -66,5 +66,15 @@ public class PlayerProjectile : MonoBehaviour
                 return; 
             }
         }
+        else if(collision.gameObject.CompareTag("Enemy"))
+        {
+            PlayerController player = collision.transform.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.AddEnemiesDefeated(1);
+                player.UpdateWaves(player.enemy);
+                return; 
+            }
+        }
     }
 }

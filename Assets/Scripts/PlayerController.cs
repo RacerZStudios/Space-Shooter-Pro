@@ -88,7 +88,10 @@ public class PlayerController : MonoBehaviour
     public bool isController;
 
     [SerializeField]
-    private bool thurstSliderActive; 
+    private bool thurstSliderActive;
+
+    [SerializeField]
+    private WaveSpawn waveSpawn;
 
     private void Start()
     {
@@ -152,6 +155,44 @@ public class PlayerController : MonoBehaviour
         {
             audioSource.clip = projSound; 
         }
+
+        if(waveSpawn != null)
+        {
+            waveSpawn = FindObjectOfType<WaveSpawn>().GetComponent<WaveSpawn>();
+        }
+
+        while (waveSpawn != null)
+        {
+            if (enemy < 1)
+            {
+                waveSpawn.StartCoroutine(waveSpawn.Wave1());
+                if(enemy >= 10)
+                {
+                    waveSpawn.StopCoroutine(waveSpawn.Wave1());
+                }
+                break; 
+            }
+            if (enemy >= 10)
+            {
+                waveSpawn.StartCoroutine(waveSpawn.Wave2());
+                if(enemy >= 20)
+                {
+                    waveSpawn.StopCoroutine(waveSpawn.Wave2());
+                }
+                break; 
+            }
+            if (enemy >= 20)
+            {
+                waveSpawn.StartCoroutine(waveSpawn.Wave3());
+                if(enemy >= 30)
+                {
+                    waveSpawn.StopCoroutine(waveSpawn.Wave3());
+                }
+                break; 
+            }
+            break; 
+        }
+
     }
     void SetStartPlayerLocation()
     {
@@ -688,6 +729,7 @@ public class PlayerController : MonoBehaviour
         {
             enemy += count;
             uI_Manager.UpdateEnemiesDefeated(enemy);
+            waveSpawn.EnemiesDestroyed(enemies: 1);
         }
     }
 
@@ -697,6 +739,15 @@ public class PlayerController : MonoBehaviour
         {
             score += points;
             uI_Manager.UpdateScore(score);
+        }
+    }
+
+    public void UpdateWaves(int waves)
+    {
+        if (uI_Manager != null)
+        {
+            enemy += waves;
+            uI_Manager.WaveSpawn(enemy);
         }
     }
 }
