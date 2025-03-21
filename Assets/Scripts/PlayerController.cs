@@ -158,12 +158,16 @@ public class PlayerController : MonoBehaviour
 
         if(waveSpawn != null)
         {
+            waveSpawn = FindObjectOfType<WaveSpawn>();
+        }
+        else
+        {
             waveSpawn = FindObjectOfType<WaveSpawn>().GetComponent<WaveSpawn>();
         }
 
         while (waveSpawn != null)
         {
-            if (enemy < 1)
+            if (enemy != 10)
             {
                 waveSpawn.StartCoroutine(waveSpawn.Wave1());
                 if(enemy >= 10)
@@ -463,6 +467,12 @@ public class PlayerController : MonoBehaviour
             playerT.position = playerPos;
         }
 
+        if(waveSpawn == null)
+        {
+            waveSpawn = FindObjectOfType<WaveSpawn>();
+            return; 
+        }
+
         if (uI_Manager == null)
         {
             Destroy(uI_Manager);
@@ -729,7 +739,10 @@ public class PlayerController : MonoBehaviour
         {
             enemy += count;
             uI_Manager.UpdateEnemiesDefeated(enemy);
-            waveSpawn.EnemiesDestroyed(enemies: 1);
+            if (waveSpawn != null)
+            {
+                waveSpawn.EnemiesDestroyed(enemies: 1);
+            }
         }
     }
 
@@ -748,6 +761,10 @@ public class PlayerController : MonoBehaviour
         {
             enemy += waves;
             uI_Manager.WaveSpawn(enemy);
+            if (waveSpawn != null)
+            {
+                waveSpawn.Wave.CompareTo(waves);
+            }
         }
     }
 }

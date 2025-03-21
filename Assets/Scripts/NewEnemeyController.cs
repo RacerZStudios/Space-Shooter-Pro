@@ -97,6 +97,7 @@ public class NewEnemeyController : MonoBehaviour
                 {
                     playerController.AddScore(30);
                     playerController.AddEnemiesDefeated(1);
+                    // Update Waves with this enemy 
                     playerController.UpdateWaves(1);
                 }
             }

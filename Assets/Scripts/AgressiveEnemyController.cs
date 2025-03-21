@@ -79,7 +79,6 @@ public class AgressiveEnemyController : MonoBehaviour
                 {
                     playerController.AddScore(15);
                     playerController.AddEnemiesDefeated(1);
-                    playerController.UpdateWaves(1);
                 }
             }
             StartCoroutine(PlayEnemyDeadAnim());
@@ -96,10 +95,6 @@ public class AgressiveEnemyController : MonoBehaviour
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
                 return;
-            }
-            else if (playerController == null && isDestroyed)
-            {
-                Destroy(this);
             }
         }
 

@@ -63,7 +63,7 @@ public class Achievement_Manager : BossEnemy_Controller
     {
         while (bc != null)
         {
-            if (bc)
+            if (bc.enabled.Equals(true))
             {
                 if (bc.gameObject == null || bc.isDestroyed == true && bc.health.currenthealth <= 10)
                 {

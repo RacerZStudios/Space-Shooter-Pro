@@ -41,7 +41,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     public int enemyCountDestroyed;
     [SerializeField]
-    public int enemiesDefeatedToBoss = 10;  
+    public int enemiesDefeatedToBoss;  
     [SerializeField]
     private float maxTime = 0;
     [SerializeField]
@@ -50,11 +50,11 @@ public class SpawnManager : MonoBehaviour
     private UI_Manager uI_Manager;
     [SerializeField]
     private GameObject playerParent;
+    [SerializeField]
+    private bool isNormalMode = false; 
 
     private void Start()
-    {
-        enemiesDefeatedToBoss = 10; 
-        
+    {        
         if (uI_Manager == null)
         {
             uI_Manager = FindObjectOfType<UI_Manager>();
@@ -72,12 +72,10 @@ public class SpawnManager : MonoBehaviour
         }
 
         enemyCountDestroyed = 0;
-        uI_Manager.enemyText.text = "Enemies Defeated: "; 
+        uI_Manager.enemyText.text = "Enemies Defeated: ";
 
-        // spawn enemies 
-       // InvokeRepeating("SpawnEnemy1", 5, 3);
-       // InvokeRepeating("SpawnEnemy2", 15, 3);
-       // InvokeRepeating("SpawnEnemy3", 3, 3);
+        // if Norm Mode spawn enemies 
+        isNormalMode = false; 
     }
 
     public IEnumerator SpawnEnemy1()
@@ -131,13 +129,29 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    private void NormalMode() // Normal Mode Spawn Invoke Enemies 
+    {
+        InvokeRepeating("SpawnEnemy1", 5, 3);
+        InvokeRepeating("SpawnEnemy2", 15, 3);
+        InvokeRepeating("SpawnEnemy3", 3, 3);
+    }
+
     public void StartSpawning() // gets called once from Asteroid being destroy to begin game 
     {
-        StartCoroutine(SpawnEnemy1());
-        StartCoroutine(SpawnEnemy2());
-        StartCoroutine(SpawnEnemy3());
+        isNormalMode = true;
+        if (isNormalMode == true)
+        {
+            NormalMode();
+            StartCoroutine(SpawnEnemy1());
+            StartCoroutine(SpawnEnemy2());
+            StartCoroutine(SpawnEnemy3());
+        }
+    }
+
+    public void SpawnPowerUps()
+    {
         StartCoroutine(SpawnPowerUpRoutine());
-        StartCoroutine(SpawnHealth()); 
+        StartCoroutine(SpawnHealth());
     }
 
     public IEnumerator BossEnemy()
@@ -230,7 +244,7 @@ public class SpawnManager : MonoBehaviour
     {
         maxTime += Time.deltaTime;
         yield return new WaitForSeconds(2); 
-        while (enemyCountDestroyed >= 10) // spawn boss routine 
+        while (enemyCountDestroyed >= 30) // spawn boss routine 
         {
             yield return new WaitForSeconds(2);
             StartCoroutine(BossEnemy());

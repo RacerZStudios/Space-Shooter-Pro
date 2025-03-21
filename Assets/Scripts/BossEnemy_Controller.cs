@@ -36,9 +36,9 @@ public class BossEnemy_Controller : MonoBehaviour
         {
             bc = this;
         }
-        else
+        else if(bc != this)
         {
-            Destroy(bc);
+            Destroy(bc.gameObject);
         }
     }
 

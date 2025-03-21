@@ -25,7 +25,7 @@ public class EMP_SpecialProjectile : MonoBehaviour
     {
         transform.Translate(Vector3.up * projSpeed * Time.deltaTime);
 
-        if (transform.position.y > 5)
+        if (transform.position.y > 8)
         {
             if (transform.parent != null)
             {

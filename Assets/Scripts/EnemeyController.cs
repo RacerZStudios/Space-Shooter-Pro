@@ -95,7 +95,6 @@ public class EnemeyController : MonoBehaviour
                 {
                     playerController.AddScore(10);
                     playerController.AddEnemiesDefeated(1);
-                    playerController.UpdateWaves(1);
                 }
             }
             StartCoroutine(PlayEnemyDeadAnim());

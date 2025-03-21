@@ -27,7 +27,9 @@ public class UI_Manager : MonoBehaviour
     private int maxAmmo; 
     private int finalScore;
     [SerializeField]
-    public TMP_Text enemyText;  
+    public TMP_Text enemyText;
+    [SerializeField]
+    private TMP_Text waveText;
     [SerializeField]
     public Slider thurstSlider;
     [SerializeField]
@@ -63,13 +65,23 @@ public class UI_Manager : MonoBehaviour
             enemyText.text = ""; 
         }
 
-        if(waveSpawn != null)
+        if(waveText != null)
         {
-            waveSpawn = GetComponent<WaveSpawn>();
+            waveText.text = "Enemy Wave: 1 "; 
         }
         else
         {
-            waveSpawn = null; 
+            waveText.text = FindObjectOfType<TMP_Text>().text;
+            waveText.text = ""; 
+        }
+
+        if(waveSpawn != null)
+        {
+            return; 
+        }
+        else
+        {
+            waveSpawn = FindObjectOfType<WaveSpawn>();
         }
     }
 
@@ -93,7 +105,7 @@ public class UI_Manager : MonoBehaviour
 
     public void WaveSpawn(int enemies)
     {
-        enemyText.text = "Enemy Wave: " + enemies.ToString();
+        waveText.text = "Enemy Wave: " + waveSpawn.Wave;
     }
 
     public void UpdateEnemiesDefeated(int enemyDefeated)
