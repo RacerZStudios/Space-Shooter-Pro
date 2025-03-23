@@ -75,8 +75,11 @@ public class SpecialProjectille : MonoBehaviour
         if (hasSpecialProjectile == true && gameObject != null)
         {
             Vector3 specialPos = transform.position;
-            Vector3.MoveTowards(target.transform.position, specialPos.normalized, 2);
-            return; 
+            if(target != null)
+            {
+                Vector3.MoveTowards(target.transform.position, specialPos.normalized, 2);
+            }
+            return;
         }
         if (transform.position.y > 5 || target == null)
         {

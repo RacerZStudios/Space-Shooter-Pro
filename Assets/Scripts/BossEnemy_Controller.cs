@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement; 
 using UnityEngine;
 
 public class BossEnemy_Controller : MonoBehaviour
@@ -65,7 +66,7 @@ public class BossEnemy_Controller : MonoBehaviour
             break;
         }
 
-        if (!isDestroyed)
+        if (!isDestroyed || achievementManager != null)
         {
             achievementManager = FindObjectOfType<Achievement_Manager>();
         }
@@ -98,10 +99,13 @@ public class BossEnemy_Controller : MonoBehaviour
             return;
         }
 
-        health = GetComponent<Boss_Health>(); 
         if(health == null)
         {
             Debug.Log("Boss Health is Null"); 
+        }
+        else
+        {
+            health = FindObjectOfType<Boss_Health>().GetComponent<Boss_Health>();
         }
     }
 
@@ -159,8 +163,10 @@ public class BossEnemy_Controller : MonoBehaviour
 
     IEnumerator PlayBossDeadAnim()
     {
+        yield return new WaitForSeconds(2); 
         anim.SetTrigger("OnBossDeath");
         yield return new WaitForSeconds(anim.speed);
+        StopCoroutine(PlayBossDeadAnim());
     }
 
     IEnumerator BossEnemyAnim()
@@ -212,6 +218,26 @@ public class BossEnemy_Controller : MonoBehaviour
                 GameObject enemyProj = Instantiate(bossProjectile, bProjSpawn.position, Quaternion.identity);
                 enemyProj.transform.parent = bProjSpawn.transform;
                 return;
+            }
+        }
+
+        if(this != null)
+        {
+            if(health)
+            {
+                health = FindObjectOfType<Boss_Health>();
+                achievementManager = FindObjectOfType<Achievement_Manager>();
+                if (health.currenthealth <= 0 && health != null)
+                {
+                    if(achievementManager != null)
+                    {
+                        achievementManager.bossDefeated = true;
+                        return; 
+                    }
+
+                    StartCoroutine(PlayBossDeadAnim()); // play boss dead anim
+                    SceneManager.LoadScene(2); // load win game scene 
+                }
             }
         }
     }

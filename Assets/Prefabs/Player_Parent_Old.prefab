@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 41800889982435576}
   - component: {fileID: 41800889982435556}
   - component: {fileID: 41800889982435557}
+  - component: {fileID: 2663216880290681976}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -99,16 +100,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  speedBoost: 2
   playerT: {fileID: 41800890003829921}
   projSpeed: 100
   fireTime: 0.5
   lives: 3
   spawnManager: {fileID: 0}
+  isTrippleShot: 1
+  isSpeedBoost: 0
+  isShield: 0
+  thrustSpeed: 5
+  isThruster: 0
+  isEMPProjectile: 0
+  isNegativeEffect: 0
+  isSpecialProjectile: 0
   playerProjectile: {fileID: 3110005347284216258, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
+  empProjectile: {fileID: 0}
   projT: {fileID: 41800890442644344}
   projOffset: {x: 0, y: 0.5, z: 0}
-  isTrippleShot: 1
+  uI_Manager: {fileID: 0}
   trippleShotObject: {fileID: 5886549814711065128, guid: 1548f4a1c9f43734397c769954c661f2, type: 3}
+  specialProjectile: {fileID: 0}
+  shieldVis: {fileID: 0}
+  engineFire: []
+  score: 0
+  enemy: 0
+  projSound: {fileID: 0}
+  gM: {fileID: 0}
+  shield_Manager: {fileID: 0}
+  isController: 0
+  thurstSliderActive: 0
+  waveSpawn: {fileID: 0}
 --- !u!61 &41800889982435556
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -156,6 +178,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &2663216880290681976
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41800889982435577}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88151e97b074d004ea6e55c188800620, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &41800890003829925
 GameObject:
   m_ObjectHideFlags: 0

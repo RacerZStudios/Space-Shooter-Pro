@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour
     /// each variable has a name 
     /// optional value assigned 
     /// </End_variables_summary>
- 
+
     // SerializeField data type, serialized the data so we can read it within the inspector
     // additionally SerializeField is handy for simplifying reference when having to use GetComponent 
+    [SerializeField]
+    private Animator anim; 
     [SerializeField] 
     public float speed = 3;
     [SerializeField]
@@ -95,6 +97,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        if(anim)
+        {
+            anim = FindObjectOfType<Animator>();
+        }
+
         score = 0;
         enemy = 0;
 
@@ -562,22 +569,27 @@ public class PlayerController : MonoBehaviour
             uI_Manager.UpdateLives(lives);
             lives--;
 
-            if(lives == 2)
+            if(lives >= 2)
             {
                 engineFire[0].gameObject.SetActive(true); 
             }
-            else if (lives == 1)
+            else if (lives >= 1)
             {
                 engineFire[1].gameObject.SetActive(true); 
             }
-        }
-
-        if(lives <= 0)
-        {
-            gM.isGameOver = true; 
-            spawnManager.PlayerDead();
-            Destroy(player); 
-            Destroy(gameObject); 
+            else if(lives < 1)
+            {
+                gM.isGameOver = true;
+                spawnManager.PlayerDead();
+                // player dead 
+                if (anim != null)
+                {
+                    anim.SetTrigger("PlayerDeath");
+                    uI_Manager.PlayerDestroyed(isPlayer: true);
+                    Destroy(player, 2);
+                    Destroy(gameObject, 2);
+                }
+            }
         }
     }
 

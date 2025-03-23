@@ -75,15 +75,19 @@ public class SpawnManager : MonoBehaviour
             uI_Manager = FindObjectOfType<UI_Manager>();
         }
 
-        if (player)
+        if (player == null)
         {
             playerController = FindObjectOfType<PlayerController>();
         }
 
         if (bC != null)
         {
-            bC = GameObject.Find("BossEnemy").GetComponent<BossEnemy_Controller>();
             return;
+        }
+        else
+        {
+            bC = GameObject.Find("BossEnemy").GetComponent<BossEnemy_Controller>();
+            bC = FindObjectOfType<BossEnemy_Controller>();
         }
 
         enemyCountDestroyed = 0;
@@ -161,12 +165,19 @@ public class SpawnManager : MonoBehaviour
             StartCoroutine(SpawnEnemy2());
             StartCoroutine(SpawnEnemy3());
         }
+        isNormalMode = false; 
     }
 
-    public void SpawnPowerUps()
+    public void SpawnPowerUps(bool spawnP)
     {
-        StartCoroutine(SpawnPowerUpRoutine());
-        StartCoroutine(SpawnHealth());
+        bool powerUp = false;
+        powerUp = spawnP;
+        if (spawnP.Equals(true))
+        {
+            powerUp = true;
+            StartCoroutine(SpawnPowerUpRoutine());
+            StartCoroutine(SpawnHealth());
+        }
     }
 
     public IEnumerator BossEnemy()
@@ -199,12 +210,12 @@ public class SpawnManager : MonoBehaviour
                     yield return null;
                 }
 
-                if (stopSpawn == false && this.gameObject != null)
+                if (stopSpawn == false || this.gameObject != null || bC.gameObject != null)
                 {
                     yield return new WaitForSeconds(3);
                     GameObject bossInstance = Instantiate(bossEnemy, bossSpawn.transform.position, Quaternion.identity);
                     bossInstance.transform.position = new Vector3(bossInstance.transform.position.x, bossSpawn.transform.position.y, bossInstance.transform.position.z);
-                    if (bossInstance.activeInHierarchy)
+                    if (bossInstance.activeInHierarchy && this != null)
                     {
                         this.enabled = false;
                     }

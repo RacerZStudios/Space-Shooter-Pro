@@ -72,7 +72,7 @@ public class Asteroid : MonoBehaviour
         {        
             if (waveSpawnObj.gameObject.activeInHierarchy)
             {
-                spawnManager.SpawnPowerUps();
+                spawnManager.SpawnPowerUps(true);
                 waveSpawn.StartCoroutine(waveSpawn.Wave1());
                 audioSource.Play();
                 anim.SetTrigger("OnAsteroidDestroy");

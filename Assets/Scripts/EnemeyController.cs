@@ -131,7 +131,7 @@ public class EnemeyController : MonoBehaviour
 
             if (playerController != null)
             {
-                playerController.GetComponent<PlayerController>().TakeDamage();
+                playerController.GetComponent<PlayerController>().TakeDamage(); // update lives count 
             }
         }
         

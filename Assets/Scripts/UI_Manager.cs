@@ -39,9 +39,12 @@ public class UI_Manager : MonoBehaviour
     PlayerController playerController;
     [SerializeField]
     private WaveSpawn waveSpawn;
+    [SerializeField]
+    bool playerDead = true;
 
     private void Start()
     {
+        playerDead = false;
         if (player)
         {
             playerController = FindObjectOfType<PlayerController>();
@@ -124,29 +127,26 @@ public class UI_Manager : MonoBehaviour
         // display image sprite 
         // give it a new one based on currentLives index
 
-        if (liveSprites.Length <= 0 && livesImage == null)
+        if (liveSprites.Length <= 0 && livesImage == null || player == null)
         {
             return;
         }
 
-        if(liveSprites.Length > 0 && livesImage != null)
+        if (liveSprites.Length != 0 && livesImage != null && player.activeInHierarchy)
         {
             livesImage.sprite = liveSprites[currentLives];
-            if(liveSprites.Length < 0)
+            if(liveSprites.Length < 1 && livesImage != null)
             {
                 player.GetComponent<BoxCollider2D>().enabled = false; 
             }
             return; 
         }
 
-        if(currentLives <= 1)
+        if(currentLives < 1 || playerController == null || !player.activeInHierarchy)
         {
-            GameOverText.gameObject.SetActive(true);
-            restartText.gameObject.SetActive(true);
             scoretext.text += finalScore; 
             gameManager.GameOver(); 
-            StartCoroutine(GameOverFlickerRoutine());
-            Destroy(livesImage); 
+            Destroy(livesImage);
         }
     }
 
@@ -159,9 +159,21 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    public void PlayerDestroyed(bool isPlayer)
+    {
+        if (isPlayer)
+        {
+            playerDead = true;
+            GameOverText.gameObject.SetActive(true);
+            restartText.gameObject.SetActive(true);
+            StartCoroutine(GameOverFlickerRoutine());
+            return; 
+        }
+    }
+
     IEnumerator GameOverFlickerRoutine()
     {
-        while(true)
+        while(playerDead == true)
         {
             GameOverText.text = "GAME OVER";
             yield return new WaitForSeconds(3);
