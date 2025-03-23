@@ -86,7 +86,7 @@ public class AgressiveEnemyController : MonoBehaviour
             if (sM != null)
             {
                 sM.enemyCountDestroyed += 1;
-                if (sM.enemyCountDestroyed >= 5)
+                if (sM.enemyCountDestroyed >= sM.enemiesDefeatedToBoss) // spawn boss  
                 {
                     StartCoroutine(sM.BossEnemy());
                 }

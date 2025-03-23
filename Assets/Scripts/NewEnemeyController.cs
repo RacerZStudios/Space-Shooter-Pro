@@ -52,13 +52,10 @@ public class NewEnemeyController : MonoBehaviour
             uiManager = FindObjectOfType<UI_Manager>().GetComponent<UI_Manager>();
         }
 
-        if (spawnManager != null)
+        if (spawnManager == null)
         {
+            spawnManager = FindObjectOfType<SpawnManager>();
             return;
-        }
-        else if (spawnManager == null)
-        {
-            spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         }
 
         if (playerController != null)
@@ -106,9 +103,8 @@ public class NewEnemeyController : MonoBehaviour
             if (sM != null)
             {
                 sM.enemyCountDestroyed += 1;
-                if (sM.enemyCountDestroyed >= sM.enemiesDefeatedToBoss)
+                if (sM.enemyCountDestroyed >= sM.enemiesDefeatedToBoss) // spawn boss 
                 {
-                    // assert destroyed enemies count here (test)
                     StartCoroutine(sM.BossEnemy());
                 }
             }

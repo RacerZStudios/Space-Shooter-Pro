@@ -171,7 +171,7 @@ public class WaveSpawn : MonoBehaviour
     public IEnumerator Wave1()
     {
         EnemyWave = 1;
-        InvokeRepeating("Wave1", 5, 1);
+        InvokeRepeating("Wave1", 5, 3);
         yield return new WaitForSeconds(6);
         enemy[0].transform.position = container.transform.position;
         Instantiate(enemy[0], container.transform.position, Quaternion.identity);
@@ -183,7 +183,7 @@ public class WaveSpawn : MonoBehaviour
     public IEnumerator Wave2()
     {
         EnemyWave = 2;
-        InvokeRepeating("Wave2", 10, 2);
+        InvokeRepeating("Wave2", 10, 4);
         yield return new WaitForSeconds(12);
         enemy[0].transform.position = enemyTwoContainer.transform.position;
         Instantiate(enemy[0], enemyTwoContainer.transform.position, Quaternion.identity);
@@ -196,7 +196,7 @@ public class WaveSpawn : MonoBehaviour
     public IEnumerator Wave3()
     {
         EnemyWave = 3;
-        InvokeRepeating("Wave3", 15, 3);
+        InvokeRepeating("Wave3", 15, 6);
         yield return new WaitForSeconds(24);
         enemy[0].transform.position = enemyThreeContainer.transform.position;
         Instantiate(enemy[1], enemyThreeContainer.transform.position, Quaternion.identity);

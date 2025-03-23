@@ -66,7 +66,7 @@ public class PlayerProjectile : MonoBehaviour
                 return; 
             }
         }
-        else if(collision.gameObject.CompareTag("Enemy"))
+        else if(collision.gameObject.CompareTag("Enemy") && isEnemyProjectile == false)
         {
             PlayerController player = collision.transform.GetComponent<PlayerController>();
             if (player != null)

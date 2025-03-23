@@ -432,31 +432,30 @@ public class PlayerController : MonoBehaviour
 
         // if player is greater than 0, y position = 0 
         // else if position on y is less than -3.0f, y position = -3.0f
-        if (playerT.position.y > 10)
+        if (playerT.position.y > 13)
         {
-            playerT.position = new Vector3(playerT.position.x, 0, 0); 
+            playerT.position = new Vector3(0,0, 0); 
         }
-        else if(playerT.position.y <= -3.0f)
+        else if(playerT.position.y <= -6.0f)
         {
-            playerT.position = new Vector3(playerT.position.x, -3.0f, 0);
+            playerT.position = new Vector3(0, 0, 0);
         }
 
         // if player on x > 10, x pos = -10 
         // else if player on x is < -10,  pos = 10 
-        if(playerT.position.x > 10)
+        if(playerT.position.x > 13)
         {
-            playerT.position = new Vector3(-10, playerT.position.y, 0); 
+            playerT.position = new Vector3(playerT.position.y, 0, 0); 
         }
-        else if(playerT.position.x < -10)
+        else if(playerT.position.x < -13)
         {
-            playerT.position = new Vector3(10, playerT.position.y, 0); 
+            playerT.position = new Vector3(playerT.position.y, 0, 0); 
         }
 
         // reset player root transform and position 
         Vector3 playerPos = new Vector3(playerT.transform.position.x, playerT.transform.position.y, 0);
         if(playerT.position.y < -3)
         {
-            Debug.Assert(true, playerT.position.y);
             playerT.position = new Vector3(playerPos.x, playerPos.y, 0);
             playerT.position = playerPos;
             playerT.GetChild(0).transform.position = playerPos;
@@ -514,7 +513,7 @@ public class PlayerController : MonoBehaviour
                 uI_Manager = null;
             }
 
-            if (horizontalInput < 1)
+            if (horizontalInput < 1.0f && horizontalInput < 0)
             {
                 playerT.Translate(Vector3.left * thrustSpeed * Time.deltaTime);
             }
@@ -621,7 +620,7 @@ public class PlayerController : MonoBehaviour
     public void SpeedBoostActive()
     {
         isSpeedBoost = true;
-        speed *= speedBoost * 2; 
+        speed *= speedBoost + 0.85f; 
         StartCoroutine(SpeedBoostPowerDown()); 
     }
 

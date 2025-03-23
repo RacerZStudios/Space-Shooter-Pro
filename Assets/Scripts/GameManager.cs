@@ -12,12 +12,20 @@ public class GameManager : MonoBehaviour
     private bool winGame;
     [SerializeField]
     private BossEnemy_Controller BossEnemy_Controller;
+    [SerializeField]
+    private SpawnManager spawnManager;
 
     private void Start()
     {
         if (BossEnemy_Controller != null)
         {
             BossEnemy_Controller = FindObjectOfType<BossEnemy_Controller>();
+        }
+
+        if(spawnManager != null)
+        {
+            spawnManager = FindObjectOfType<SpawnManager>();
+            spawnManager.stopSpawn = false;
         }
     }
 

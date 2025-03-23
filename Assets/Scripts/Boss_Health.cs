@@ -54,12 +54,10 @@ public class Boss_Health : MonoBehaviour
             if(currenthealth <= 1 && slider.value <= 0.1f)
             {
                 BossEnemy_Controller bossEnemy_Controller = FindObjectOfType<BossEnemy_Controller>().GetComponent<BossEnemy_Controller>();
-                if(bossEnemy_Controller != null)
+                if (bossEnemy_Controller != null)
                 {
                     bossEnemy_Controller.bossDefeated = true;
                 }
-
-                Destroy(gameObject, 2); 
             }
         }
     }

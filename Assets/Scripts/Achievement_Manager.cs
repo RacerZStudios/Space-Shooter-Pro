@@ -37,6 +37,11 @@ public class Achievement_Manager : BossEnemy_Controller
 
     private void Start()
     {
+        if(bossDefeated && bc.bossDefeated.Equals(true))
+        {
+            bc.bossDefeated = false; // boss defeated = false on start of game 
+        }
+
         if(bc == null)
         {
             bc = null;
@@ -80,11 +85,10 @@ public class Achievement_Manager : BossEnemy_Controller
                     }
                 }
             }
-            else if (bossDefeated == true)
+            else if(isBossDefeated == true)
             {
-                Debug.Assert(false);
-                Debug.Log("Deplete Ammo and Thrust Bar to Zero to Restart");
-                Debug.Log("Press Select to Continue");
+                bc.bossDefeated = false;
+                isBossDefeated= false;
             }
             break;
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -33,7 +34,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject bossSpawn;
     [SerializeField]
-    private bool stopSpawn;
+    public bool stopSpawn;
     [SerializeField]
     private bool bossDefeated;
     [SerializeField]
@@ -51,10 +52,24 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject playerParent;
     [SerializeField]
-    private bool isNormalMode = false; 
+    private bool isNormalMode = false;
+
+    private static SpawnManager s_SpawnManager;
+
+    private void Awake()
+    {
+        stopSpawn = false;
+    }
 
     private void Start()
-    {        
+    {    
+        if(s_SpawnManager == null)
+        {
+            s_SpawnManager = FindObjectOfType<SpawnManager>();
+            s_SpawnManager = this; 
+            return; 
+        }
+
         if (uI_Manager == null)
         {
             uI_Manager = FindObjectOfType<UI_Manager>();
@@ -156,12 +171,16 @@ public class SpawnManager : MonoBehaviour
 
     public IEnumerator BossEnemy()
     {
-        while (maxTime >= 0.130f || maxTime <= 0.131f)
+        if(gameObject != null || gameObject.activeInHierarchy == true)
         {
-            StartCoroutine(WaitTime());
-            break;
+            while (maxTime >= 0.130f || maxTime <= 0.131f)
+            {
+                StartCoroutine(WaitTime());
+                break;
+            }
+            yield return null; 
         }
-
+      
         yield return new WaitForSeconds(2);
         // yield return new WaitForSeconds(40); waits for 40 sec // spawns after 40 sec 
         if (bC != null)
@@ -169,23 +188,32 @@ public class SpawnManager : MonoBehaviour
             bC = GameObject.Find("BossEnemy").GetComponent<BossEnemy_Controller>();
         }
 
-        while (player != null)
+        if(this != null)
         {
-            stopSpawn = false;
-            if(this != null)
+            while (player != null && gameObject != null)
             {
-                StartCoroutine(SpawnPowerUpRoutine());
-            }
+                stopSpawn = false;
+                if (this != null && gameObject.activeInHierarchy == true)
+                {
+                    StartCoroutine(SpawnPowerUpRoutine());
+                    yield return null;
+                }
 
-            if(stopSpawn == false)
-            {
-                yield return new WaitForSeconds(3); 
-                GameObject bossInstance = Instantiate(bossEnemy, bossSpawn.transform.position, Quaternion.identity);
-                bossInstance.transform.position = new Vector3(bossInstance.transform.position.x, bossSpawn.transform.position.y, bossInstance.transform.position.z);
-                yield return new WaitForSeconds(0.5f); // wait to spawn boss 
-                Destroy(this);
-            }        
-            break; 
+                if (stopSpawn == false && this.gameObject != null)
+                {
+                    yield return new WaitForSeconds(3);
+                    GameObject bossInstance = Instantiate(bossEnemy, bossSpawn.transform.position, Quaternion.identity);
+                    bossInstance.transform.position = new Vector3(bossInstance.transform.position.x, bossSpawn.transform.position.y, bossInstance.transform.position.z);
+                    if (bossInstance.activeInHierarchy)
+                    {
+                        this.enabled = false;
+                    }
+                    Destroy(this);
+                    yield return new WaitForSeconds(0.5f); // wait to spawn boss 
+                }
+                yield break;
+            }
+            yield return null; 
         }
     }
 
@@ -221,6 +249,10 @@ public class SpawnManager : MonoBehaviour
         {
             stopSpawn = true;
         }
+        else
+        {
+            stopSpawn = false; 
+        }
 
         if (enemy == null || enemeyController == null)
         {
@@ -244,12 +276,13 @@ public class SpawnManager : MonoBehaviour
     {
         maxTime += Time.deltaTime;
         yield return new WaitForSeconds(2); 
-        while (enemyCountDestroyed >= 30) // spawn boss routine 
+        while (enemyCountDestroyed >= enemiesDefeatedToBoss) // spawn boss routine 
         {
             yield return new WaitForSeconds(2);
             StartCoroutine(BossEnemy());
             if(bossSpawn == true)
             {
+                StopCoroutine(BossEnemy()); 
                 if(player != null)
                 {
                     if(playerController)

@@ -40,10 +40,25 @@ public class BossEnemy_Controller : MonoBehaviour
         {
             Destroy(bc.gameObject);
         }
+
+        for (int i = 0; i < 0; i++)
+        {
+            if (i == 0)
+            {
+                bc = this;
+            }
+            else if (i > 0)
+            {
+                Destroy(bc.gameObject);
+            }
+        }
     }
 
     private void Start()
     {
+        isDestroyed = false;
+        bossDefeated = false;
+
         while (this != null)
         {
             StartCoroutine(BossEnemyAnim());
@@ -95,6 +110,7 @@ public class BossEnemy_Controller : MonoBehaviour
         if (collision.gameObject.tag == "PlayerProjectile")
         {
             isDestroyed = true;
+            // hit detected 
             if (isDestroyed == true && bc.health.currenthealth < 10|| playerController != null)
             {
                 int score = 100;
@@ -105,6 +121,11 @@ public class BossEnemy_Controller : MonoBehaviour
                     uiM.UpdateScore(score);
                     return; 
                 }
+            }
+            else if (health.currenthealth <= 0)
+            {
+                health.currenthealth = 0;
+                bossDefeated = true;
             }
 
             if (playerController != null)
@@ -156,6 +177,7 @@ public class BossEnemy_Controller : MonoBehaviour
                 {
                     achievement_Manager.isBossEnemy = true;
                 }
+                yield return null; 
             }
             if (isBossEnemy == true && anim != null)
             {
@@ -165,10 +187,12 @@ public class BossEnemy_Controller : MonoBehaviour
                 {
                     rB.AddForce(Vector3.down * moveSpeed * Time.deltaTime);
                 }
+                yield return null; 
             }
 
             if(bossDefeated == true)
             {
+                print(bossDefeated); 
                 StartCoroutine(PlayBossDeadAnim());
                 achievementManager.isBossEnemy = true;
                 yield return null; 
@@ -183,11 +207,11 @@ public class BossEnemy_Controller : MonoBehaviour
         {
             fireRate = Random.Range(3, 6);
             canFire = Time.time * fireRate;
-            if(this != null)
+            if (this != null)
             {
                 GameObject enemyProj = Instantiate(bossProjectile, bProjSpawn.position, Quaternion.identity);
                 enemyProj.transform.parent = bProjSpawn.transform;
-                return; 
+                return;
             }
         }
     }

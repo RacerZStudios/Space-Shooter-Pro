@@ -48,7 +48,7 @@ public class EnemeyController : MonoBehaviour
 
         if(spawnManager == null)
         {
-            spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+            spawnManager = FindObjectOfType<SpawnManager>();
             return; 
         }
         else if(spawnManager != null)
@@ -98,23 +98,26 @@ public class EnemeyController : MonoBehaviour
                 }
             }
             StartCoroutine(PlayEnemyDeadAnim());
-            SpawnManager sM = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-            if(sM != null)
+            if (spawnManager)
             {
-                sM.enemyCountDestroyed += 1; 
-                if(sM.enemyCountDestroyed > 20)
+                if (spawnManager != null)
                 {
-                    StartCoroutine(sM.BossEnemy());
+                    spawnManager.enemyCountDestroyed += 1;
+                    if (spawnManager.enemyCountDestroyed >= spawnManager.enemiesDefeatedToBoss) // spawn boss  
+                    {
+                        StartCoroutine(spawnManager.BossEnemy());
+                    }
+                    return;
                 }
             }
             else if (playerController != null)
             {
                 playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
-                return; 
+                return;
             }
-            else if(playerController == null && isDestroyed)
+            else if (playerController == null && isDestroyed)
             {
-                Destroy(gameObject, 2.0f); 
+                Destroy(gameObject, 2.0f);
             }
         }
 

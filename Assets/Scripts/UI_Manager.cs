@@ -24,7 +24,8 @@ public class UI_Manager : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private Text ammoCount;
-    private int maxAmmo; 
+    [SerializeField]
+    private int maxAmmo = 15; 
     private int finalScore;
     [SerializeField]
     public TMP_Text enemyText;
@@ -135,9 +136,10 @@ public class UI_Manager : MonoBehaviour
             {
                 player.GetComponent<BoxCollider2D>().enabled = false; 
             }
+            return; 
         }
 
-        if(currentLives <= 0 || currentLives <= 1)
+        if(currentLives <= 1)
         {
             GameOverText.gameObject.SetActive(true);
             restartText.gameObject.SetActive(true);
