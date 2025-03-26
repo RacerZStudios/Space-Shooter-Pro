@@ -36,6 +36,13 @@ public class Asteroid : MonoBehaviour
         audioSource.clip = audioClip; 
     }
 
+    public void DestroyAsteroid()
+    {
+        audioSource.Play();
+        anim.SetTrigger("OnAsteroidDestroy");
+        Destroy(gameObject, 2.0f);
+    }
+
     private void Update()
     {
         transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);

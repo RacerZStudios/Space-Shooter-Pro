@@ -893,6 +893,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f654c8c4d030d4aa11ee61e4becb0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &483228942 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8773739377930771590, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+  m_PrefabInstance: {fileID: 8773739377464893844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &483228943 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8773739377930771611, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
@@ -1585,6 +1590,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1677954814}
         m_TargetAssemblyTypeName: SpawnManager, Assembly-CSharp
         m_MethodName: StartSpawning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1971934192}
+        m_TargetAssemblyTypeName: Asteroid, Assembly-CSharp
+        m_MethodName: DestroyAsteroid
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3107,6 +3124,17 @@ Transform:
   m_Father: {fileID: 1677954815}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1971934192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2891633614788313716, guid: 4dafdd33b992af24aaf8656ef3e4eb6e, type: 3}
+  m_PrefabInstance: {fileID: 1911048639}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23b38b081bd8674d9c789a8fe95363c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1984305484
 GameObject:
   m_ObjectHideFlags: 0
@@ -3499,6 +3527,46 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8773739377930771590, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: Pan2D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773739377930771590, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: m_Pitch
+      value: 1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773739377930771590, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: Priority
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773739377930771590, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: m_Volume
+      value: 0.549
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773739377930771590, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ee343246919d2b4bba63ae629e95494, type: 3}
+    - target: {fileID: 8773739377930771590, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: DopplerLevel
+      value: 2.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773739377930771590, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773739377930771590, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 0.39444444
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773739377930771590, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773739377930771590, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0.748
+      objectReference: {fileID: 0}
     - target: {fileID: 8773739377930771608, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -3527,6 +3595,10 @@ PrefabInstance:
       propertyPath: uI_Manager
       value: 
       objectReference: {fileID: 954152448}
+    - target: {fileID: 8773739377930771609, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 483228942}
     - target: {fileID: 8773739377930771609, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
       propertyPath: thrustForce
       value: 100

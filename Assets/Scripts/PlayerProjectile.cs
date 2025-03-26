@@ -56,17 +56,7 @@ public class PlayerProjectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player" && isEnemyProjectile == true)
-        {
-            PlayerController player = collision.transform.GetComponent<PlayerController>(); 
-
-            if(player != null)
-            {
-                player.SendMessage("TakeDamage");
-                return; 
-            }
-        }
-        else if(collision.gameObject.CompareTag("Enemy") && isEnemyProjectile == false)
+        if(collision.gameObject.CompareTag("Enemy") && isEnemyProjectile == false)
         {
             PlayerController player = collision.transform.GetComponent<PlayerController>();
             if (player != null)
@@ -76,9 +66,13 @@ public class PlayerProjectile : MonoBehaviour
                 return; 
             }
         }
-        else if(collision.gameObject.CompareTag("InitObj"))
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Player") && isEnemyProjectile == true)
         {
-           // Destroy(collision.gameObject, 2); 
+            other.SendMessage("TakeDamage"); 
         }
     }
 }

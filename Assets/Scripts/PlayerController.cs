@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private AudioClip projSound;
+    [SerializeField]
     private AudioSource audioSource;
     private GameObject player;
     [SerializeField]
@@ -673,6 +674,8 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
+        audioSource.Play();
+
         if(isShield.Equals(true))
         {
             isShield = false;
