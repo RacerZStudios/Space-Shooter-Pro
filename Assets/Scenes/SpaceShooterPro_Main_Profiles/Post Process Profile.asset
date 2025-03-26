@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 22.87
+    value: 22.17
   threshold:
     overrideState: 1
     value: 0.88
@@ -27,16 +27,16 @@ MonoBehaviour:
     value: 1
   clamp:
     overrideState: 1
-    value: 65466.75
+    value: 65284.2
   diffusion:
     overrideState: 1
-    value: 7.26
+    value: 9.02
   anamorphicRatio:
     overrideState: 1
     value: -1
   color:
     overrideState: 1
-    value: {r: 0, g: 0.9560251, b: 1, a: 1}
+    value: {r: 0, g: 0.990566, b: 0.964419, a: 1}
   fastMode:
     overrideState: 1
     value: 1
@@ -100,52 +100,52 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: -29
+    value: 0
   tint:
     overrideState: 1
-    value: -18
+    value: 55
   colorFilter:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     overrideState: 1
-    value: 0
+    value: 14
   saturation:
     overrideState: 1
-    value: 0
+    value: 41
   brightness:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 4
   postExposure:
     overrideState: 1
     value: 0
   contrast:
     overrideState: 1
-    value: 0
+    value: 25
   mixerRedOutRedIn:
-    overrideState: 1
-    value: 100
+    overrideState: 0
+    value: 27
   mixerRedOutGreenIn:
-    overrideState: 1
-    value: 0
+    overrideState: 0
+    value: -67
   mixerRedOutBlueIn:
-    overrideState: 1
+    overrideState: 0
     value: 0
   mixerGreenOutRedIn:
     overrideState: 0
     value: 0
   mixerGreenOutGreenIn:
     overrideState: 0
-    value: 100
+    value: 59
   mixerGreenOutBlueIn:
     overrideState: 0
     value: 0
   mixerBlueOutRedIn:
     overrideState: 0
-    value: 0
+    value: -106
   mixerBlueOutGreenIn:
     overrideState: 0
-    value: 0
+    value: 16
   mixerBlueOutBlueIn:
     overrideState: 0
     value: 100
@@ -1395,10 +1395,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2.99
+    value: 1.02
   color:
     overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
+    value: {r: 0, g: 0.5754717, b: 0.547024, a: 1}
   ambientOnly:
     overrideState: 0
     value: 1
@@ -1413,7 +1413,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 1
+    value: 3.03
   directLightingStrength:
     overrideState: 0
     value: 0

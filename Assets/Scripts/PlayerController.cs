@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float thrustSpeed = 5;
     [SerializeField]
+    private float thrustForce = 50; 
+    [SerializeField]
     private bool isThruster;
     [SerializeField]
     private bool isEMPProjectile;
@@ -99,7 +101,7 @@ public class PlayerController : MonoBehaviour
     {
         if(anim)
         {
-            anim = FindObjectOfType<Animator>();
+            anim = GetComponent<Animator>();
         }
 
         score = 0;
@@ -427,6 +429,8 @@ public class PlayerController : MonoBehaviour
             {
                 ThrustActive();
             }
+
+            HandleThrusterMovement();
         }
 
         if(uI_Manager != null)
@@ -492,6 +496,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+       // ThrusterRigidbody(); 
+    }
+
     public void ResetPlayerPos()
     {
         // reset player position with Key bind 
@@ -503,14 +512,121 @@ public class PlayerController : MonoBehaviour
                 return;
             }
         }
+        else
+        {
+            if(playerT.position.y < 0)
+            {
+                gameObject.transform.position = new Vector3(0, 0, 0);
+            }
+        }
     }
 
-    public void ThrustActive()
+    private void HandleThrusterMovement()
     {
-        // Thrust Speed Feature 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isThruster = true;
+            // ThrusterTransform();
+            // ThrusterTranslate();
+        }
+    }
+
+    private void ThrusterRigidbody() 
+    {
+        // Rigidbody method with velocity | FixedUpdate
+
+        // if the W key and isThruster boolean is true, apply rigidbody force in the up direction
+        if (Input.GetKey(KeyCode.W) && isThruster.Equals(true))
+        {
+            Vector3 moveUp = transform.up;
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            rigidbody.AddForce(moveUp * thrustSpeed * thrustForce * Time.deltaTime, ForceMode2D.Force);
+            Debug.Log(isThruster.ToString() + moveUp);
+        }
+
+        // if the D key and isThruster boolean is true, apply rigidbody force in the right direction
+        if (Input.GetKey(KeyCode.D) && isThruster.Equals(true))
+        {
+            Vector3 moveRight = transform.right;
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            rigidbody.AddForce(moveRight * thrustSpeed * thrustForce * Time.deltaTime, ForceMode2D.Force);
+            Debug.Log(isThruster.ToString() + moveRight);
+        }
+
+        // if the S key and isThruster boolean is true, apply rigidbody force in the down direction
+        // we inverse the transform.up axis from + to - for down position
+        if (Input.GetKey(KeyCode.S) && isThruster.Equals(true))
+        {
+            Vector3 moveDown = -transform.up;
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            rigidbody.AddForce(moveDown * thrustSpeed * thrustForce * Time.deltaTime, ForceMode2D.Force);
+            Debug.Log(isThruster.ToString() + moveDown);
+        }
+
+        // if the A key and isThruster boolean is true, apply rigidbody force in the left direction
+        // we inverse the transform.right axis from + to - for left position
+        if (Input.GetKey(KeyCode.A) && isThruster.Equals(true))
+        {
+            Vector3 moveLeft = -transform.right;
+            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+            rigidbody.AddForce(moveLeft * thrustSpeed * thrustForce * Time.deltaTime, ForceMode2D.Force);
+            Debug.Log(isThruster.ToString() + moveLeft);
+        }
+    }
+
+    private void ThrusterTransform()
+    {
+        if (Input.GetKey(KeyCode.W) && isThruster.Equals(true))
+        {
+            // transform method up direction 
+            transform.position += Vector3.up * thrustSpeed * Time.deltaTime;
+            Debug.Log(Vector3.up);
+        }
+        if (Input.GetKey(KeyCode.D) && isThruster.Equals(true))
+        {
+            // transform method right direction 
+            transform.position += Vector3.right * thrustSpeed * Time.deltaTime;
+            Debug.Log(Vector3.right);
+        }
+        if (Input.GetKey(KeyCode.S) && isThruster.Equals(true))
+        {
+            // transform method down direction
+            transform.position += Vector3.down * thrustSpeed * Time.deltaTime;
+            Debug.Log(Vector3.down);
+        }
+        if (Input.GetKey(KeyCode.A) && isThruster.Equals(true))
+        {
+            // transform method left firection 
+            transform.position += Vector3.left * thrustSpeed * Time.deltaTime;
+            Debug.Log(Vector3.left);
+        }
+    }
+
+    private void ThrusterTranslate()
+    {
+        if (Input.GetKey(KeyCode.W) && isThruster.Equals(true))
+        {
+            transform.Translate(Vector3.up * thrustSpeed * Time.deltaTime); 
+        }
+        if (Input.GetKey(KeyCode.D) && isThruster.Equals(true))
+        {
+            transform.Translate(Vector3.right * thrustSpeed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.S) && isThruster.Equals(true))
+        {
+            transform.Translate(Vector3.down * thrustSpeed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.A) && isThruster.Equals(true))
+        {
+            transform.Translate(Vector3.left * thrustSpeed * Time.deltaTime);
+        }
+    }
+
+    public void ThrustActive() // Thrust for Player movement stat 
+    {
         if (Input.GetKey(KeyCode.LeftShift) && uI_Manager.thurstSlider.value > -0.1f || isController == true)
         {
-            if(uI_Manager)
+            if (uI_Manager)
             {
                 uI_Manager.StartThrust();
             }
@@ -539,7 +655,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerT.Translate(Vector3.down * thrustSpeed * Time.deltaTime);
             }
-            return; 
+            return;
         }
     }
 
@@ -568,7 +684,7 @@ public class PlayerController : MonoBehaviour
         {
             uI_Manager.UpdateLives(lives);
             lives--;
-
+            print(lives); 
             if(lives >= 2)
             {
                 engineFire[0].gameObject.SetActive(true); 
@@ -577,17 +693,25 @@ public class PlayerController : MonoBehaviour
             {
                 engineFire[1].gameObject.SetActive(true); 
             }
-            else if(lives < 1)
+
+            if(lives < 1)
             {
+                lives = 0; 
+                print(lives);
                 gM.isGameOver = true;
+                print(gM.isGameOver);
                 spawnManager.PlayerDead();
                 // player dead 
-                if (anim != null)
+                if (anim)
                 {
                     anim.SetTrigger("PlayerDeath");
                     uI_Manager.PlayerDestroyed(isPlayer: true);
                     Destroy(player, 2);
                     Destroy(gameObject, 2);
+                }
+                else
+                {
+                    anim = null;
                 }
             }
         }

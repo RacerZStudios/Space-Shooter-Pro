@@ -126,27 +126,24 @@ public class UI_Manager : MonoBehaviour
     {
         // display image sprite 
         // give it a new one based on currentLives index
-
-        if (liveSprites.Length <= 0 && livesImage == null || player == null)
+        if(currentLives > 0)
         {
-            return;
-        }
-
-        if (liveSprites.Length != 0 && livesImage != null && player.activeInHierarchy)
-        {
-            livesImage.sprite = liveSprites[currentLives];
-            if(liveSprites.Length < 1 && livesImage != null)
+            currentLives--;
+            liveSprites.Length.CompareTo(currentLives);
+            if (liveSprites.Length > 1 && livesImage != null && player.activeInHierarchy)
             {
-                player.GetComponent<BoxCollider2D>().enabled = false; 
+                livesImage.sprite = liveSprites[currentLives];
+                if (liveSprites.Length < 1 && livesImage != null)
+                {
+                    player.GetComponent<BoxCollider2D>().enabled = false;
+                }
             }
-            return; 
-        }
-
-        if(currentLives < 1 || playerController == null || !player.activeInHierarchy)
-        {
-            scoretext.text += finalScore; 
-            gameManager.GameOver(); 
-            Destroy(livesImage);
+            if (currentLives < 1)
+            {
+                scoretext.text += finalScore;
+                gameManager.GameOver();
+                Destroy(livesImage);
+            }
         }
     }
 
@@ -173,7 +170,7 @@ public class UI_Manager : MonoBehaviour
 
     IEnumerator GameOverFlickerRoutine()
     {
-        while(playerDead == true)
+        while(playerDead == true || gameManager.isGameOver == true)
         {
             GameOverText.text = "GAME OVER";
             yield return new WaitForSeconds(3);
