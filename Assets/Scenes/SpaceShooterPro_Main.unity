@@ -3511,6 +3511,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8773739377693896640, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: m_TagString
+      value: Thruster
+      objectReference: {fileID: 0}
     - target: {fileID: 8773739377930771588, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
       propertyPath: m_Mass
       value: 0.8
@@ -3591,6 +3595,10 @@ PrefabInstance:
       propertyPath: waveSpawn
       value: 
       objectReference: {fileID: 977080989}
+    - target: {fileID: 8773739377930771609, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
+      propertyPath: thrustAnim
+      value: 
+      objectReference: {fileID: 655663089}
     - target: {fileID: 8773739377930771609, guid: 05f4d1728b25e694e804cef416f06211, type: 3}
       propertyPath: uI_Manager
       value: 

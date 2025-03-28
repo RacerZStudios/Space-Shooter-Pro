@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &8151994244046050238
+--- !u!114 &2241748476016031139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,7 +46,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1762894778041217434
+--- !u!114 &1082934706427560187
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,6 +67,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3314715034870681593}
     m_Modifications:
+    - target: {fileID: 3042606272617711214, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.095
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042606272617711214, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3110005347284216258, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
       propertyPath: m_Name
       value: EnemyProjectile_Right
@@ -159,6 +167,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3314715034870681593}
     m_Modifications:
+    - target: {fileID: 3042606272617711214, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042606272617711214, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3110005347284216258, guid: 23688518fcdd1ac40a2da0ff2b541846, type: 3}
       propertyPath: m_Name
       value: EnemyProjectile_Left

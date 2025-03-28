@@ -15,6 +15,7 @@ TagManager:
   - PlayerLazer
   - Barrier
   - InitObj
+  - Thruster
   layers:
   - Default
   - TransparentFX

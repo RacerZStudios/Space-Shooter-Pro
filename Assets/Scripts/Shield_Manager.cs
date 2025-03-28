@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Shield_Manager : MonoBehaviour
 {
-    public int shieldLife; 
+    public int shieldLife;
+    private int shieldActive; 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy" && gameObject.activeInHierarchy)

@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
     // SerializeField data type, serialized the data so we can read it within the inspector
     // additionally SerializeField is handy for simplifying reference when having to use GetComponent 
     [SerializeField]
-    private Animator anim; 
+    private Animator anim;
+    [SerializeField]
+    private Animator thrustAnim; 
     [SerializeField] 
     public float speed = 3;
     [SerializeField]
@@ -98,13 +100,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private WaveSpawn waveSpawn;
 
-    private void Start()
+    void Awake()
     {
-        if(anim)
+        if (anim.name == "PlayerController")
         {
-            anim = GetComponent<Animator>();
+            anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         }
 
+        if (thrustAnim.name == "Thruster")
+        {
+            thrustAnim = GameObject.FindGameObjectWithTag("Thruster").GetComponentInChildren<Animator>();
+        }
+    }
+
+    private void Start()
+    {
         score = 0;
         enemy = 0;
 
@@ -630,6 +640,8 @@ public class PlayerController : MonoBehaviour
             if (uI_Manager)
             {
                 uI_Manager.StartThrust();
+                thrustAnim.Play("Thrust"); // Thrust animation visuals 
+                thrustAnim.SetBool("Thrusting", true);
             }
             else
             {
@@ -658,13 +670,20 @@ public class PlayerController : MonoBehaviour
             }
             return;
         }
+        else if (Input.GetKeyUp(KeyCode.LeftShift) && uI_Manager.thurstSlider.value > -0.1f || isController == true)
+        {
+            thrustAnim.SetBool("Thrusting", false); // deactivate Thurst animation visual when not thrusting 
+            thrustAnim.Play("Idle");
+        }
     }
 
     public void RegenThrustActive()
     {
         if (uI_Manager.thurstSlider.value <= 0.1f && uI_Manager != null)
         {
-            uI_Manager.StartCoroutine(uI_Manager.RegenThrust());
+            uI_Manager.StartCoroutine(uI_Manager.RegenThrust()); 
+            thrustAnim.SetBool("Thrusting", false);
+            thrustAnim.Play("Idle");
         }
         else if (uI_Manager == null)
         {
@@ -678,16 +697,20 @@ public class PlayerController : MonoBehaviour
 
         if(isShield.Equals(true))
         {
-            isShield = false;
-            shieldVis.SetActive(false); 
-            return; 
+           // if shield is active take shield damage by 1 per shield life available (3). 
+            shield_Manager.shieldLife -= 1; 
+            if (shield_Manager.shieldLife <= 0)
+            {
+                isShield = false;
+                shieldVis.SetActive(false);
+            }
         }
 
-        if(gameObject != null && uI_Manager != null)
+        if(gameObject != null && uI_Manager != null && shield_Manager.shieldLife < 1)
         {
             uI_Manager.UpdateLives(lives);
             lives--;
-            print(lives); 
+           // print(lives); 
             if(lives >= 2)
             {
                 engineFire[0].gameObject.SetActive(true); 
@@ -709,6 +732,8 @@ public class PlayerController : MonoBehaviour
                 {
                     anim.SetTrigger("PlayerDeath");
                     uI_Manager.PlayerDestroyed(isPlayer: true);
+                    engineFire[0].gameObject.SetActive(false);
+                    engineFire[1].gameObject.SetActive(false); 
                     Destroy(player, 2);
                     Destroy(gameObject, 2);
                 }
@@ -756,14 +781,17 @@ public class PlayerController : MonoBehaviour
         isEMPProjectile = false;
     }
 
-    public void SpeedBoostActive()
+    public void SpeedBoostActive() // Increase player speed when speed boost picked up 
     {
-        isSpeedBoost = true;
-        speed *= speedBoost + 0.85f; 
-        StartCoroutine(SpeedBoostPowerDown()); 
+        if (uI_Manager.thurstSlider.value > 0)
+        {
+            isSpeedBoost = true;
+            speed *= speedBoost + 0.85f;
+            StartCoroutine(SpeedBoostPowerDown());
+        }
     }
 
-    public IEnumerator SpeedBoostPowerDown()
+    public IEnumerator SpeedBoostPowerDown() // decrease player speed after 5 seconds // To Do: Add visual feedback 
     {
         yield return new WaitForSeconds(5);
         isSpeedBoost = false;
@@ -774,12 +802,26 @@ public class PlayerController : MonoBehaviour
     {
         if(shield_Manager != null || shieldVis != null)
         {
+            shield_Manager.shieldLife = 3; 
             isShield = true;
             shieldVis.SetActive(true);
-            if (shieldVis.activeInHierarchy)
+            print(shield_Manager.shieldLife);
+            switch (shield_Manager.shieldLife)
             {
-                ShieldPowerDown();
+                case 0:
+                    shield_Manager.shieldLife = 3;
+                    break;
+                case 1:
+                    shield_Manager.shieldLife = 2;
+                    break;
+                case 2:
+                    shield_Manager.shieldLife = 1;
+                    break;
+                default:
+                    break;
             }
+
+            ShieldPowerDown();
         }
         else
         {
@@ -791,9 +833,21 @@ public class PlayerController : MonoBehaviour
     {
         if(shield_Manager != null || shieldVis != null)
         {
-            shield_Manager.shieldLife = 1;
+            if(shield_Manager.shieldLife > 0)
+            {
+                shield_Manager.shieldLife--;
 
-            if (shield_Manager.shieldLife < 0)
+                if (shield_Manager.shieldLife < 1)
+                {
+                    shield_Manager.shieldLife = 0;
+                    if(shield_Manager.shieldLife <= 0)
+                    {
+                        isShield = false;
+                        shieldVis.SetActive(false);
+                    }
+                }
+            }
+            else if (shield_Manager.shieldLife <= 0)
             {
                 isShield = false;
                 shieldVis.SetActive(false);
