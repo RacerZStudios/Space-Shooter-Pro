@@ -102,14 +102,16 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        if (anim.name == "PlayerController")
+        if (anim.name == "PlayerController" && anim != null)
         {
             anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+            return; 
         }
 
-        if (thrustAnim.name == "Thruster")
+        if (thrustAnim.name == "Thruster" && thrustAnim != null)
         {
             thrustAnim = GameObject.FindGameObjectWithTag("Thruster").GetComponentInChildren<Animator>();
+            return; 
         }
     }
 
@@ -693,7 +695,11 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        audioSource.Play();
+        if(audioSource)
+        {
+            audioSource.Play();
+            return; 
+        }
 
         if(isShield.Equals(true))
         {

@@ -226,7 +226,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &253044487
 PrefabInstance:
@@ -305,6 +305,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac8b8b29e9675a949961ded6c5645abc, type: 3}
+--- !u!114 &377109011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 41800889982435576, guid: 26bd604481984be449959529e906619c, type: 3}
+  m_PrefabInstance: {fileID: 1514349710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f654c8c4d030d4aa11ee61e4becb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &487982165
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +434,7 @@ MonoBehaviour:
   isGameOver: 0
   winGame: 0
   BossEnemy_Controller: {fileID: 0}
+  spawnManager: {fileID: 0}
 --- !u!1001 &547218437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -434,10 +446,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -9042857171449053338, guid: 7d5ab813ffb4c6347b44ac3a1fb0703f, type: 3}
+      propertyPath: bossController
+      value: 
+      objectReference: {fileID: 1454706747}
     - target: {fileID: 511868659, guid: 7d5ab813ffb4c6347b44ac3a1fb0703f, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 511868659, guid: 7d5ab813ffb4c6347b44ac3a1fb0703f, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 377109011}
     - target: {fileID: 1311916189, guid: 7d5ab813ffb4c6347b44ac3a1fb0703f, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -894,6 +914,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914978409}
   m_CullTransparentMesh: 1
+--- !u!95 &942078493 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2663216880290681976, guid: 26bd604481984be449959529e906619c, type: 3}
+  m_PrefabInstance: {fileID: 1514349710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1121805962
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,8 +985,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294957568
-  m_fontColor: {r: 0, g: 0.854902, b: 1, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5832,6 +5857,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1454706747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 511868659, guid: 7d5ab813ffb4c6347b44ac3a1fb0703f, type: 3}
+  m_PrefabInstance: {fileID: 547218437}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8bccf163d8f3541abbdfaa64f90c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1514349710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5839,9 +5875,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 41800889982435576, guid: 26bd604481984be449959529e906619c, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 942078493}
     - target: {fileID: 41800890003829921, guid: 26bd604481984be449959529e906619c, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 41800890003829921, guid: 26bd604481984be449959529e906619c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5955,8 +5995,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294957568
-  m_fontColor: {r: 0, g: 0.854902, b: 1, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
