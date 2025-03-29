@@ -723,9 +723,9 @@ public class PlayerController : MonoBehaviour
             if(lives < 1)
             {
                 lives = 0; 
-                print(lives);
+               // print(lives);
                 gM.isGameOver = true;
-                print(gM.isGameOver);
+               // print(gM.isGameOver);
                 spawnManager.PlayerDead();
                 // player dead 
                 if (anim)
@@ -805,7 +805,7 @@ public class PlayerController : MonoBehaviour
             shield_Manager.shieldLife = 3; 
             isShield = true;
             shieldVis.SetActive(true);
-            print(shield_Manager.shieldLife);
+           // print(shield_Manager.shieldLife);
             switch (shield_Manager.shieldLife)
             {
                 case 0:
